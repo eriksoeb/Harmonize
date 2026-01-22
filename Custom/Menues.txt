@@ -1,0 +1,44 @@
+HarmonizedTimeSeries;KohaEUnifikuar;MudaUlioratibiwa;Harmonisert: Flaggskip;гармонізувати;تنسجم;Hindi
+&Chart;&Grafikë;&Mchoro;&Graf;Діаграма;لتشييد;चार्ट
+&MultiChart;&ShumëGrafikë;&MchoroNyingi;&MangeGraf;Діаграма;لتشييد;मल्टीचार्ट
+&Report;&Raport;&Ripoti;&Rapport;звіт;تقرير;प्रतिवेदन
+&Clear Selected;&PastroZgjedhur;&FutaZilizochaguliwa;Fjern Valgte;видалити вибране;احذف المختار;स्पष्ट
+Clear &All;Pastro &Gjitha;Futa &Zote;Fjern &Alle;видалити все;حذف الكل;मिटाना
+Name;Joker;&KadiYaPori;Navn;символ;حرف البدل;वाइल्डकार्ड
+Desc;Nënvarg;&MfuatanoNdogo;Beskriv;підрядок;سلسلة فرعية;सबस्ट्रिंगसबस्ट्रिंग
+Search&Show;Kërko&Dshfaq;Tafuta&Oonyesha;Søk&Sjåw;Діаграма;لتشييد;खोज
+&File;&Skedar;&Faili;&Fil;файл;ملف;फ़ाइल
+Save Chart definition;Ruaj Grafikun;Hifadhi Chati;Lagre Chart;Зберегти Діаграму;حفظ المخطط;चार्ट सहेजें
+Retrieve Chart;Merr Grafikun;Pata Chati;Hent Diagram;Отримати Діаграму;استرجاع المخطط;चार्ट प्राप्त करें
+&Exit;&Dalje;&Ondoka;&Avslutt;Пошук і Показ;التشييد;रुकना
+&Chart;&Grafikë;&Mchoro;&Graf;Діаграма;لتشييد;चार्ट
+&Report;&Raport;&Ripoti;&Rapport;звіт;تقرير;प्रतिवेदन
+&Options;Opsione;Chaguo;&Opsjoner;Optsii;خيارات;विकल्प
+&ExecuteReport;&Raport;&Ripoti;&KjørRapport;звіт;تقرير;प्रतिवेदन
+&Admin;&Admin;&Msimamizi;&Administrer;Адмініструвати;يدير;एडमिरल
+&TableMgr;&AdminTable;&Msimamizi;&TableMgr;Адмініструвати;يدير;एडमिरल
+&Help;&Ndihmë;&Msaada;&Hjelp;Довідка;يساعد;मदद
+CommonBasisPeriod;Bazë;KipindiMsingiChaPamoja;FellesBasisPeriode;Загальна основа;أساس مشترك;सामान्य आधार
+Id;Id;Kitambulisho;Id;ідент;التشيي;पहचान
+Name;Emër;Jina;Navn;Ім'я;التشيي;नाम
+Desc;Përshkrim;Maelezo;Beskrivelse;опис;التشيी;विवरण
+SetId;VendosId;WekaId;SetId;даних;التشيي;सेट आईडी
+Freq;Frekuencë;Marudio;Frek;частота;التشيي;आवृत्ति
+Unit;Njësi;Kipimo;Enhet;одиниця;التشيी;चार्ट
+Url;Url;Tovuti;Url;Інтернет;التشيي;वेब
+Source;Burim;Chanzo;Kilde;джерело;التشيي;स्रोत
+Updated;Përditësuar;Sasishwa;Oppdatert;Оновлено;التشيي;अद्यतन
+NumberOfObs;NumriIVëzhgimeve;IdadiYaUchunguzi;AntallObs;Номер;التشيي;संख्या
+Id;Id;Kitambulisho;Idno;ідент;التشيी;पहचान
+Name;Emër;Jina;Navn;Ім'я;التشيी;नाम
+Desc;Përshkrim;Maelezo;Beskrivelse;опис;التشيी;विवरण
+Axis;Bosht;Mhimili;Akse;вісь;التشيी;एक्सिस
+Function;Funksion;Kazi;Funksjon;функція;التشيي;कार्य
+Step;Hap;Hatua;lag;крок;التشيी;कदम
+Interval;Interval;Kipindi;Intervall;Інтервал;التشيي;मध्यान्तर
+Aggregate;Agregat;Jumlisho;Aggregat;агрегатний;التشيي;सकल
+Type;Lloj;Aina;type;Тип;التشيي;प्रकार
+Stacking;Shtresim;Upangaji;stabling;Укладання;التشيي;स्टैकिंग
+&YearChart;&YGrafikë;&YMchoro;&ÅrGraf;Діаграма;لتشييد;चार्ट
+
+
