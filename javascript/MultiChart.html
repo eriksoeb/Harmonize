@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+<!-- your css styles and more should be where the exe file is, needed for highcharts and table reports 
+<link rel="stylesheet" type="text/css" href="C:\CSharp\WindowsFormsAppCSharp19\CSharp\bin\Debug\Harmonize.css">
+-->
+
+
+<link rel="stylesheet" type="text/css" href="Harmonize.css">
+
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+
+
+
+<script src="file:///C:/Harmonized/Charts/jquery-1.9.1.min.js"></script>
+<script src="file:///C:/Harmonized/Charts/highstock.js"></script>
+<script src="file:///C:/Harmonized/Charts/exporting.js"></script>
+<script src="file:///C:/Harmonized/Charts/export-data.js"></script>
+<script src="file:///C:/Harmonized/Charts/data.js"></script>
+-->
+
+<script src="jquery-1.9.1.min.js"></script>
+<script src="highstock.js"></script>
+<script src="exporting.js"></script>
+<script src="export-data.js"></script>
+<script src="data.js"></script>
+
+
+
+
+
+
+
+<script src="file:///C:/Harmonized/Charts/Mydata.js"></script> <!-- ur data -->
+
+</head>
+
+<body>
+
+<div class="mobile-container">
+    <div class="topnav">
+	
+		 <a href="Chart.html" class="active_seagreen">Chart</a>
+		  <a href="MultiChart.html" class="active">MultiChart</a>
+		    <a href="YearChart.html" class="active">ChartYear</a>
+			<a href="Report.html" class="active">Report</a>
+			 <a href="Releases.html" class="active">Releases</a>
+			 <a href="HarmonizeGuide.pdf" class="active">HarmonizeGuide</a>
+
+    </div>
+	
+	
+	
+<div id="charts-wrapper"></div>
+
+    <!-- ✅ MUST exist for charts to render -->
+ 
+</div>
+
+<script>
+
+
+
+
+
+
+$(function() {
+    Highcharts.setOptions({
+        colors: ['#00a3be','#886595','#d58000','#889900','#735cd2','#ee6666']
+    });
+
+    var wrapper = $('#charts-wrapper');
+
+    console.log("Wrapper exists:", wrapper.length > 0);
+
+    seriesData.forEach(function(chartGroup, groupIndex) {
+	
+	  const sortedSeries = chartGroup.series.map(s => ({
+        ...s,
+        data: [...s.data].sort((a, b) => a[0] - b[0]) // ascending
+    }));
+	
+	
+const DECIMALS = seriesData[0].decimal ?? 1;  //default
+const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
+
+        // Date format switch
+        let dateFmt;
+        switch (FREQ) {
+            case 'MONTHLY': dateFmt = '%B %Y'; break;      // August 2025
+			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
+            case 'DAILY': dateFmt = '%Y-%m-%d'; break;
+            case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
+			case 'YEARLY': dateFmt = '%Y'; break;
+            default: dateFmt = '%B %Y';
+        }
+
+	
+	
+	
+	sortedSeries.forEach(function (s, seriesIndex) {
+	
+	
+
+        //chartGroup.series.forEach(function(s, seriesIndex) {
+
+            var containerId = 'chart-container-' + groupIndex + '-' + seriesIndex;
+            console.log("Creating:", containerId);
+
+wrapper.append('<div id="' + containerId + '" style="width:100%; height:30%; margin:10px auto;"></div>');
+
+            Highcharts.chart(containerId, {
+                chart: { type: s.type, zoomType: 'x' },
+                title: { text: s.desc, floating:true, y:15, style:{fontSize:'14px'} },
+                subtitle: { text: s.function + ' '+s.aggregation + ' '+ s.name || '', floating:true, y:30, style:{fontSize:'12px'} },
+                credits: { enabled: false },
+                exporting: { enabled: false },
+
+               // xAxis: { type: 'datetime', alternateGridColor:'rgba(0,0,0,0.05)' ,title: { text: 'mytitle',floating:true, y:35, }},
+
+
+xAxis: {
+    type: 'datetime',
+    alternateGridColor: 'rgba(0,0,0,0.05)',
+    title: {
+              text: seriesData[0].mybaseperiod 
+              ? 'Baseperiod: ' + seriesData[0].mybaseperiod 
+              : '',
+        align: 'low',   // aligns near the axis
+        x: 5,         // move left (negative = left, positive = right)
+        y: -55 ,         // move up (negative = up, positive = down
+		style: {
+            fontSize: '12px',
+            fontWeight: 'bold'
+        }
+    }
+},
+
+
+
+
+                yAxis: { title: { text: '' } },
+
+                //tooltip: { shared:true, crosshairs:true },
+				
+tooltip: {
+    distance: 30,
+    padding: 5,
+    shared: true,
+    useHTML: true, // required for HTML / bullets
+    formatter: function () {
+     
+        // Header
+        let s = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + '</b><br/>';
+
+if (this.series.type === 'pie') {
+ const point = this.point;
+            let dateLine = '';
+            dateLine = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + ' </b>';
+            return (
+
+				this.series.name + '<br/>' + dateLine +': <b>' +
+                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') +     '</b>' 
+            );
+        }
+
+
+
+
+//not pie
+else {
+
+
+//if not pie , this works just fine
+        this.points.forEach(point => { 
+            s +=
+                '<span style="color:' + point.series.color + '">&#9679;</span> ' +
+                point.series.name + ': <b>' +
+                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') + // formats with chosen decimals
+                (point.series.tooltipOptions.valueSuffix || '') +
+                '</b><br/>';
+        });
+
+        return s;
+    }
+	}//else pie
+},
+
+
+				
+				
+				
+				
+				
+				
+				
+
+                legend: { enabled: false },
+				
+				
+		
+				
+
+                series: [{
+                    type: s.type,
+                    data: s.data,
+                    name: s.name,
+                    color: Highcharts.getOptions().colors[
+                        (groupIndex + seriesIndex) % Highcharts.getOptions().colors.length
+                    ],
+                    marker: { enabled: false },
+                    lineWidth: 4
+                }]
+            });
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>
+

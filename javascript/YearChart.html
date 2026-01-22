@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+<link rel="stylesheet" type="text/css" href="Harmonize.css">
+
+
+<script src="jquery-1.9.1.min.js"></script>
+<script src="highstock.js"></script>
+<script src="exporting.js"></script>
+<script src="export-data.js"></script>
+<script src="data.js"></script>
+
+
+
+<script src="file:///C:/Harmonized/Charts/Mydata.js"></script> <!-- Must load BEFORE chart -->
+
+</head>
+<body>
+
+<div class="mobile-container">
+    <div class="topnav">
+	
+		 <a href="Chart.html" class="active_seagreen">Chart</a>
+		  <a href="MultiChart.html" class="active">MultiChart</a>
+		    <a href="YearChart.html" class="active">ChartYear</a>
+			<a href="Report.html" class="active">Report</a>
+			 <a href="Releases.html" class="active">Releases</a>
+			 <a href="HarmonizeGuide.pdf" class="active">HarmonizeGuide</a>
+	
+    </div>
+</div>
+
+
+<div id="container" style="width:100%; min-height:80%; height:90%; overflow:hidden; margin:0 auto;"></div>
+
+
+<!-- Series names container -->
+<div id="chart-series-names" style="text-align:center; margin-top:10px;"></div>
+
+<script>
+
+const DECIMALS = seriesData[0].decimal ?? 0;  //default
+
+Highcharts.setOptions({
+    lang: {
+        months: ['January', 'February', 'March', 'April', 'May', 'June',
+                 'July', 'August', 'September', 'October', 'November', 'December'],
+        shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    }
+});
+
+
+function normalizeMonthly(series) {
+    const monthMap = {}; // month → latest value
+
+    // Collect latest (or first) value for each month
+    series.forEach(point => {
+        const d = new Date(point[0]);
+        const month = d.getUTCMonth();
+        monthMap[month] = point[1];
+    });
+
+    // Build normalized array sorted by month
+    const normalized = Object.keys(monthMap)
+        .map(m => [
+            Date.UTC(2000, parseInt(m), 1), // fixed: YYYY=2000, DD=1
+            monthMap[m]
+        ])
+        .sort((a, b) => a[0] - b[0]); //b-a reverse ups
+    return normalized;
+}
+
+
+
+
+seriesData[0].series.forEach(s => {
+    s.data = normalizeMonthly(s.data);
+});
+
+/*
+already sorted
+seriesData[0].series.forEach(s => {
+s.data = normalizeMonthly(s.data).sort((a, b) => a[0] - b[0]); // ascending by timestamp
+});
+*/
+
+
+
+
+$(function () {
+
+    // Set custom colors
+    Highcharts.setOptions({
+        colors: ['#00a3be','#886595','#d58000','#889900','#735cd2','#ee6666']
+    });
+
+    // Create the chart
+    let chart = Highcharts.stockChart('container', {
+
+        chart: { spacingTop: 10, zoomType: 'x', animation: false },
+		
+		
+		 navigator: {
+        enabled: false    // hides the zoom slider
+    },
+    scrollbar: {
+        enabled: false    // hides the scrollbar below it
+    },
+    rangeSelector: {
+        enabled: false    // (optional) hides the buttons like 1M, 1Y, Max… confusing when 2000
+    },
+		
+//would be nice to show labelyear in addition to series name when exporting as well..
+		//erik exporting with labeleyesr
+		exporting: {
+    showTable: false,
+	tableCaption: '',//MyDatatable',
+    filename: 'MyYear',
+    csv: {
+        dateFormat: '%B',
+		decimalPoint: '.',
+
+        columnHeaderFormatter: function (item, key) {
+            // X axis column
+            if (!item || item.isXAxis) {
+                return 'Month';
+            }
+			
+
+
+            // Series column
+            const labelYear = item.options.labelyear || '';
+            return item.name + (labelYear ? ' ' + labelYear : '');
+        }
+    },
+    buttons: {
+        contextButton: {
+            menuItems: ['downloadCSV', 'separator', 'viewData', 'separator','printChart']
+        }
+    }
+},
+
+		
+
+//bruker text labelyear from structured data
+tooltip: {
+    crosshairs: [true, true],
+    shared: true,
+    useHTML: true,
+    formatter: function () {
+        const month = Highcharts.dateFormat('%B', this.x);
+        let tooltip = `<b>${month}</b><br/>`;
+
+        this.points.forEach(point => {
+            const labelYear = point.series.options.labelyear || '';
+
+            tooltip += `
+                <span style="color:${point.series.color}">\u25CF</span>
+                <span>
+                    ${point.series.name}
+                    ${labelYear ? ' ' + labelYear : ''}:
+					 <b>${Highcharts.numberFormat(point.y, DECIMALS, '.', ' ')}</b>				
+                </span><br/>
+            `;
+        });
+
+        return tooltip;
+    }
+},
+
+
+		
+		
+	credits: {
+    enabled: true,
+    //href: null   // ← makes the credit NOT clickable
+},
+
+
+
+
+
+xAxis: {
+    type: 'datetime',
+    min: Date.UTC(2000, 0, 1),
+    max: Date.UTC(2000, 11, 31),
+    tickInterval: 30 * 24 * 3600 * 1000,
+	dateTimeLabelFormats: { month: '%B' },
+	alternateGridColor: 'rgba(0,0,0,0.05)',
+	scrollbar: { enabled: false } , //only one year
+	title: {
+        //text: 'mytitle',
+		//text: 'Baseperiod: '+seriesData[0].mybaseperiod,
+        text: seriesData[0].mybaseperiod 
+              ? 'Baseperiod: ' + seriesData[0].mybaseperiod 
+              : '',
+		
+        align: 'low',   // aligns near the axis
+        x: 5,         // move left (negative = left, positive = right)
+        y: -55,          // move up (negative = up, positive = down)
+		style: {
+            fontSize: '13px',
+            fontWeight: 'bold'
+        }		
+    }	
+},
+   
+   
+   
+
+
+        yAxis: [
+            { gridLineWidth: 0, alternateGridColor: 'rgba(0, 0, 0, 0.05)', opposite: false },
+            { opposite: true }
+        ],
+
+
+		
+	
+	plotOptions: {
+    series: {
+	 lineWidth: 5,
+     marker: { enabled: false },
+     states: { inactive: { opacity: 1 } },
+     groupPadding: 0,
+        dataLabels: {
+            enabled: true,
+            allowOverlap: true,
+            formatter: function () {
+                const series = this.series;
+                const last = series.points[series.points.length - 1];
+
+                if (this.point !== last) return null;
+
+                const labelYear = series.options.labelyear || '';
+				// too mutsj : return series.name + ' ' + labelYear;
+                return labelYear ; 
+            },
+			x: -30,             // ← erik try fine-tune horizontal shift left
+			y: -10,  //bit up
+            crop: false,
+            overflow: 'allow',
+            style: {
+			 textOutline: 'none',   //removes standars white edge
+			 fontSize :13,
+             fontWeight: 'bold'
+            }
+        }
+    }
+},
+
+
+	
+		
+
+        // Load series from data.js
+        series: seriesData[0].series
+		
+		
+		
+		
+    });
+
+    // Add clickable series names with color boxes
+    let namesHtml = seriesData[0].series.map((s, i) => {
+        let color = chart.series[i].color; // get actual chart color
+        return `<span class="series-name" data-index="${i}" 
+                     style="margin-right:15px; cursor:pointer; display:inline-flex; align-items:center;">
+                    <span style="display:inline-block;width:12px;height:12px;background-color:${color};margin-right:5px;"></span>
+                    ${s.function} ${s.aggregation} ${s.name} ${s.desc} ${s.labelyear} 
+                </span>`;
+    }).join('');
+
+    $('#chart-series-names').html(namesHtml);
+
+    // Toggle series visibility on click
+    $('#chart-series-names').on('click', '.series-name', function() {
+        let index = $(this).data('index');
+        let series = chart.series[index];
+        if(series.visible) {
+            series.hide();
+			 $(this).addClass('series-hidden');  // add strikethrough
+        } else {
+            series.show();
+			$(this).removeClass('series-hidden'); // remove strikethrough
+			
+        }
+    });
+
+});
+
+
+// Override exportData to round numeric values
+
+Highcharts.addEvent(Highcharts.Chart, 'exportData', function (e) {
+    //const decimals = DECIMALS;
+    const rows = e.dataRows || e.data || []; // works across versions
+
+    for (let r = 1; r < rows.length; r++) {
+        for (let c = 1; c < rows[r].length; c++) {
+            const num = parseFloat(rows[r][c]);
+            if (!isNaN(num)) {
+                rows[r][c] = Highcharts.numberFormat(num, DECIMALS, '.', '');
+            }
+        }
+    }
+});
+
+
+
+
+</script>
+
+</body>
+</html>

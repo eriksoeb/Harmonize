@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="Harmonize.css">
+<title>Report - Toggle Layout with Freeze</title>
+
+<script src="file:///C:/Harmonized/Charts/Mydata.js"></script>
+
+<style>
+
+.table-container {
+    overflow: auto;
+    max-width: 100%;
+    max-height: 700px; /* adjust as needed */
+    border: 1px solid #ddd;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    min-width: 600px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    text-align: right;
+    background-clip: padding-box;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+    z-index: 3;
+}
+
+th:first-child, td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #f9f9f9;
+    z-index: 4; /* higher than row cells for overlap */
+    text-align: left;
+}
+
+tbody tr:nth-child(even) td:not(:first-child) {
+    background-color: #f9f9f9;
+}
+
+.desc {
+    display: block;
+    font-size: 0.85em;
+    font-weight: normal;
+    color: #555;
+    margin-top: 2px;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+
+<div class="mobile-container">
+    <div class="topnav">
+	
+		 <a href="Chart.html" class="active_seagreen">Chart</a>
+		  <a href="MultiChart.html" class="active">MultiChart</a>
+		    <a href="YearChart.html" class="active">ChartYear</a>
+			<a href="Report.html" class="active">Report</a>
+			 <a href="Releases.html" class="active">Releases</a>
+			 <a href="HarmonizeGuide.pdf" class="active">HarmonizeGuide</a>
+	
+
+    </div>
+</div>
+
+
+<button id="toggleLayout">Switch to Horizontal</button>
+<button id="toggleDateFormat">Long date</button>
+<button id="exportCsv">Export CSV</button>
+<div class="table-container" id="textDataTable"></div>
+
+<script>
+
+let useLongDate = false;
+
+
+function formatDate1(ts) {
+  const d = new Date(ts);
+
+  const date =
+    `${d.getFullYear()}-` +
+    `${String(d.getMonth() + 1).padStart(2, '0')}-` +
+    `${String(d.getDate()).padStart(2, '0')}`;
+
+  if (!useLongDate) return date;
+
+  const time =
+    `${String(d.getHours()).padStart(2, '0')}:` +
+    `${String(d.getMinutes()).padStart(2, '0')}`;
+
+  return `${date} ${time}`;
+}
+
+
+function formatDate2(ts) {
+  const d = new Date(ts);
+
+  const date =
+    `${d.getUTCFullYear()}-` +
+    `${String(d.getUTCMonth() + 1).padStart(2, '0')}-` +
+    `${String(d.getUTCDate()).padStart(2, '0')}`;
+
+  if (!useLongDate) return date;
+
+  const time =
+    `${String(d.getUTCHours()).padStart(2, '0')}:` +
+    `${String(d.getUTCMinutes()).padStart(2, '0')}`;
+
+  return `${date} ${time}`;
+}
+
+
+//data :  [
+//[1698537600000,-2.00000000],
+//[1698541200000,-1.00000000],
+
+
+
+
+
+//always cet
+function formatDate3(ts) {
+  const d = new Date(ts);
+
+  const date =
+    `${d.getFullYear()}-` +
+    `${String(d.getMonth() + 1).padStart(2, '0')}-` +
+    `${String(d.getDate()).padStart(2, '0')}`;
+
+  if (!useLongDate) return date;
+
+  const time =
+    `${String(d.getHours()).padStart(2, '0')}:` +
+    `${String(d.getMinutes()).padStart(2, '0')}`;
+
+  return `${date} ${time}`;
+}
+
+
+// Treat ts as "already-correct wall clock time not 02 twice"
+function formatDate(ts) {
+  const d = new Date(ts);
+
+  // Extract UTC fields ONLY
+  const y = d.getUTCFullYear();
+  const m = d.getUTCMonth() + 1;
+  const day = d.getUTCDate();
+  const h = d.getUTCHours();
+  const min = d.getUTCMinutes();
+
+  const date = `${y}-${String(m).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+  if (!useLongDate) return date;
+
+  return `${date}T${String(h).padStart(2,'0')}:${String(min).padStart(2,'0')}`;
+}
+
+//cet
+function formatDatetbc(ts) {
+  return new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Paris',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: useLongDate ? '2-digit' : undefined,
+    minute: useLongDate ? '2-digit' : undefined,
+    hour12: false
+  }).format(new Date(ts));
+}
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    if (typeof seriesData === 'undefined' || seriesData.length === 0) {
+        document.getElementById('textDataTable').innerText =
+            'No data available to display.';
+        return;
+    }
+
+    const dataToDisplay = seriesData[0].series;
+	const DECIMALS = seriesData[0].decimal ?? 0;  //default
+    const tableContainer = document.getElementById('textDataTable');
+    let isVertical = true;
+	
+
+    const getAllDates = () => {
+        const allDates = new Set();
+        dataToDisplay.forEach(series => {
+            series.data.forEach(item => allDates.add(item[0]));
+        });
+        return Array.from(allDates).sort((a,b)=>a-b);
+    }
+
+    const renderTable = () => {
+        tableContainer.innerHTML = '';
+        const table = document.createElement('table');
+        const allDates = getAllDates();
+
+        if (isVertical) {
+            /* ---------- VERTICAL ---------- */
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const dateHeader = document.createElement('th'); dateHeader.innerText = 'Date';
+            headerRow.appendChild(dateHeader);
+
+            dataToDisplay.forEach(series => {
+                const th = document.createElement('th');
+                th.innerHTML = `${series.name}<span class="desc">${series.desc || ''}</span>`;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            allDates.forEach((ts,i) => {
+                const row = document.createElement('tr');
+                const dateCell = document.createElement('td');
+                const d = new Date(ts);
+                //replace to use toogle below
+				//dateCell.innerText = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+                
+				dateCell.innerText = formatDate(ts);
+				row.appendChild(dateCell);
+
+                dataToDisplay.forEach(series => {
+                    const cell = document.createElement('td');
+                    const point = series.data.find(item => item[0] === ts);
+                    //cell.innerText = point && typeof point[1] === 'number' ? point[1].toFixed(2) : '';
+					cell.innerText = point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '';
+					
+					//cell.innerText = Number.isFinite(point?.[1])  ? new Intl.NumberFormat().format(point[1])  : '';
+
+					
+					
+                    row.appendChild(cell);
+                });
+
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+        } else {
+            /* ---------- HORIZONTAL ---------- */
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const firstCell = document.createElement('th'); firstCell.innerText = 'Series';
+            headerRow.appendChild(firstCell);
+
+            allDates.forEach(ts => {
+                const d = new Date(ts);
+                //const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+                const dateStr = formatDate(ts);
+				const th = document.createElement('th'); th.innerText = dateStr;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            dataToDisplay.forEach((series,i) => {
+                const row = document.createElement('tr');
+                const seriesCell = document.createElement('td');
+                seriesCell.innerHTML = `${series.name}<span class="desc">${series.desc || ''}</span>`;
+                row.appendChild(seriesCell);
+
+                allDates.forEach(ts => {
+                    const cell = document.createElement('td');
+                    const point = series.data.find(item => item[0] === ts);
+                    cell.innerText = point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '';
+					
+                    row.appendChild(cell);
+                });
+
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+        }
+
+        tableContainer.appendChild(table);
+    }
+
+    /* ---------- TOGGLE s---------- */
+    document.getElementById('toggleLayout').addEventListener('click', function() {
+        isVertical = !isVertical;
+        this.innerText = isVertical ? 'Switch to Horizontal' : 'Switch to Vertical';
+        renderTable();
+    });
+	
+	 /* ---------- TOGGLE s---------- */
+	document.getElementById('toggleDateFormat').addEventListener('click', function () {
+	useLongDate = !useLongDate;
+	this.innerText = useLongDate ? 'Short date' : 'Long date';
+	renderTable();
+});
+	
+	
+	
+	
+	
+	
+	
+	
+
+    /* ---------- CSV ---------- */
+    document.getElementById('exportCsv').addEventListener('click', function() {
+        let csv = [];
+        const allDates = getAllDates();
+
+        if (isVertical) {
+            const header = ['Date'].concat(dataToDisplay.map(s => `"${s.name} - ${s.desc || ''}"`));
+            csv.push(header.join(','));
+
+            allDates.forEach(ts => {
+                const d = new Date(ts);
+				const dateStr = formatDate(ts);
+                //const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+                const row = [dateStr];
+                dataToDisplay.forEach(series => {
+                    const point = series.data.find(item => item[0] === ts);
+                    //row.push(point && typeof point[1] === 'number' ? point[1].toFixed(2) : '');
+					row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
+					//row.push(  Number.isFinite(point?.[1])    ? String(point[1])    : '');
+                });
+                csv.push(row.join(','));
+            });
+
+        } else {
+            const header = ['Series'].concat(allDates.map(ts => {
+                const d = new Date(ts);
+				const dateStr = formatDate(ts);
+				return dateStr;
+               // return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+            }));
+            csv.push(header.join(','));
+
+            dataToDisplay.forEach(series => {
+                const row = [`"${series.name} - ${series.desc || ''}"`];
+                allDates.forEach(ts => {
+                    const point = series.data.find(item => item[0] === ts);
+                    row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
+					
+					//row.push(  Number.isFinite(point?.[1])    ? String(point[1])    : '');
+					
+                });
+                csv.push(row.join(','));
+            });
+        }
+
+        const blob = new Blob([csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = isVertical ? 'report_vertical.csv' : 'report_horizontal.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    // Initial render
+    renderTable();
+
+});
+</script>
+
+</body>
+</html>
