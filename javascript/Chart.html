@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+<!-- new css 
+<link rel="stylesheet" type="text/css" href="C:\CSharp\WindowsFormsAppCSharp19\CSharp\bin\Debug/Harmonize.css">
+same directory as exe file
+-->
+
+<link rel="stylesheet" type="text/css" href="Harmonize.css">
+
+<!-- on internet save as
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+-->
+
+<!-- 
+locally offline modus
+<script src="file:///C:/Harmonized/Charts/jquery-1.9.1.min.js"></script>
+<script src="file:///C:/Harmonized/Charts/highstock.js"></script>
+<script src="file:///C:/Harmonized/Charts/exporting.js"></script>
+<script src="file:///C:/Harmonized/Charts/export-data.js"></script>
+<script src="file:///C:/Harmonized/Charts/data.js"></script>
+or in current dir same as exe and html :
+-->
+
+<script src="jquery-1.9.1.min.js"></script>
+<script src="highstock.js"></script>
+<script src="exporting.js"></script>
+<script src="export-data.js"></script>
+<script src="data.js"></script>
+
+
+<!-- if this is changed in config, the path must be changed here as well -->
+<script src="file:///C:/Harmonized/Charts/Mydata.js"></script> <!-- Must load BEFORE chart -->
+
+</head>
+<body>
+
+<div class="mobile-container">
+    <div class="topnav">
+		 <a href="Chart.html" class="active_seagreen">Chart</a>
+		  <a href="MultiChart.html" class="active">MultiChart</a>
+		    <a href="YearChart.html" class="active">ChartYear</a>
+			<a href="Report.html" class="active">Report</a>
+			 <a href="Releases.html" class="active">Releases</a>
+			 <a href="HarmonizeGuide.pdf" class="active">HarmonizeGuide</a>
+
+    </div>
+</div>
+
+
+<div id="container" style="width:100%; min-height:80%; height:90%; overflow:hidden; margin:0 auto;"></div>
+
+
+<!-- Series names container -->
+<div id="chart-series-names" style="text-align:center; margin-top:10px;"></div>
+
+<script>
+
+
+//sorteing here ..
+const chartSeries = seriesData[0].series.map(s => ({
+    ...s,
+    data: [...s.data].sort((a, b) => a[0] - b[0]) // ascending
+}));
+
+
+
+
+const DECIMALS = seriesData[0].decimal ?? 1;  //default
+const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
+
+        // Date format switch
+        let dateFmt;
+        switch (FREQ) {
+            case 'MONTHLY': dateFmt = '%B %Y'; break;      // August 2025
+			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
+            case 'DAILY': dateFmt = '%Y-%m-%d'; break;
+            case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
+			case 'YEARLY': dateFmt = '%Y'; break;
+            default: dateFmt = '%B %Y';
+        }
+
+
+
+
+
+$(function () {
+
+    // Set custom colors
+    Highcharts.setOptions({
+        colors: ['#00a3be','#886595','#d58000','#889900','#735cd2','#ee6666']
+    });
+
+    // Create the chart
+    let chart = Highcharts.stockChart('container', {
+
+        chart: { spacingTop: 10, zoomType: 'x', animation: false },
+		
+		
+		 navigator: {
+        enabled: false    // hides the zoom slider
+    },
+    scrollbar: {
+        enabled: false    // hides the scrollbar below it
+    },
+    rangeSelector: {
+        enabled: true    // (optional) hides the buttons like 1M, 1Y, Max…
+    },
+		
+		
+	
+		//subtitle: {text: seriesData[0].mysubtitle ,    align: 'left', x: 40,verticalAlign: 'bottom', style:{ fontSize :'14'}, y: -35,floating: true }, 
+		
+		//title: {text: seriesData[0].mytitle ,    align: 'center', verticalAlign: 'top', style:{ fontSize :'14'}, y: 20,floating: true }, 
+		
+		
+		  exporting: {
+            showTable: false,
+            tableCaption: '',
+            filename: 'MyChart',
+			csv: { dateFormat: dateFmt },
+            buttons: { contextButton: { menuItems: ['downloadCSV', 'separator','viewData', 'separator','printChart'] } }
+        },
+
+		
+		
+		
+	credits: {
+    enabled: true,
+    href: null   // ← makes the credit NOT clickable
+},
+		
+		
+		
+		
+		
+
+        // before pie tooltip: { crosshairs: [true, true], split: false, padding: 0, shared: true },
+		
+	
+
+
+tooltip: {
+    distance: 30,
+    padding: 5,
+    shared: true,
+    useHTML: true, // required for HTML / bullets
+    formatter: function () {
+     
+        // Header
+        let s = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + '</b><br/>';
+
+if (this.series.type === 'pie') {
+ const point = this.point;
+            let dateLine = '';
+            dateLine = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + ' </b>';
+            return (
+
+				this.series.name + '<br/>' + dateLine +': <b>' +
+                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') +     '</b>' 
+            );
+        }
+
+
+
+
+//not pie
+else {
+
+
+//if not pie , this works just fine
+        this.points.forEach(point => { 
+            s +=
+                '<span style="color:' + point.series.color + '">&#9679;</span> ' +
+                point.series.name + ': <b>' +
+                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') + // formats with chosen decimals
+                (point.series.tooltipOptions.valueSuffix || '') +
+                '</b><br/>';
+        });
+
+        return s;
+    }
+	}//else pie
+},
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+
+        
+		//xAxis: {type: 'datetime',scrollbar: { enabled: true },alternateGridColor: 'rgba(0, 0, 0, 0.05)' ,minPadding: 0, maxPadding: 0, title: {enabled: true, text: 'heu', align:'high', y: -45 }},
+		
+		xAxis: {
+    type: 'datetime',
+	scrollbar: { enabled: true },
+    alternateGridColor: 'rgba(0,0,0,0.05)',
+    title: {     
+        text: seriesData[0].mybaseperiod 
+              ? 'Baseperiod: ' + seriesData[0].mybaseperiod 
+		  
+              : '',
+		
+        align: 'low',   // aligns near the axis
+        x: 5,         // move left (negative = left, positive = right)
+        y: -55,          // move up (negative = up, positive = down)
+		style: {
+            fontSize: '13px',
+            fontWeight: 'bold'
+        }
+		
+    }
+},
+
+		
+		
+		
+		
+		
+
+        // Respect yAxis from data.js
+        yAxis: [
+            { gridLineWidth: 0, alternateGridColor: 'rgba(0, 0, 0, 0.05)', opposite: false },
+            { opposite: true }
+        ],
+
+        plotOptions: {
+			
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+		
+		
+		//name: 'By Date',
+        dataLabels: {
+            enabled: false
+        }
+    },
+	
+            series: { 
+                lineWidth: 5,
+                marker: { enabled: false },
+                states: { inactive: { opacity: 1 } },
+                groupPadding: 0
+            }
+        },
+
+        // Load series from data.js
+        //series: seriesData[0].series
+		series: chartSeries  //sorted
+    });
+
+    // Add clickable series names with color boxes
+    //let namesHtml = seriesData[0].series.map((s, i) => {
+     //   let color = chart.series[i].color; // get actual chart color
+		
+		let namesHtml = chartSeries.map((s, i) => {
+			let color = chart.series[i].color; // get actual chart color
+		
+        return `<span class="series-name" data-index="${i}" 
+                     style="margin-right:15px; cursor:pointer; display:inline-flex; align-items:center;">
+                    <span style="display:inline-block;width:12px;height:12px;background-color:${color};margin-right:5px;"></span>
+                    ${s.function} ${s.aggregation} ${s.name} ${s.desc} 
+                </span>`;
+    }).join('');
+
+    $('#chart-series-names').html(namesHtml);
+
+    // Toggle series visibility on click
+    $('#chart-series-names').on('click', '.series-name', function() {
+        let index = $(this).data('index');
+        let series = chart.series[index];
+        if(series.visible) {
+            series.hide();
+			 $(this).addClass('series-hidden');  // add strikethrough
+        } else {
+            series.show();
+			$(this).removeClass('series-hidden'); // remove strikethrough
+			
+        }
+    });
+
+});
+
+
+
+// Override exportData to round numeric values
+
+Highcharts.addEvent(Highcharts.Chart, 'exportData', function (e) {
+    //const decimals = DECIMALS;
+    const rows = e.dataRows || e.data || []; // works across versions
+
+    for (let r = 1; r < rows.length; r++) {
+        for (let c = 1; c < rows[r].length; c++) {
+            const num = parseFloat(rows[r][c]);
+            if (!isNaN(num)) {
+                rows[r][c] = Highcharts.numberFormat(num, DECIMALS, '.', '');
+            }
+        }
+    }
+});
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
