@@ -1,0 +1,58 @@
+﻿name;unit;date;value;desc;doc;more_later_or_for_otheruse
+CURVE;20;2023-05-01; 147; test curve;ignored column 1;ignored column2
+CURVE;20;2023-06-01; 167; test curve;ignored column 1;ignored column2
+DEMOCURVE;20;2023-06-01; 125.1;demoe test;med luft;tbc
+DEMOCURVE;20;2023-07-01; 175.1;demoe test;med luft;tbc
+KENYA;20;2023-06-01; 125.1;test test;med luft;tb c
+KENYA;20;2023-07-01; 175.1;test;med luft;tb c
+GeorgsCURVE;20;2023-07-01; 675.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;2023-08-01; 775.1;date sjekk hist;med luft;tb
+GeorgsCURVE;20;2023-09-01; 675.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1920-09-01; 920.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1900-01-01; 819.00;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1889-09-01; 891.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1880-09-01; 892.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1850-09-01; 893.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1801-01-01; 894.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1780-09-01; 895.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1761-01-01; 896.1;date sjekk hist;med luft;tb c
+GeorgsCURVE;20;1753-02-01; 897.1;date sjekk hist;med luft;tb c
+moss;20;1990-09-01; 895.1;this works sjekk hist;med luft;tb c
+moss;20;1995-09-01; 899.1;this works sjekk hist;med luft;tb c
+sommervinter;20;2023-10-28T22:00:00; -2.0;lagret as utc;hei;tbc
+sommervinter;20;2023-10-28T23:00:00; -1.0;lagret as utc;hoi;tbc
+sommervinter;20;2023-10-29T00:00:00; 0.8;lagret as utc;hei;tbc
+sommervinter;20;2023-10-29T01:00:00; 1.0;lagret as utc;hoi;tbc
+sommervinter;20;2023-10-29T02:00:00; 2.0;lagret as utc;hoi;tbc
+sommervinter;20;2023-10-29T03:00:00; 3.0;lagret as utc;hoi;tbc
+sommervinter;20;2023-10-29T22:00:00; 22.0;lagret as utc;hoi;tbc
+sommervinter;20;2023-10-29T23:00:00; 23.0;Saved as utc;hoi;tbc
+vintersommer;20;2023-03-25T22:00:00; -22.0;frem lagret as utc;hei;tbc cet start
+vintersommer;20;2023-03-25T23:00:00; -23.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T00:00:00; 0.0;frem lagret as utc;hei;tbc
+vintersommer;20;2023-03-26T01:00:00; 1.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T02:00:00; 2.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T03:00:00; 3.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T04:00:00; 4.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T05:00:00; 5.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T06:00:00; 6.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T07:00:00; 7.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T08:00:00; 8.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T09:00:00; 9.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T10:00:00; 10.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T11:00:00; 11;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T12:00:00; 12;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T13:00:00; 13;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T14:00:00; 14;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T15:00:00; 15;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T16:00:00; 16;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T17:00:00; 17;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T18:00:00; 18;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T19:00:00; 19;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T20:00:00; 20;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T21:00:00; 21.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T22:00:00; 22.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-26T23:00:00; 23.0;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-27T00:00:00; 270;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-27T01:00:00; 271;frem lagret as utc;hoi;tbc
+vintersommer;20;2023-03-27T02:00:00; 272;Saved as utc winter;hoi;tbc
