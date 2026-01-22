@@ -1,4 +1,4 @@
-Data Source=statbus.org;Connection Timeout=5;Initial Catalog=Harmonize;User ID=demo;Password=YourStrongPassword_2026!!;
+Data Source=statbus.org;Connection Timeout=5;Initial Catalog=Harmonize;User ID=demo;Password=YourStro;
 C:\Harmonized\Charts\
 English;Albanian;Kenyan;Norwegian;гармонізувати;تنسجم;Hindi
 0
@@ -8,4 +8,5 @@ English;Albanian;Kenyan;Norwegian;гармонізувати;تنسجم;Hindi
 --samples below: Best to use a connection string without password
 Data Source=localhost\MSSQLSERVER2022;Connection Timeout=5;Initial Catalog=Harmonize;Integrated Security=True;
 Data Source=localhost\MSSQLSERVER2022;Connection Timeout=15;Initial Catalog=Harmonize;Integrated Security=True;
+
 
