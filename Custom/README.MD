@@ -16,3 +16,5 @@ All files in this folder **must be located in the same directory as the executab
 The application will not start if Connection.txt is missing or inaccessible
 
 Ensure the file encoding is plain text (UTF-8 recommended)
+
+The whole organization may use the same executable and configurateion, when using a trusted connection 
