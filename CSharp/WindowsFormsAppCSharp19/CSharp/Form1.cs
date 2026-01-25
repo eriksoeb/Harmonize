@@ -947,48 +947,21 @@ namespace CSharp
            
 
             string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;  //show path
-            var year = DateTime.Now.Year;
-            //MessageBox.Show("Ver: "+Globals.Version + " "+Globals.AppName+" "+year+"\n"+"Env: " +Globals.AppDir + "\n" + "Usr: " + Globals.UserDir + "\n"  +"Exe: " + System.IO.Path.GetDirectoryName(strExeFilePath), Globals.AppName);
-            //  MessageBox.Show("Ver: " + Globals.Version + " " + Globals.AppName + " " + year + "\n" + "Usr: " + Globals.UserDir + "\n" + "Exe: " + System.IO.Path.GetDirectoryName(strExeFilePath), Globals.AppName + "\n\n\n" + "By : Eriksberg");
-
-
-            //= $"© {DateTime.Now.Year} Erik Søberg";
-/*
-            MessageBox.Show(
-    string.Format(
-        "AppVer: {1}\n DBVer: {2} \n {3}\nUsr: {4}\nExe: {5}\n\nBy: ©Eriksberg\n\nBuild date: {6:yyyy-MM-dd HH:mm}",
-        Globals.Version,
-        Globals.DbVer,
-        Globals.AppName,
-        year,
-        Globals.UserDir,
-        Path.GetDirectoryName(strExeFilePath),
-        buildDate
-    ),
-    Globals.AppName
-);
-*/
-
+         
 
             MessageBox.Show(
 $@"{Globals.AppName}
-
 App version : {Globals.Version}
-DB version  : {Globals.DbVer}
-Year        : {year}
+Sql version : {Globals.DbVer}
 User dir    : {Globals.UserDir}
 Executable  : {Path.GetDirectoryName(strExeFilePath)}
 Connection  : {Path.GetDirectoryName(strExeFilePath)}
 
-© Eriksberg
+© Erik.Soberg@ssb.no
 
 Build date  : {buildDate:yyyy-MM-dd HH:mm}",
 Globals.AppName
 );
-
-
-
-
 
 
 
@@ -2837,22 +2810,7 @@ Globals.AppName
             File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
 
-// retrieve part od datagrid 2
 
-        private void retriveToolStripMenuItem_Clickv1(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "CSV files (*.csv)|*.csv";
-                ofd.Title = "Open CSV file";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    ImportCsvToDataGridView(dataGridView2, ofd.FileName);
-                }
-            }
-
-        }
 
 
         private void retriveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2900,6 +2858,12 @@ Globals.AppName
                     if (headers.Length == 0)
                         throw new Exception("CSV header could not be parsed.");
 
+                    // HEADER VALIDATION
+                    if (!headers[0].Trim().Equals("Id", StringComparison.OrdinalIgnoreCase))
+                        throw new Exception("Invalid Harmonize CSV file ... ");
+
+
+
                     // Create columns if empty
                     if (dgv.Columns.Count == 0)
                     {
@@ -2917,6 +2881,12 @@ Globals.AppName
 
                         if (values.Length == 0)
                             throw new Exception("Invalid CSV row detected.");
+
+
+
+
+
+
 
                         int rowIndex = dgv.Rows.Add();
 
@@ -2941,43 +2911,6 @@ Globals.AppName
 
 
 
-
-        private void ImportCsvToDataGridViewv1(DataGridView dgv, string filePath)
-        {
-            dgv.Rows.Clear();
-
-            using (StreamReader reader = new StreamReader(filePath, Encoding.UTF8))
-            {
-                // Read header
-                string headerLine = reader.ReadLine();
-                if (headerLine == null) return;
-
-                string[] headers = ParseCsvLine(headerLine, ';');
-
-                // Optional: auto-create columns if empty
-                if (dgv.Columns.Count == 0)
-                {
-                    foreach (string header in headers)
-                        dgv.Columns.Add(header, header);
-                }
-
-                // Read rows
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-
-                    string[] values = ParseCsvLine(line, ';');
-
-                    int rowIndex = dgv.Rows.Add();
-
-                    for (int i = 0; i < dgv.Columns.Count && i < values.Length; i++)
-                    {
-                        dgv.Rows[rowIndex].Cells[i].Value = values[i];
-                    }
-                }
-            }
-        }
 
 
         private string[] ParseCsvLine(string line, char delimiter)
@@ -3024,44 +2957,6 @@ Globals.AppName
 
 
 
-
-        private string[] ParseCsvLinev1(string line, char delimiter)
-        {
-            List<string> result = new List<string>();
-            StringBuilder current = new StringBuilder();
-            bool inQuotes = false;
-
-            for (int i = 0; i < line.Length; i++)
-            {
-                char c = line[i];
-
-                if (c == '"')
-                {
-                    if (inQuotes && i + 1 < line.Length && line[i + 1] == '"')
-                    {
-                        // Escaped quote
-                        current.Append('"');
-                        i++;
-                    }
-                    else
-                    {
-                        inQuotes = !inQuotes;
-                    }
-                }
-                else if (c == delimiter && !inQuotes)
-                {
-                    result.Add(current.ToString());
-                    current.Clear();
-                }
-                else
-                {
-                    current.Append(c);
-                }
-            }
-
-            result.Add(current.ToString());
-            return result.ToArray();
-        }
 
         private void deciToolStripMenuItem_Click(object sender, EventArgs e)
         {
