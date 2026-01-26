@@ -39,6 +39,19 @@ The system is especially well suited for organizations that want to **centralize
   - Writing processed data back into the database
 - Similar workflows apply for **R**
 
+
+### Utilities
+-- Stored procedures available from Python / R and MSSQL Database
+  - Create loadset
+  - PutTime  :Update or Inserts date to  existing series, or create new series if not already exists
+  - Update statistics : Number of observations, first and last observations, updated time etc
+  - Delete loadsets
+  - Delete Data on a timeseries
+  - Delete a timeseries and its data
+
+
+
+
 ---
 
 ## Key Features
