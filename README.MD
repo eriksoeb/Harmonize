@@ -1,9 +1,22 @@
+
 # Harmonize
 
+Harmonize is a time-series data platform designed to store, manage, and visualize datasets with different frequencies and base years.
+**without programming skills**, while also helping **management and analysts save time**.
 
-Harmonize is a time series management and visualization system designed to make complex time series data accessible to users **without programming skills**, while also helping **management and analysts save time**.
+The system enables analysts and non-technical users to:
 
-The system stores time series data in a **generic and flexible format**, allowing easy comparison of datasets with different frequencies, base years, and aggregation levels. Harmonize is based on **Microsoft SQL Server** and can be accessed through a **Windows C# application** or programmatically via **Python and R APIs**.
+• Store time series from multiple domains in a unified format  
+• Compare datasets with different base years and frequencies  
+• Generate charts and reports without programming  
+• Integrate with Python and R for advanced analysis  
+
+Architecture:
+
+- Database: Microsoft SQL Server
+- Desktop UI: C# Windows application
+- APIs: Python and R
+- Charts: Highcharts
 
 
 
