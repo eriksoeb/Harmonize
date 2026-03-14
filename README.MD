@@ -27,6 +27,48 @@ Harmonize is designed for **organizations that need to store, share, and analyze
 The system is especially well suited for organizations that want to **centralize data from different sources**, make it **accessible to users with varying technical skills**, and enable **consistent analysis and comparison across domains and time frequencies**.
 
 
+## Architecture
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                 CLIENT and USER LAYER                                    │
+│                                                                          │
+│  C# Desktop App     Python        R            Excel Addin               │
+│  - Visualization    - ETL         - Analysis   -read                     │
+│  - Highcharts       - Upserts     - Models     -update                   │
+│                                                -ad -hoc analysis         │
+└───────────────┬───────────────┬──────────────────────────────────────────┘
+                │               │
+                │ calls stored procedures
+                │
+┌───────────────v─────────────────────────────┐
+│           STORED PROCEDURE API              │
+│                                             │
+│  PutTime   / GetSeris                       │
+│  Create Loadset                             │
+│  Update Statistics                          │
+│  Delete Time Series / Data                  │
+│                                             │
+│  Centralized validation & business logic    │
+│                                             │
+└───────────────────────┬─────────────────────┘
+                        │
+                        │
+┌───────────────────────v─────────────────────┐
+│                DATA LAYER                   │
+│                                             │
+│            Microsoft SQL Server             │
+│                                             │
+│  Tables:                                    │
+│  - Loadset                                  │
+│  - Timeseries                               │
+│  - Observations                             │
+│                                             │
+│  Time series stored in UTC                  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+
+
 
 ---
 
