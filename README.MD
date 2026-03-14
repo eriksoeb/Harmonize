@@ -29,6 +29,8 @@ The system is especially well suited for organizations that want to **centralize
 
 ## Architecture
 
+
+```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                 CLIENT and USER LAYER                                    │
 │                                                                          │
@@ -67,7 +69,7 @@ The system is especially well suited for organizations that want to **centralize
 │                                             │
 └─────────────────────────────────────────────┘
 
-
+```
 
 
 
