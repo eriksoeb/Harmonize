@@ -15,7 +15,7 @@ Architecture:
 
 - Database: Microsoft SQL Server
 - Desktop UI: C# Windows application
-- APIs: Python and R
+- APIs: Python and R, works with powerBI (not recomended)
 - Charts: Highcharts
 
 
@@ -44,16 +44,16 @@ The system is especially well suited for organizations that want to **centralize
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                 CLIENT and USER LAYER                                    │
 │                                                                          │
-│  C# Desktop App     Python        R            Excel Addin               │
+│  C# Harmonize app     Python        R          Excel Addin               │
 │  - Visualization    - ETL         - Analysis   -Read                     │
 │  - Highcharts       - Upserts     - Models     -Update                   │
-│                                                -Ad -hoc analysis         │
+│  --Ad-hoc analysis                             -Ad-hoc analysis          │
 └───────────────┬───────────────┬──────────────────────────────────────────┘
                 │               │
                 │ calls stored procedures
                 │
 ┌───────────────v─────────────────────────────┐
-│           STORED PROCEDURE API  (main ones) │
+│      STORED PROCEDURE API  (main ones)      │
 │                                             │
 │  GetSeris                                   │
 │  PutTime                                    │
