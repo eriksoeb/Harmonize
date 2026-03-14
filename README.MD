@@ -176,6 +176,7 @@ Python examples are available in the `Python/` directory.
   - Horizontal reports
   - Vertical reports
 - Report tables available directly inside charts
+- Number of decimals and datatime format can be chosen from the Harmonize and template
 
 ### Saved Selections
 - Users can save and retrieve series selections
@@ -192,10 +193,15 @@ Python examples are available in the `Python/` directory.
 - Templates can be modified (optional)
 - Customize:
   - Fonts
-  - Colors
+  - Colors - can also be selected from harmonize app
   - Legends
   - Tooltips
 - Modify `Harmonize.css` to match your design standards
+- The templates takes a file as arguments and could easily be used for a simple web site:
+- Charts used at web is demonstrated at www.Harmonize.no 
+- Harmonize let you save datafiles in custom names to be used by the templates on your web site
+- what you need is then just to copy / move newer datafiles to your web- when it already has the templates
+
 
 ### Chart Libraries
 - Uses **Highcharts** by default
@@ -243,6 +249,7 @@ Harmonize supports high-frequency data (e.g. hourly) and correctly handles **sum
 - Users can:
   - Change translations themselves
   - Add new languages as needed
+  - Harmonize currently has English, Norwegian, Ukrainian, Albanian, Hindi and Arabic do demonstrate the functionality
 
 ---
 
@@ -252,6 +259,10 @@ Harmonize provides a powerful yet user-friendly platform for:
 - Managing time series data
 - Comparing datasets across frequencies and base years
 - Generating interactive charts and reports
-- Integrating with Python and R for advanced analytics
+- Integrating with Python and R for advanced analytics, updates and downloads
+- Integrating with XLSAddIn (read & update) and save as csv options
+- Harmonize can save / retrieve selections and populate with fresh data later
+- Harmonize can delete and upload data on a dataset if user is configured with write-access
+- The system has configurable access control and logging
 
-It is suitable for analysts, managers, and non-programmers alike.
+It is suitable for analysts, managers, and non-programmers & programmers alike.
