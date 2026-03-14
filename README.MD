@@ -30,11 +30,11 @@ The system is especially well suited for organizations that want to **centralize
 
 
 ## Harmonize Interface
-```
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/eriksoeb/Harmonize/main/docs/harmonize2.jpg" width="800">
 </p>
-```
+
 
 
 ## Architecture
