@@ -85,7 +85,7 @@ The system is especially well suited for organizations that want to **centralize
 
 ## Quick Start
 
-1. Install Microsoft SQL Server.
+1. Install Microsoft SQL Server. (only if you do not have one already)
 2. Restore the Harmonize database:
 
 ```
@@ -94,7 +94,8 @@ FROM DISK = 'Harmonize.bak'
 ```
 
 3. Open the C# solution in Visual Studio.
-4. Build and run the application.
+4. Build and run the application. (possible to use already compiled )
+To test drive Harmonize with a testdatabase in cloud see downloads at www.Harmonize.com
 
 Python examples are available in the `Python/` directory.
 
