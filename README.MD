@@ -27,6 +27,16 @@ Harmonize is designed for **organizations that need to store, share, and analyze
 The system is especially well suited for organizations that want to **centralize data from different sources**, make it **accessible to users with varying technical skills**, and enable **consistent analysis and comparison across domains and time frequencies**.
 
 
+
+
+## Harmonize Interface
+```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/eriksoeb/Harmonize/main/docs/harmonize2.jpg" width="800">
+</p>
+```
+
+
 ## Architecture
 
 
