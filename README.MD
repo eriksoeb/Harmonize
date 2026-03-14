@@ -1,8 +1,8 @@
 
 # Harmonize
 
-Harmonize is a time-series data platform designed to store, manage, and visualize datasets with different frequencies and base years.
-**without programming skills**, while also helping **management and analysts save time**.
+Harmonize is a time-series data platform designed to store, manage, and visualize datasets with different frequencies and base years — without requiring programming skills — while also helping analysts and management save time.
+
 
 The system enables analysts and non-technical users to:
 
@@ -35,20 +35,21 @@ The system is especially well suited for organizations that want to **centralize
 │                 CLIENT and USER LAYER                                    │
 │                                                                          │
 │  C# Desktop App     Python        R            Excel Addin               │
-│  - Visualization    - ETL         - Analysis   -read                     │
-│  - Highcharts       - Upserts     - Models     -update                   │
-│                                                -ad -hoc analysis         │
+│  - Visualization    - ETL         - Analysis   -Read                     │
+│  - Highcharts       - Upserts     - Models     -Update                   │
+│                                                -Ad -hoc analysis         │
 └───────────────┬───────────────┬──────────────────────────────────────────┘
                 │               │
                 │ calls stored procedures
                 │
 ┌───────────────v─────────────────────────────┐
-│           STORED PROCEDURE API              │
+│           STORED PROCEDURE API  (main ones) │
 │                                             │
-│  PutTime   / GetSeris                       │
-│  Create Loadset                             │
+│  GetSeris                                   │
+│  PutTime                                    │
+│  Create Datasets                            │
 │  Update Statistics                          │
-│  Delete Time Series / Data                  │
+│  Delete Time Series / Datasets              │
 │                                             │
 │  Centralized validation & business logic    │
 │                                             │
@@ -65,11 +66,30 @@ The system is especially well suited for organizations that want to **centralize
 │  - Timeseries                               │
 │  - Observations                             │
 │                                             │
-│  Time series stored in UTC                  │
+│  Time series using converions stored in UTC │
 │                                             │
 └─────────────────────────────────────────────┘
 
 ```
+
+
+## Quick Start
+
+1. Install Microsoft SQL Server.
+2. Restore the Harmonize database:
+
+```
+RESTORE DATABASE Harmonize
+FROM DISK = 'Harmonize.bak'
+```
+
+3. Open the C# solution in Visual Studio.
+4. Build and run the application.
+
+Python examples are available in the `Python/` directory.
+
+
+
 
 
 
