@@ -70,11 +70,10 @@ The system is especially well suited for organizations that want to **centralize
 
 
 
----
 
 ## Requirements
 
-### Database (Required)
+### Database (Required when you want to have control of your data)
 - **Microsoft SQL Server**
 - Database model: `Harmonize.sql`
 - Backup file: `Harmonize.bak`  
