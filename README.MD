@@ -26,7 +26,7 @@ Harmonize is designed for **organizations that need to store, share, and analyze
 
 The system is especially well suited for organizations that want to **centralize data from different sources**, make it **accessible to users with varying technical skills**, and enable **consistent analysis and comparison across domains and time frequencies**.
 
-
+The alternative to Horizon is to develop something unique for each statistical domain, and get spend a lot of time doing this, ending up with a system where you cannot compare, and yo need programmer skills to use, basically you will need to ask developers to get the data for you, and you end up with different formats in excel..
 
 
 ## Harmonize Interface
