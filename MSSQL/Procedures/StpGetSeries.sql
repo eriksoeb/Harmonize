@@ -14,7 +14,7 @@ GO
 
 
 
-CREATE OR ALTER                     procedure [dbo].[StpGetSeries]  --forsøker på dyn intervall fra view, samt utv 
+CREATE OR ALTER                     procedure [dbo].[StpGetSeries]  --forsÃ¸ker pÃ¥ dyn intervall fra view, samt utv 
 (	
 
 @curvename nvarchar(64),
@@ -41,17 +41,8 @@ declare @mystart datetime
 declare @myend datetime
 	
 
-	if (@myfunc is NULL or @myfunc='None')
-	begin
-	--select 'here'
 
-	--exec StpGetCurveDataOuter2 @curvename,@basis, @myinterval,@myfnlagint,@format, @agg, @top, @sort, NULL
-	
-	--exec StpGetSeriesOuter @curvename,@basis, @myinterval,@myfnlagint,@format, @agg, @top, @sort, NULL
-
-	--exec StpGetSeriesOuterTz
-
-	exec StpGetSeriesOuterTzls @curvename,@basis, @myinterval,@myfnlagint,@format, @agg, @top, @sort, NULL
+	exec StpGetSeries @curvename,@basis, @myinterval,@myfnlagint,@format, @agg, @top, @sort, NULL
 
 	
 	
