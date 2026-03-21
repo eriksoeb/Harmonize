@@ -1,5 +1,5 @@
 Data Source=localhost\MSSQLSERVER2022;Connection Timeout=5;Initial Catalog=Harmonize;Integrated Security=True;
-C:\Harmonized\Charts\
+C:\Harmonize\Charts\
 English;Albanian;Kenyan;Norwegian;гармонізувати;تنسجم;Hindi
 0
 1000
