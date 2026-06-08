@@ -198,6 +198,19 @@ Similar to Python — connects to SQL Server, calls stored procedures for readin
 
 ---
 
+## CSS
+
+There are two `Harmonize.css` files — keep core chart styles in sync between them:
+
+| File | Used by |
+|---|---|
+| `Desktop/WindowsFormsAppCSharp19/CSharp/bin/Debug/Harmonize.css` | C# app — **also** renders charts in an embedded web browser |
+| `www/Harmonize.css` | All web pages under `www/` and `www/demo/` |
+
+The web version adds `flex`/sticky-footer layout and `.demo-list`, `.download-box` classes not needed by the app. Core chart styles (`.topnav`, `#container`, `#chart-series-names`, `.series-hidden`, `.highcharts-data-table`) must stay identical in both.
+
+---
+
 ## Web Layer (www/)
 
 - Static HTML + CSS templates using **Highcharts**

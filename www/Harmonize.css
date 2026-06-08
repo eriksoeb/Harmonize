@@ -1,7 +1,13 @@
 /* =============================================
    Harmonize.css — unified stylesheet
    Used by: www/ and www/demo/ pages
-   C# app uses its own copy in bin/Debug/
+
+   NOTE: The C# app also renders charts in an embedded web browser
+   and uses its own copy at bin/Debug/Harmonize.css.
+   Core chart styles (topnav, container, series-names, highcharts-data-table)
+   must be kept in sync between both files.
+   This web version adds flex/sticky-footer layout and demo/download page
+   classes not needed by the app.
    ============================================= */
 
 /* --- Base layout --- */
