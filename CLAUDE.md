@@ -198,6 +198,21 @@ Similar to Python — connects to SQL Server, calls stored procedures for readin
 
 ---
 
+## HTML Chart Templates — Two Versions
+
+There are two sets of HTML chart templates that must be kept **separate** — do NOT merge or sync them:
+
+| Location | Used by | Data loading |
+|---|---|---|
+| `Desktop/WindowsFormsAppCSharp19/CSharp/bin/Debug/*.html` | C# app + setup package | Loads `.js` files via dynamic `<script>` tag (`window.seriesData = [...]`) |
+| `www/demo/*.html` | Web / browser | Loads `.json` files via `fetch()` |
+
+The `.js` format is required by the C# app because it uses a local file system (no web server, so `fetch()` is blocked by the browser). The web versions use pure JSON fetched over HTTP.
+
+When updating chart logic (tooltips, aggregations, date formats, legend behaviour), apply the change to **both** sets of templates.
+
+---
+
 ## CSS
 
 There are two `Harmonize.css` files — keep core chart styles in sync between them:
