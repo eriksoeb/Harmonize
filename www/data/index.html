@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonize – Data</title>
+    <link rel="stylesheet" type="text/css" href="../Harmonize.css">
+    <style>
+        .data-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+        }
+        .data-table th {
+            background-color: #00824d;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: middle;
+        }
+        .data-table tr:hover td {
+            background-color: #f0f8f4;
+        }
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 2px 3px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .btn-chart   { background-color: #00824d; color: white; }
+        .btn-report  { background-color: #004381; color: white; }
+        .btn-raw     { background-color: #888;    color: white; }
+        .btn:hover   { opacity: 0.85; }
+        .domain-header td {
+            background-color: #e8f5f0;
+            font-weight: bold;
+            color: #00824d;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-container">
+    <div class="topnav">
+        <a href="../index.html" class="active">Harmonize.no</a>
+        <a href="../demo/demo.html" class="active">Demo</a>
+    </div>
+</div>
+
+<main>
+    <h1>Data</h1>
+    <p>
+        Time series data published by Harmonize. Each dataset can be viewed as an interactive chart,
+        as a tabular report, or downloaded as raw JSON.
+    </p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Dataset</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="domain-header">
+                <td colspan="2">Consumer Price Index</td>
+            </tr>
+            <tr>
+                <td>Consumer Price Index – Totals</td>
+                <td>
+                    <a class="btn btn-chart"  href="../demo/Chart.html?filename=../data/cpi/CPI_chart.json">Chart</a>
+                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/cpi/CPI_chart.json">Report</a>
+                    <a class="btn btn-raw"    href="cpi/CPI_chart.json" target="_blank">JSON</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Consumer Price Index – Transport</td>
+                <td>
+                    <a class="btn btn-chart"  href="../demo/YearChart.html?filename=../data/cpi/CPI_Transportyear.json">Chart</a>
+                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/cpi/CPI_Transportyear.json">Report</a>
+                    <a class="btn btn-raw"    href="cpi/CPI_Transportyear.json" target="_blank">JSON</a>
+                </td>
+            </tr>
+
+            <tr class="domain-header">
+                <td colspan="2">Production Price Index</td>
+            </tr>
+            <tr>
+                <td>CPI &amp; PPI – Common base year 2023</td>
+                <td>
+                    <a class="btn btn-chart"  href="../demo/Chart.html?filename=../data/ppi/CPIPPI.json">Chart</a>
+                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/ppi/CPIPPI.json">Report</a>
+                    <a class="btn btn-raw"    href="ppi/CPIPPI.json" target="_blank">JSON</a>
+                </td>
+            </tr>
+
+            <tr class="domain-header">
+                <td colspan="2">Energy</td>
+            </tr>
+            <tr>
+                <td>Waterlevels – Reservoir fill rate, year over year</td>
+                <td>
+                    <a class="btn btn-chart"  href="../demo/YearChart.html?filename=../data/energy/Waterlevel_year.json">Chart</a>
+                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/energy/Waterlevel_year.json">Report</a>
+                    <a class="btn btn-raw"    href="energy/Waterlevel_year.json" target="_blank">JSON</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p><strong>Timed and Tailored &copy; 2026</strong></p>
+    <small>erik.soeberg&#64;ssb&#46;no</small>
+</footer>
+
+</body>
+</html>
