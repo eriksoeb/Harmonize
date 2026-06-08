@@ -8,6 +8,10 @@ release/
 *.pdb
 *.cache
 
+# Allow CSS and HTML templates in bin/Debug (used for Harmonize setup)
+!**/bin/Debug/*.css
+!**/bin/Debug/*.html
+
 # Visual Studio
 .vs/
 *.suo
