@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLAddIn", "SQLAddIn.csproj", "{2E7C0674-25E0-4F42-B216-5A509932BDF1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SQLAddInSetup", "SQLAddInSetup\SQLAddInSetup.vdproj", "{BBAF1A14-700B-47E9-AFB0-8A9025F8A312}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = Harmonizr
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E7C0674-25E0-4F42-B216-5A509932BDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7C0674-25E0-4F42-B216-5A509932BDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7C0674-25E0-4F42-B216-5A509932BDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7C0674-25E0-4F42-B216-5A509932BDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAF1A14-700B-47E9-AFB0-8A9025F8A312}.Debug|Any CPU.ActiveCfg = Debug
+		{BBAF1A14-700B-47E9-AFB0-8A9025F8A312}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5615DACF-B12E-43C1-830E-41B250E922D8}
+	EndGlobalSection
+EndGlobal
