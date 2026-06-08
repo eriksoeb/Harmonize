@@ -98,7 +98,7 @@ const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
         // Date format switch
         let dateFmt;
         switch (FREQ) {
-            case 'MONTHLY': dateFmt = '%B %Y'; break;      // August 2025
+            case 'MONTHLY': dateFmt = '%Y-%m-%d'; break;
 			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
             case 'DAILY': dateFmt = '%Y-%m-%d'; break;
             case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
