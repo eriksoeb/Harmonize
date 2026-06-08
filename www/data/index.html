@@ -8,7 +8,7 @@
     <style>
         .data-table {
             width: 100%;
-            max-width: 900px;
+            max-width: 960px;
             margin: 2rem auto;
             border-collapse: collapse;
         }
@@ -36,15 +36,29 @@
             font-weight: bold;
             white-space: nowrap;
         }
-        .btn-chart   { background-color: #00824d; color: white; }
-        .btn-report  { background-color: #004381; color: white; }
-        .btn-raw     { background-color: #888;    color: white; }
-        .btn:hover   { opacity: 0.85; }
+        .btn-chart      { background-color: #00824d; color: white; }
+        .btn-multichart { background-color: #3a7d44; color: white; }
+        .btn-report     { background-color: #004381; color: white; }
+        .btn-raw        { background-color: #888;    color: white; }
+        .btn:hover      { opacity: 0.85; }
         .domain-header td {
             background-color: #e8f5f0;
             font-weight: bold;
             color: #00824d;
             padding: 8px 12px;
+        }
+        .published {
+            white-space: nowrap;
+            color: #555;
+            font-size: 13px;
+        }
+        .info-box {
+            max-width: 960px;
+            margin: 1rem auto 0 auto;
+            padding: 10px 16px;
+            background-color: #f0f8f4;
+            border-left: 4px solid #00824d;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -64,28 +78,45 @@
         as a tabular report, or downloaded as raw JSON.
     </p>
 
+    <div class="info-box">
+        To download data as <strong>CSV or XLS</strong>, open a Chart and use the menu in the upper right corner of the chart.
+    </div>
+
     <table class="data-table">
         <thead>
             <tr>
                 <th>Dataset</th>
-                <th>View</th>
+                <th>Published</th>
+                <th>View / Download</th>
             </tr>
         </thead>
         <tbody>
 
             <tr class="domain-header">
-                <td colspan="2">Consumer Price Index</td>
+                <td colspan="3">Consumer Price Index</td>
             </tr>
             <tr>
                 <td>Consumer Price Index – Totals</td>
+                <td class="published">2026-06-08</td>
                 <td>
-                    <a class="btn btn-chart"  href="../demo/Chart.html?filename=../data/cpi/CPI_chart.json">Chart</a>
-                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/cpi/CPI_chart.json">Report</a>
-                    <a class="btn btn-raw"    href="cpi/CPI_chart.json" target="_blank">JSON</a>
+                    <a class="btn btn-chart"      href="../demo/Chart.html?filename=../data/cpi/CPI_chart.json">Chart</a>
+                    <a class="btn btn-multichart" href="../demo/MultiChart.html?filename=../data/cpi/CPI_chart.json">MultiChart</a>
+                    <a class="btn btn-report"     href="../demo/Report.html?filename=../data/cpi/CPI_chart.json">Report</a>
+                    <a class="btn btn-raw"        href="cpi/CPI_chart.json" target="_blank">JSON</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Consumer Price Index – Multiple series</td>
+                <td class="published">2026-06-08</td>
+                <td>
+                    <a class="btn btn-multichart" href="../demo/MultiChart.html?filename=../data/cpi/CPI_Multichart.json">MultiChart</a>
+                    <a class="btn btn-report"     href="../demo/Report.html?filename=../data/cpi/CPI_Multichart.json">Report</a>
+                    <a class="btn btn-raw"        href="cpi/CPI_Multichart.json" target="_blank">JSON</a>
                 </td>
             </tr>
             <tr>
                 <td>Consumer Price Index – Transport</td>
+                <td class="published">2026-06-08</td>
                 <td>
                     <a class="btn btn-chart"  href="../demo/YearChart.html?filename=../data/cpi/CPI_Transportyear.json">Chart</a>
                     <a class="btn btn-report" href="../demo/Report.html?filename=../data/cpi/CPI_Transportyear.json">Report</a>
@@ -94,22 +125,24 @@
             </tr>
 
             <tr class="domain-header">
-                <td colspan="2">Production Price Index</td>
+                <td colspan="3">Production Price Index</td>
             </tr>
             <tr>
-                <td>CPI &amp; PPI – Common base year 2023</td>
+                <td>Production Price Index</td>
+                <td class="published">2026-06-08</td>
                 <td>
-                    <a class="btn btn-chart"  href="../demo/Chart.html?filename=../data/ppi/CPIPPI.json">Chart</a>
-                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/ppi/CPIPPI.json">Report</a>
-                    <a class="btn btn-raw"    href="ppi/CPIPPI.json" target="_blank">JSON</a>
+                    <a class="btn btn-chart"  href="../demo/Chart.html?filename=../data/ppi/PPI.json">Chart</a>
+                    <a class="btn btn-report" href="../demo/Report.html?filename=../data/ppi/PPI.json">Report</a>
+                    <a class="btn btn-raw"    href="ppi/PPI.json" target="_blank">JSON</a>
                 </td>
             </tr>
 
             <tr class="domain-header">
-                <td colspan="2">Energy</td>
+                <td colspan="3">Energy</td>
             </tr>
             <tr>
                 <td>Waterlevels – Reservoir fill rate, year over year</td>
+                <td class="published">2026-06-08</td>
                 <td>
                     <a class="btn btn-chart"  href="../demo/YearChart.html?filename=../data/energy/Waterlevel_year.json">Chart</a>
                     <a class="btn btn-report" href="../demo/Report.html?filename=../data/energy/Waterlevel_year.json">Report</a>
