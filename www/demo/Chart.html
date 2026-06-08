@@ -76,30 +76,29 @@ Must load BEFORE chart -->
 <script>
 
 
+let seriesData;
+
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
 // Use default if parameter missing
-let fileName = getQueryParam("filename") || "Mydata.js";
+let fileName = getQueryParam("filename") || "Mydata.json";
 
-//const script = document.createElement("script");
-//script.src = "file:///C:/Harmonized/Charts/" + fileName;
-//web
-const script = document.createElement("script");
-script.src = fileName;
-
-script.onload = function () {
-    console.log("Data file loaded:", fileName);
-    initChart();
-};
-
-script.onerror = function () {
-    alert("Failed to load data file: " + fileName);
-};
-
-document.head.appendChild(script);
+fetch(fileName)
+    .then(response => {
+        if (!response.ok) throw new Error("Failed to load: " + fileName);
+        return response.json();
+    })
+    .then(json => {
+        console.log("Data file loaded:", fileName);
+        seriesData = Array.isArray(json) ? json : [json];
+        initChart();
+    })
+    .catch(err => {
+        alert(err.message);
+    });
 
 
 
@@ -118,7 +117,7 @@ const chartSeries = seriesData[0].series.map(s => ({
 
 
 
-const DECIMALS = seriesData[0].decimal ?? 1;  //default
+const DECIMALS = seriesData[0].deci ?? 1;  //default
 const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
 
         // Date format switch
