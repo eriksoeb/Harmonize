@@ -7,7 +7,14 @@
       "Bash(git init:*)",
       "Bash(git remote:*)",
       "Bash(git add:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(grep -E \"\\\\.\\(bak|exe|dll|pdb\\)$|connection.*\\\\.txt\")",
+      "Bash(git push:*)",
+      "Bash(powershell:*)",
+      "Bash(mv:*)",
+      "Bash(sed -i 's|demo/demo.html|templates/demo.html|g; s|href=\"demo/|href=\"templates/|g' C:/HarmonizeCode/www/index.html)",
+      "Bash(sed -i 's|\\\\.\\\\./demo/|../templates/|g' C:/HarmonizeCode/www/data/index.html)",
+      "Bash(sed -i 's|href=\"demo.html\"|href=\"../templates/demo.html\"|g; s|href=\"../index.html\"|href=\"../index.html\"|g' C:/HarmonizeCode/www/templates/article.html)"
     ]
   }
 }
