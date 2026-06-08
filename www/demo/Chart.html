@@ -156,14 +156,6 @@ const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
 		//title: {text: seriesData[0].mytitle ,    align: 'center', verticalAlign: 'top', style:{ fontSize :'14'}, y: 20,floating: true }, 
 		
 		
-		  exporting: {
-            showTable: false,
-            tableCaption: '',
-            filename: 'MyChart',
-			csv: { dateFormat: dateFmt },
-            buttons: { contextButton: { menuItems: ['downloadCSV', 'separator','viewData', 'separator','printChart'] } }
-        },
-
 		exporting: {
     showTable: false,
     tableCaption: '',
@@ -184,7 +176,17 @@ const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
                 'downloadPDF',
                 'downloadSVG',
 				'separator',
-                'viewData',
+                {
+                    textKey: 'viewData',
+                    onclick: function () {
+                        this.toggleDataTable();
+                        var namesDiv = document.getElementById('chart-series-names');
+                        var tableDiv = document.querySelector('.highcharts-data-table');
+                        if (tableDiv && namesDiv && tableDiv.parentNode) {
+                            tableDiv.parentNode.insertBefore(namesDiv, tableDiv);
+                        }
+                    }
+                },
                 'separator',
                 'printChart',
 				'separator'
