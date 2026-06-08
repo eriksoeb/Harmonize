@@ -1,0 +1,58 @@
+﻿name,unit,date,value,desc,doc
+CURVE,20,01/05/2023,147, test curve,ignored column 1
+CURVE,20,01/06/2023,167, test curve,ignored column 1
+DEMOCURVE,20,01/06/2023,125.1,demoe test,med luft
+DEMOCURVE,20,01/07/2023,175.1,demoe test,med luft
+KENYA,20,01/06/2023,125.1,"test, comma test",med luft
+KENYA,20,01/07/2023,175.1,test,med luft
+GeorgsCURVE,20,01/07/2023,675.1,date sjekk hist,med luft
+GeorgsCURVE,20,01/08/2023,775.1,date sjekk hist,med luft
+GeorgsCURVE,20,01/09/2023,675.1,date sjekk hist,med luft
+GeorgsCURVE,20,01/09/1920,920.1,date sjekk hist,med luft
+GeorgsCURVE,20,01/01/1900,819,date sjekk hist,med luft
+GeorgsCURVE,20,1889-09-01,891.1,date sjekk hist,med luft
+GeorgsCURVE,20,1880-09-01,892.1,date sjekk hist,med luft
+GeorgsCURVE,20,1850-09-01,893.1,date sjekk hist,med luft
+GeorgsCURVE,20,1801-01-01,894.1,date sjekk hist,med luft
+GeorgsCURVE,20,1780-09-01,895.1,date sjekk hist,med luft
+GeorgsCURVE,20,1761-01-01,896.1,date sjekk hist,med luft
+GeorgsCURVE,20,1753-02-01,897.1,date sjekk hist,med luft
+moss,20,01/09/1990,895.1,this works sjekk hist,med luft
+moss,20,01/09/1995,899.1,this works sjekk hist,med luft
+sommervinter,20,2023-10-28T22:00:00,-2,lagret as utc,hei
+sommervinter,20,2023-10-28T23:00:00,-1,lagret as utc,hoi
+sommervinter,20,2023-10-29T00:00:00,0.8,lagret as utc,hei
+sommervinter,20,2023-10-29T01:00:00,1,lagret as utc,hoi
+sommervinter,20,2023-10-29T02:00:00,2,lagret as utc,hoi
+sommervinter,20,2023-10-29T03:00:00,3,lagret as utc,hoi
+sommervinter,20,2023-10-29T22:00:00,22,lagret as utc,hoi
+sommervinter,20,2023-10-29T23:00:00,23,Saved as utc,hoi
+vintersommer,20,2023-03-25T22:00:00,-22,frem lagret as utc,hei
+vintersommer,20,2023-03-25T23:00:00,-23,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T00:00:00,0,frem lagret as utc,hei
+vintersommer,20,2023-03-26T01:00:00,1,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T02:00:00,2,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T03:00:00,3,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T04:00:00,4,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T05:00:00,5,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T06:00:00,6,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T07:00:00,7,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T08:00:00,8,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T09:00:00,9,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T10:00:00,10,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T11:00:00,11,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T12:00:00,12,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T13:00:00,13,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T14:00:00,14,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T15:00:00,15,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T16:00:00,16,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T17:00:00,17,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T18:00:00,18,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T19:00:00,19,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T20:00:00,20,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T21:00:00,21,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T22:00:00,22,frem lagret as utc,hoi
+vintersommer,20,2023-03-26T23:00:00,23,frem lagret as utc,hoi
+vintersommer,20,2023-03-27T00:00:00,270,frem lagret as utc,hoi
+vintersommer,20,2023-03-27T01:00:00,271,frem lagret as utc,hoi
+vintersommer,20,2023-03-27T02:00:00,272,Saved as utc winter,hoi

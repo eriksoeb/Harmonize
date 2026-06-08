@@ -1,0 +1,282 @@
+/*
+ body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+		*/
+		
+		
+		
+		
+.demo-list {
+    margin-top: 20px;
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+.demo-list li {
+    margin-bottom: 8px;
+}
+
+.demo-image {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.demo-image img {
+    max-width: 100%;
+    height: auto;
+}
+		
+		
+	
+
+.download-box {
+    max-width: 800px;
+    padding: 22px;
+    border: 2px solid #0078D7;
+    border-radius: 8px;
+    background-color: #f7f9fc;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 14px 26px;
+    margin: 15px 10px 0 10px;
+    background-color: #0078D7;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.download-button:hover {
+    background-color: #005a9e;
+}
+
+.instructions {
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+
+	
+		
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        header, footer {
+            background: #00824d;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #004381;
+            font-weight: bold;
+        }
+       		main {
+		flex: 1;              /* This pushes footer down */
+		padding: 2rem;
+		max-width: 800px;
+		margin: auto;
+		background: #fff;
+}
+		
+			
+        footer small {
+            display: block;
+            margin-top: 0.5rem;
+        }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#charts-wrapper {
+    height: 100vh;   /* or any fixed value for mulichart container 30% */
+}
+
+
+/* Basic page setup */
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    background-color: white;
+    color: black;
+}
+
+/* highchart ghosting selected  */
+.series-hidden {
+    text-decoration: line-through;
+    opacity: 0.6; /* optional: ghost effect single chart only*/
+}
+
+
+
+/* Release.html table css  */
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #00824d;
+    position: relative;
+    display: flex;           /* horizontal layout */
+    justify-content: flex-start; /* or center / space-around */
+}
+
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: inline-block;   /* inline-block or remove 'block' */
+}
+
+
+
+.topnav a:hover {
+    color: #949494;
+    background-color: #00824d;
+}
+
+.active {
+    background-color: #00824d;
+    color: gray;
+}
+
+
+.active_seagreen {
+    background-color: SeaGreen;
+    color: black;
+}
+
+/* Chart container */
+#container {
+    width: 100%;
+    height: 80vh;  /* occupy 80% of viewport height */
+    margin: 0 auto;
+}
+
+/* Series names container below chart */
+#chart-series-names {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Optional: colored squares in legend */
+.series-name span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Highcharts data table styling (if using export table) */
+.highcharts-data-table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: white;
+    min-width: 100%;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.highcharts-data-table td, 
+.highcharts-data-table th, 
+.highcharts-data-table caption {
+    border: 1px solid silver;
+    padding: 0.5em;
+}
+
+.highcharts-data-table tr:nth-child(even), 
+.highcharts-data-table thead tr {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #eff;
+}
+
+.highcharts-data-table caption {
+    border-bottom: none;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+

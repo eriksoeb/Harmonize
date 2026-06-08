@@ -1,0 +1,47 @@
+# Build output
+bin/
+obj/
+debug/
+release/
+*.exe
+*.dll
+*.pdb
+*.cache
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+UpgradeLog.htm
+*.aps
+
+# Database backups (large binary files)
+*.bak
+
+# Connection strings (may contain credentials)
+connection.txt
+connection2023.txt
+connectionold.txt
+connection_tst.txt
+
+# VSTO keys
+*_TemporaryKey.pfx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated chart data
+MyData.js
+
+# Claude Code local settings
+.claude/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

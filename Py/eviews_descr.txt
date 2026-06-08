@@ -1,0 +1,183 @@
+ARD Exog Exog Arrears and discrepancy
+BMOILREV Endog Eq17 Benchmark oil revenue
+CA Endog Eq97 Current account
+CAD Endog Eq98 Current account, US dollars
+CG Endog Eq26 General government consumption expenditure, constant prices
+CNPISH Exog Exog Consumption by non-profit institution serving households, constant prices
+CONS Endog Eq102 Total consumption expenditure, constant prices
+CP Endog Eq65 Private consumption expenditure (Households), constant prices
+DD Endog Eq114 Domestic demand, constant prices
+DMW Endog Eq124 Daily minimum wage
+DOMDEBT Endog Eq37 Domestic debt stock
+E Endog Eq120 Total employment
+EG Exog Exog Employment Government sector, number of persons
+EO Exog Exog Employment in the oil industry
+EP Endog Eq119 Employment in the private non-oil sector
+EXTDEBTGHC Endog Eq38 Government debt, external, in million Ghana Cedis
+EXTDEBTUSD Exog Exog Foreign debt stock, US dollars
+GBAL Endog Eq40 Government balance (including grants)
+GBALCASHD Endog Eq41 Overall balance (incl. Divestiture and Discrepancy)
+GBALPRIM Endog Eq43 Government primary balance (including grants)
+GBALPRIMXGRANT Endog Eq44 Government primary balance (excluding grants)
+GBALPRIMXO Endog Eq45 Non-oil primary balance including grants
+GBALXGRANT Endog Eq42 Government balance (excluding grants)
+GDI Endog Eq115 Terms-of-trade adjusted GDP
+GDPWLD Exog Exog GDP world, 2010 constant USD
+GEXPOTH Exog Exog Government expenditures other
+GEXPTOT Endog Eq34 Total government expenditures
+GEXPTOTARD Endog Eq35 Expenditure (II. EXPENDITURE)
+GHCUSD Exog Exog Exchange rate Ghanaian Cedi versus US dollar
+GHCUSDI Endog Eq73 USD GHC exchange rate (index = 1 in base year)
+GOVDEBT Endog Eq39 Total government debt
+GPOB Exog Exog Gross production of oil, million barrels
+GRANTS Exog Exog Grants (foreign aid), current value
+GRAT Exog Exog Gratuities
+Variable Type Description
+GREV Endog Eq2 Government revenues, current value
+GREVTOT Endog Eq1 Government revenue total (incl. grants), current value
+HTRATE Endog Eq68 Households tax rate
+I Endog Eq92 Imports of goods and services, constant prices
+INTDOM Endog Eq31 Government interest payments, domestic debt
+INTEXT Endog Eq32 Government interest payments, external debt
+INTG Endog Eq33 Government interest payments, total
+IRATE Endog Eq93 Ratio of imports to private sector GDP
+IRDOM Endog Eq36 Interest rate government domestic debt
+IREXT Exog Exog Interest rate government external debt
+J Endog Eq105 Total Investment, constant prices
+JG Exog Exog Public sector investment, constant prices
+JO Exog Exog Oil Investment, constant prices
+JP Endog Eq49 Private sector investment, constant prices
+JS Endog Eq108 Change in stocks, constant prices
+JSO Exog Exog Change in stocks and statistical discrepancy Oil, constant prices
+JSP Endog Eq56 Change in stocks and statistical discrepancy Private, constant prices
+LF Endog Eq121 Labour force
+LFPR Exog Exog Labour force participation rate
+MG Exog Exog Government purchases of goods and services, constant prices
+MO Endog Eq51 Intermediate use in the oil sector, constant prices
+MORATE Exog Exog Ratio of intermediate use in the oil sector to oil GDP
+MPR Exog Exog Monetary policy rate
+NETINVINC Endog Eq95 Investment income (net)
+NETINVINCD Endog Eq99 Investment income (net), US dollars
+NETTRANS Endog Eq96 Transfers (net)
+NETTRANSD Endog Eq100 Transfers (net), US dollars
+NTRDIP Endog Eq7 Dividend/Interest & Profits from Oil
+NTREV Endog Eq14 Government non-tax revenue, current value
+NTREVOG Endog Eq15 Non-tax revenue from oil and gas
+NTREVXOG Exog Exog Non-tax revenue non oil and gas
+NTRGAS Exog Exog Gas receipt
+NTRSR Exog Exog Surface rental
+OILREV Endog Eq16 Oil revenue
+PCG Endog Eq27 Government consumption deflator
+PCONS Endog Eq103 Total consumption deflator
+PCP Endog Eq66 Private consumption deflator
+PENS Exog Exog Pensions
+PGAP Endog Eq117 Gap between current inflation and inflation target
+PI Endog Eq94 Import price deflator
+PI_CORR Exog Exog Import deflator, multiplicative residual
+Variable Type Description
+PJ Endog Eq106 Total investment deflator
+PJG Endog Eq24 Government investment deflator
+PJG_CORR Exog Exog Public investment deflator, multiplicative residual
+PJO Endog Eq54 Oil investment, deflator
+PJO_CORR Exog Exog Oil investment deflator, multiplicative residual
+PJP Endog Eq70 Private sector investment, deflator
+PJP_CORR Exog Exog Private investment deflator, multiplicative residual
+PJS Endog Eq109 Change in stocks, deflator
+PJSO Endog Eq57 Change in stocks oil, deflator
+PJSO_CORR Exog Exog Change in stocks oil sector, deflator, multiplicative residual
+PJSP Endog Eq72 Change in stocks private sector, deflator
+PJSP_CORR Exog Exog Change in stocks private sector, deflator, multiplicative residual
+PMG Endog Eq22 Government purchases of goods and services deflator, deflator
+PMG_CORR Exog Exog Government purchases of goods and services deflator, multiplicative residual
+PMO Endog Eq52 Intermediate use oil deflator, deflator
+PMO_CORR Exog Exog Intermediate use, oil sector, deflator, multiplicative residual
+PNFUELW Exog Exog Commodity Non-Fuel Price Index, 2005=100
+POIL Exog Exog Crude Oil Price, Brent US Dollars per Barrel
+POPWORK Endog Eq118 Working age population (over the age of 15 years)
+PTARGET Exog Exog Inflation target
+PX Endog Eq90 Total export, deflator
+PXCOCOA Endog Eq79 Export of cocoa, deflator
+PXCOCOAUSD Exog Exog Export of cocoa, price in US$ per metric ton
+PXGOLD Endog Eq81 Export of gold, deflator
+PXGOLDUSD Exog Exog Export of gold, price $ per ounce
+PXNO Endog Eq87 Non-oil export, deflator
+PXO Endog Eq76 Oil export, deflator
+PXOTH Endog Eq84 Other exports, deflator
+PY Endog Eq112 Total GDP, deflator
+PYG Endog Eq30 Value added government sector deflator
+PYO Endog Eq61 Value added oil sector deflator
+PYP Endog Eq48 Value added private non-oil, deflator
+RER Endog Eq74 Real exchange rate
+REVOTH Exog Exog Other revenues government, current value
+REVSC Endog Eq13 Social Contributions, government revenue, current value
+RPDI Endog Eq67 Real personal disposable income
+SOC Endog Eq19 Social contribution, current value
+SOSE Exog Exog Social Security
+TDCO Exog Exog Company taxes on oil
+TGS Endog Eq4 Taxes on domestic goods and services, current value
+TGSRATE Exog Exog Ratio of taxes on domestic goods and services to value of consumption
+Variable Type Description
+TIP Endog Eq9 Taxes on income and property, current value
+TIPOG Endog Eq6 Taxes on income and property - oil and gas
+TIPXOG Endog Eq5 Taxes on income and property - excluding oil and gas
+TIPXOGRATE Exog Exog Ratio of tax on income and property net of oil to GDP
+TIT Endog Eq12 Taxes on international trade, current value
+TITI Endog Eq10 Import duties, current value
+TITIE Exog Exog Import exemption
+TITIRATE Exog Exog Ratio of import duties to value of import
+TITX Endog Eq11 Export duties, current value
+TITXRATE Exog Exog Ratio of export duties to value of exports
+TNTRDIP Exog Exog Ratio between Dividends/interest & profit from oil and value of oil production
+TRANSNOC Exog Exog Transfers to National Oil Company
+TREF Exog Exog Tax refunds
+TREV Endog Eq3 Tax revenues, current value
+TROIL Endog Eq8 Royalties from oil and gas
+TTROIL Exog Exog Ratio of Royalties from oil and gas in value of oil production
+U Endog Eq122 Unemployment (number of persons)
+ULCP Endog Eq126 Unit labor costs in private non-oil sector
+UR Endog Eq123 Unemployment rate (percent)
+VCG Endog Eq25 General government consumption expenditure, current prices
+VCONS Endog Eq101 Total consumption, current value
+VCP Endog Eq64 Private consumption expenditure (Households), current prices
+VDD Endog Eq113 Domestic demand, current prices
+VI Endog Eq91 Imports of goods and services, current prices
+VJ Endog Eq104 Total Investment, current prices
+VJG Endog Eq23 Public sector investment, current prices
+VJO Endog Eq53 Oil investments, current value
+VJP Endog Eq69 Private sector investment, current prices
+VJS Endog Eq107 Change in stocks, current prices
+VJSO Endog Eq55 Change in stocks of oil, current value
+VJSP Endog Eq71 Change in stocks of the private non-oil sector, current value
+VMG Endog Eq21 Purchases of goods and services, current value
+VMO Endog Eq50 Intermediate use oil sector, current value
+VPO Endog Eq58 Gross value oil production
+VWG Endog Eq18 Wages and salaries government, current value
+VWGSOC Endog Eq20 Compensation of employees, government
+VX Endog Eq88 Exports of goods and services, current prices
+VXCOCOA Endog Eq77 Export of cocoa, current value
+VXGOLD Endog Eq80 Export of gold, current value
+VXNO Endog Eq86 Non-oil export, current value
+VXO Endog Eq75 Oil exports, current value
+Variable Type Description
+VXOTH Endog Eq82 Other exports, current value
+VY Endog Eq110 GDP total, current value
+VYG Endog Eq28 Value added government, current prices
+VYO Endog Eq59 Value added crude oil, current prices
+VYP Endog Eq46 Value added private non-oil, current prices
+WG Endog Eq125 Wage rate government sector
+X Endog Eq89 Exports of goods and services, constant prices
+XCOCOA Endog Eq78 Export of cocoa, constant price
+XGOLD Exog Exog Export of gold, constant price
+XNO Endog Eq85 Non-oil export, constant price
+XO Endog Eq62 Export of crude oil, constant prices
+XOB Endog Eq63 Export of oil, barrels
+XOBRATE Exog Exog Ratio of oil export (barrels) to oil export (constant prices)
+XOTH Endog Eq83 Other exports, constant prices
+Y Endog Eq111 Gross Domestic Product, constant prices (purchasers’ value)
+YEAR Exog Exog
+YG Endog Eq29 Value added government, constant prices
+YGAP Endog Eq116 Output gap
+YO Endog Eq60 Value added crude oil, constant prices
+YORATE Exog Exog Ratio of value added in oil sector (constant prices) to Gross production of oil (Million barrels)
+YP Endog Eq47 Value added private non-oil, constant prices
+YTREND Exog Exog Trend GDP (real) (smoothed with HP-filter)

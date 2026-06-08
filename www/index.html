@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="HarmonizeNO.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="https://harmonize.no/images/no.png" type="image/png">
+    <title>Harmonize.no</title>
+</head>
+<body>
+    <header>
+        <h1>Harmonize - It's about Time !</h1>
+        <p>A scalable and generic time-series platform consisting of an MSSQL database model, Windows application for analyzing multiple statistical domains organized by time</p>
+		<p>Software is free to use for non profit organizations. The API is providing, the App, SQLAddin, and python script with read and write access, which is customizable.</p>
+    <p><i>Application for Digital Public Goods (DPG) status is currently under review.</i></p>
+	</header>
+
+    <nav>
+	<a href="install/HarmonizeGuide.pdf">Guide</a>
+        <a href="install/install.html">Downloads</a>
+	
+        <a href="demo/demo.html">Demo-charts</a>
+    </nav>
+
+    <main>
+
+        <p>Welcome to <strong>Harmonize</strong>. Use the menu above to navigate to:</p>
+        <ul>
+		<li><strong>Guide</strong> (Users guide & documentation)</li>
+        <li><strong>Downloads</strong> (install with admin rights, or copy files without)</li>      
+        <li><strong>Demo</strong> Chart samples created by Harmonize</li>
+        </ul>
+		
+		
+	
+	    <!-- Centered Image -->
+    <div class="demo-image">
+        <img src="harmonize2.jpg" alt="Harmonize Demo">
+    </div>	
+
+
+	    <!-- Centered addin Image -->
+    <div class="demo-image">
+        <img src="sqladdin.jpg" alt="xlssqladdin">
+    </div>	
+
+
+
+<BR>
+<BR>
+<p><strong>Harmonize</strong> is a flexible platform for managing, analyzing, and publishing statistical data. 
+It enables users to combine datasets, automate workflows, and deliver results across multiple tools and formats. 
+It helps organizations share data efficiently and promotes transparency.</p>
+
+<p><strong>Main features</strong></p>
+
+<ul>
+    <li><strong>Data management</strong>
+        <ul>
+            <li>Access and explore datasets based on your permissions</li>
+            <li>Upload and download CSV data files</li>
+            <li>Export data to CSV from charts or directly from the application</li>
+            <li>View access reports showing who has access to which datasets</li>
+        </ul>
+    </li>
+
+    <li><strong>Analysis & visualization</strong>
+        <ul>
+            <li>Combine and analyze time series of different frequencies in a single chart</li>
+            <li>Compare datasets with different base years (e.g. 2015=100 vs 2020=100) in the same view</li>
+            <li>Create overlay charts to compare periods (e.g. year-over-year)</li>
+            <li>Generate multi-chart views with one chart per series or dataset</li>
+            <li>Flexible reporting options with both horizontal and vertical data layouts</li>
+            <li>Save and reuse your selections – automatically repopulated with fresh data</li>
+            <li>Supports dynamic intervals (e.g. always current year) and static intervals</li>
+            <li>Publish charts easily and reuse them on any website</li>
+        </ul>
+    </li>
+
+    <li><strong>Functions & aggregations</strong>
+        <ul>
+            <li>Built-in aggregation functions: <code>avg_quarter</code>, <code>avg_year</code></li>
+            <li>Difference function: <code>diff_n</code></li>
+            <li>Percentage change functions: <code>pct_1</code>, <code>pct_2</code>, … <code>pct_n</code> (lag-based)</li>
+            <li>Timezone-aware aggregations – data stored in UTC, displayed in configured timezone</li>
+            <li>Correctly handles summer/winter time (DST) transitions for high-frequency data</li>
+        </ul>
+    </li>
+
+    <li><strong>Integration</strong>
+        <ul>
+            <li>Integrate with Python, R, and MSSQL for data upload and retrieval</li>
+            <li><strong>Excel add-in (v1.0)</strong> – Retrieve and update data directly from Excel</li>
+            <li>API support for upserting, creating and deleting datasets</li>
+            <li>Stored procedure API: <code>GetSeries</code>, <code>PutTime</code>, <code>Create Datasets</code>, <code>Delete</code></li>
+        </ul>
+    </li>
+
+    <li><strong>Standards & export</strong>
+        <ul>
+            <li><strong>PX-Web export</strong> – Generate PX-Web compatible files directly from Harmonize</li>
+            <li>Export data in multiple formats including JSON, CSV, and Excel (XLS)</li>
+            <li>Uses a clean, structured JSON format as a standard data interface</li>
+        </ul>
+    </li>
+
+    <li><strong>Customization</strong>
+        <ul>
+            <li>Customizable HTML/JavaScript templates for charts, multi-charts, overlays, and reports</li>
+            <li>Configure visual settings such as color schemes and dynamic or fixed intervals</li>
+            <li>Multilingual UI – currently includes English, Norwegian, Ukrainian, Albanian, Hindi, and Arabic</li>
+            <li>Add new languages or refine existing translations without developer involvement</li>
+            <li>Users can manage and maintain their own datasets within the system</li>
+        </ul>
+    </li>
+</ul>
+
+
+
+
+	
+
+    </main>
+
+    <footer>
+         <p><strong>Timed and Tailored &copy; 2026</strong></p>
+		 <small>erik.soberg&#64;ssb&#46;no</small>
+    </footer>
+
+</body>
+</html>
