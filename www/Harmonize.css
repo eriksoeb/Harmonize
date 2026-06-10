@@ -56,7 +56,9 @@ nav a {
 main {
     flex: 1;              /* pushes footer to bottom */
     padding: 2rem;
-    max-width: 800px;
+    max-width: 1400px;
+    width: 100%;
+    box-sizing: border-box;
     margin: auto;
     background: #fff;
 }

@@ -8,7 +8,7 @@
     <style>
         .data-table {
             width: 100%;
-            max-width: 960px;
+            max-width: 1400px;
             margin: 2rem auto;
             border-collapse: collapse;
         }
@@ -53,7 +53,7 @@
             font-size: 13px;
         }
         .info-box {
-            max-width: 960px;
+            max-width: 1400px;
             margin: 1rem auto 0 auto;
             padding: 10px 16px;
             background-color: #f0f8f4;
@@ -170,10 +170,12 @@ document.querySelectorAll('td.published[data-json]').forEach(function(td) {
             var lm = r.headers.get('Last-Modified');
             if (lm) {
                 var d = new Date(lm);
-                var yyyy = d.getUTCFullYear();
-                var mm   = String(d.getUTCMonth() + 1).padStart(2, '0');
-                var dd   = String(d.getUTCDate()).padStart(2, '0');
-                td.textContent = yyyy + '-' + mm + '-' + dd;
+                var yyyy = d.getFullYear();
+                var mm   = String(d.getMonth() + 1).padStart(2, '0');
+                var dd   = String(d.getDate()).padStart(2, '0');
+                var hh   = String(d.getHours()).padStart(2, '0');
+                var min  = String(d.getMinutes()).padStart(2, '0');
+                td.textContent = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + min;
             } else {
                 td.textContent = '–';
             }
