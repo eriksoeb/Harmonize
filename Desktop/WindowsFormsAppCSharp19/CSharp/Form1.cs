@@ -2906,7 +2906,7 @@ Globals.AppName
 
                         
                         //convertLastesToPXToolStripMenuItem new
-                        convertLastesToPXToolStripMenuItem.Text = words[Globals.LangColumn];
+                        //convertLastesToPXToolStripMenuItem.Text = words[Globals.LangColumn];
                         line = streamReader.ReadLine(); words = line.Split(',');
 
 
@@ -4383,10 +4383,10 @@ Globals.AppName
             using (SaveFileDialog dlg = new SaveFileDialog())
             {
                 dlg.Title = "Save data file as...";
-                dlg.Filter = "JavaScript files (*.js)|*.js";
-                dlg.DefaultExt = "js";
+                dlg.Filter = "Json file for web use (*.json)|*.json";
+                dlg.DefaultExt = "json";
                 dlg.InitialDirectory = Globals.UserDir;
-                dlg.FileName = "Mydata.js";
+                dlg.FileName = "Mydata.json";
                 // SaveFileDialog already prompts "overwrite?" natively
                 dlg.OverwritePrompt = true;
 
@@ -4398,17 +4398,17 @@ Globals.AppName
 
                 try
                 {
-                    File.Copy(sourceFile, targetFile, true);
+                    //File.Copy(sourceFile, targetFile, true);
                     File.Copy(sourceFile2, targetFile2, true);
 
-                    MessageBox.Show(".js & .json Files copied successfully to " + targetFile,
+                    MessageBox.Show(targetFile2+" Successfully saved ",
                         Globals.AppName,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error copying files:\n\n" + ex.Message,
+                    MessageBox.Show("Error copy file:\n\n" + ex.Message,
                         Globals.AppName,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -4434,6 +4434,10 @@ Globals.AppName
            // toolStripStatusLabel1.Font = _defaultStatusFont;
         }
 
+
+
+        //px-web no point supporting obslotete data formats.
+        /*
         private void convertLastesToPXToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -4444,15 +4448,11 @@ Globals.AppName
             return;
 
             ConvertJsonToPx(myfile);
-
-        
-            
-
         }
+        */
 
 
-
-
+        /*
         static string SavePxFile(string pxText, string shortName)
         {
             using (SaveFileDialog dlg = new SaveFileDialog())
@@ -4472,19 +4472,24 @@ Globals.AppName
             }
             return null; // user cancelled
         }
+        */
 
 
-
+        /*
+         //only used by pc web -- commented out
         static string FormatList(List<string> list)
         {
             return string.Join(",", list.Select(x => $"\"{x}\""));
         }
-
+        */
 
 
 
 
 //px web conversion  need to fix yearly
+//commented out
+/*
+ 
         public static void ConvertJsonToPx(string jsonPath)
         {
             // ✅ Just read JSON directly
@@ -4577,6 +4582,8 @@ Globals.AppName
                 MessageBox.Show("Could not find " + savedFile + " or browser", Globals.AppName);
             }
         }
+//end utkommentering px web
+*/
 
 
 
