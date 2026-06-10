@@ -28,6 +28,11 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
+!CSharp/bin/Debug/
+CSharp/bin/Debug/**
+!CSharp/bin/Debug/*.html
+!CSharp/bin/Debug/*.css
+!CSharp/bin/Debug/*.csv
 [Oo]bj/
 [Oo]ut/
 [Ll]og/

@@ -1,0 +1,21 @@
+
+<html>
+<script>
+                plotOptions: { pie: {     legend: { enabled:false  }, dataLabels: 
+				{   style: {textOutline:false}, formatter: function() 
+				{
+               var sliceIndex = this.point.x;          
+			   var sliceName = sliceIndex
+              this.point.name =  Highcharts.dateFormat('%Y %m %d', sliceName)
+			  
+                return Highcharts.dateFormat('%Y %m %d', sliceName);    }    }   }
+				//must use linked to and inner size
+				}
+				
+				
+				
+				
+</script>
+
+
+</html>
