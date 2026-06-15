@@ -3967,15 +3967,16 @@ Globals.AppName
 
 
         private void Upload_Click(object sender, EventArgs e)
-        { 
-            //treeView1.SelectedNode = e.Node;
-            //MessageBox.Show("yes to load a file into: " + e.Node.Text);
+        {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "CSV files (*.csv)|*.csv";
                 ofd.Title = "Open CSV file";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
+                    if (ShowCsvPreview(ofd.FileName) != DialogResult.OK)
+                        return;
+
                     try
                     {
                        LoadCsvToDataBase(treeView1.SelectedNode.Text, ofd.FileName);
@@ -3991,6 +3992,96 @@ Globals.AppName
                         );
                     }
                 }
+            }
+        }
+
+        private DialogResult ShowCsvPreview(string filePath)
+        {
+            const int previewRows = 10;
+            var table = new System.Data.DataTable();
+
+            try
+            {
+                using (var reader = new StreamReader(filePath, Encoding.UTF8))
+                {
+                    string headerLine = reader.ReadLine();
+                    if (string.IsNullOrWhiteSpace(headerLine))
+                    {
+                        MessageBox.Show("CSV file is empty.", "Preview", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return DialogResult.Cancel;
+                    }
+
+                    string[] headers = ParseCsvLine(headerLine, ',');
+                    foreach (string h in headers)
+                        table.Columns.Add(h.Trim());
+
+                    int count = 0;
+                    while (!reader.EndOfStream && count < previewRows)
+                    {
+                        string line = reader.ReadLine();
+                        if (string.IsNullOrWhiteSpace(line)) continue;
+                        string[] vals = ParseCsvLine(line, ',');
+                        // Pad or trim to match column count
+                        var row = table.NewRow();
+                        for (int i = 0; i < table.Columns.Count; i++)
+                            row[i] = i < vals.Length ? vals[i] : "";
+                        table.Rows.Add(row);
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not read file for preview:\n{ex.Message}", "Preview Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return DialogResult.Cancel;
+            }
+
+            // Build preview dialog
+            using (var dlg = new Form())
+            {
+                dlg.Text = $"CSV Preview — {System.IO.Path.GetFileName(filePath)}  (first {previewRows} rows)";
+                dlg.StartPosition = FormStartPosition.CenterParent;
+                dlg.Width = 697;
+                dlg.Height = 380;
+                dlg.MinimizeBox = false;
+                dlg.MaximizeBox = false;
+                dlg.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+                var grid = new DataGridView
+                {
+                    Dock = DockStyle.Fill,
+                    DataSource = table,
+                    ReadOnly = true,
+                    AllowUserToAddRows = false,
+                    AllowUserToDeleteRows = false,
+                    AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells,
+                    RowHeadersVisible = false,
+                    SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                    BackgroundColor = System.Drawing.SystemColors.Window,
+                    BorderStyle = BorderStyle.None
+                };
+
+                var panel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Bottom,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    Height = 44,
+                    Padding = new Padding(6)
+                };
+
+                var btnCancel = new System.Windows.Forms.Button { Text = "Ups, Cancel", DialogResult = DialogResult.Cancel, Width = 130 };
+                var btnUpload = new System.Windows.Forms.Button { Text = "Looks good, Import!", DialogResult = DialogResult.OK, Width = 130 };
+                dlg.AcceptButton = btnUpload;
+                dlg.CancelButton = btnCancel;
+
+                panel.Controls.Add(btnCancel);
+                panel.Controls.Add(btnUpload);
+
+                dlg.Controls.Add(grid);
+                dlg.Controls.Add(panel);
+
+                return dlg.ShowDialog(this);
             }
         }
 
