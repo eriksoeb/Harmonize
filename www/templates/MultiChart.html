@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.9">
+<link rel="icon" href="../images/no.png" type="image/png">
 
 <!-- your css styles and more should be where the exe file is, needed for highcharts and table reports 
 <link rel="stylesheet" type="text/css" href="C:\CSharp\WindowsFormsAppCSharp19\CSharp\bin\Debug\Harmonize.css">
@@ -126,7 +127,7 @@ const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
         // Date format switch
         let dateFmt;
         switch (FREQ) {
-            case 'MONTHLY': dateFmt = '%B %Y'; break;      // August 2025
+            case 'MONTHLY': dateFmt = '%Y-%m-%d'; break;
 			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
             case 'DAILY': dateFmt = '%Y-%m-%d'; break;
             case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
@@ -184,8 +185,8 @@ xAxis: {
 tooltip: {
     distance: 30,
     padding: 5,
+    split: false,
     shared: true,
-    useHTML: true, // required for HTML / bullets
     formatter: function () {
      
         // Header

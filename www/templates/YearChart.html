@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.9">
+<link rel="icon" href="../images/no.png" type="image/png">
 
 <link rel="stylesheet" type="text/css" href="../Harmonize.css">
 
@@ -237,9 +238,8 @@ const DECIMALS = seriesData[0].deci ?? 0;  //default
 
 //bruker text labelyear from structured data
 tooltip: {
-    crosshairs: [true, true],
+    split: false,
     shared: true,
-    useHTML: true,
     formatter: function () {
         const month = Highcharts.dateFormat('%B', this.x);
         let tooltip = `<b>${month}</b><br/>`;
