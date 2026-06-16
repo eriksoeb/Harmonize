@@ -803,6 +803,7 @@ private Worksheet _worksheet;
         {
 
            // MessageBox.Show("Start refresh ..");
+            _worksheet = Globals.ThisAddIn.GetActiveWorkSheet();
             Excel.Application app = _worksheet.Application;
 
             bool prevScreenUpdating = app.ScreenUpdating;

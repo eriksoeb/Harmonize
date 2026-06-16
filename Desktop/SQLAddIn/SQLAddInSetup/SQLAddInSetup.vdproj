@@ -238,9 +238,9 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.8"
                 "AllowLaterVersions" = "11:FALSE"
-                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
+                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=2088631"
                 }
             }
         }
@@ -580,7 +580,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Harmonize.SQLAddIn"
         "ProductCode" = "8:{D24D6C7F-EE0B-4509-BA2D-CA054087B302}"
-        "PackageCode" = "8:{8958A816-A966-4710-AE93-E79633444F22}"
+        "PackageCode" = "8:{2DB90041-92F9-4966-BB22-623D6EB7E237}"
         "UpgradeCode" = "8:{A188D7C2-662E-40F6-8319-05533D531F22}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
