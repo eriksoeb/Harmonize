@@ -24,10 +24,10 @@ using System.Security;
 [assembly: AssemblyTitle("HarmonizeAddIn")]
 [assembly: AssemblyDescription("Timeseries")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ErikSberg")]
+[assembly: AssemblyCompany("ErikSberg.no")]
 [assembly: AssemblyProduct("HarmonizeAddIn")]
-[assembly: AssemblyCopyright("Harmonize® 2026")]
-[assembly: AssemblyTrademark("Harmonize®")]
+[assembly: AssemblyCopyright("Harmonize.no 2026")]
+[assembly: AssemblyTrademark("Harmonize.no")]
 [assembly: AssemblyCulture("")]
 
 
