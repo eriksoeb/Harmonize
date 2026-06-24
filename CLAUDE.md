@@ -1,6 +1,6 @@
 
 Git: https://github.com/eriksoeb/Harmonize/
-Do NOT commit: `bin/`, `debug/`, `obj/`, compiled executables, `.bak` database backups, `*.suo`, `.vs/` folders, connection string files.
+Do NOT commit: `bin/`, `debug/`, `obj/`, compiled executables, `.bak` database backups, `*.suo`, `.vs/` folders, connection string files, `www/api/` folder (server-side scripts and logs).
 **Exception:** `Desktop/WindowsFormsAppCSharp19/CSharp/bin/Debug/` — commit `.html`, `.css`, and `.csv` files only (chart templates and data files used by the app).
 
 # Harmonize — Project Guide for Claude Code

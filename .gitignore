@@ -40,6 +40,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Web API folder (server-side scripts, logs — not for public repo)
+www/api/
+
 # Generated chart data
 MyData.js
 
