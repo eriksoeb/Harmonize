@@ -53,6 +53,9 @@ namespace CSharp
         //private BindingList<ColorItem> colors;  // now accessible anywhere in Form1
         private BindingList<ColorItem> colors;  // class-level
 
+        private DataTable Curve = new DataTable("Curve"); // ✅ global for this form
+
+
         //Nested class colors
         public class ColorItem
         {
@@ -408,7 +411,8 @@ namespace CSharp
 
             //initierer grid1 med dummy colomn header for userfriendlyness
 
-            DataTable Curve = new DataTable("Curve");
+            //move this to be more current context
+            //DataTable Curve = new DataTable("Curve");
 
            // DataColumn c0 = new DataColumn("CurveId");
             //Curve.Columns.Add(c0);
@@ -480,7 +484,11 @@ namespace CSharp
             Curve.Columns.Add(c18);
 
 
+            //ERIK
             dataGridView1.DataSource = Curve;
+            //jun23
+
+
             //dataGridView1.Columns["CurveName"].Width = 220;
             //dataGridView1.Columns["Series"].Width = 190;
             //dataGridView1.Columns["Descr"].Width = 210;
@@ -3879,8 +3887,6 @@ Globals.AppName
                                 throw new Exception($"Invalid numeric value: {valueString}");
                             }
 
-                            toolStripProgressBar1.Value = 40;
-
                             using (SqlCommand sql_cmnd = new SqlCommand("UTILS_PutTime", sqlCon, transaction))
                             {
                                 sql_cmnd.CommandType = CommandType.StoredProcedure;
@@ -3902,6 +3908,10 @@ Globals.AppName
                                 toolStripStatusLabel1.Text = ($"Imported: {cnt} rows , to be cont ..");
                                 transaction.Dispose();
                                 transaction = sqlCon.BeginTransaction();   // start NEW transaction
+
+                                // pulse bar between 40-60 so user sees activity
+                                toolStripProgressBar1.Value = (cnt / commitEvery) % 2 == 0 ? 40 : 60;
+                                Application.DoEvents();
                             }
                         }
 
@@ -4075,8 +4085,8 @@ Globals.AppName
                 dlg.AcceptButton = btnUpload;
                 dlg.CancelButton = btnCancel;
 
-                panel.Controls.Add(btnCancel);
                 panel.Controls.Add(btnUpload);
+                panel.Controls.Add(btnCancel);
 
                 dlg.Controls.Add(grid);
                 dlg.Controls.Add(panel);
@@ -4525,6 +4535,17 @@ Globals.AppName
            // toolStripStatusLabel1.Font = _defaultStatusFont;
         }
 
+        private void wipe_btn_Click(object sender, EventArgs e)
+        {
+            //spar language
+            //dataGridView1.Rows.Clear(); resuse:
+            dataGridView1.DataSource = null;
+
+            dataGridView1.DataSource = Curve;
+            //SetAutoScrollMargin til language
+
+        }
+
 
 
         //px-web no point supporting obslotete data formats.
@@ -4577,104 +4598,104 @@ Globals.AppName
 
 
 
-//px web conversion  need to fix yearly
-//commented out
-/*
- 
-        public static void ConvertJsonToPx(string jsonPath)
-        {
-            // ✅ Just read JSON directly
-            string json = File.ReadAllText(jsonPath);
+        //px web conversion  need to fix yearly
+        //commented out
+        /*
 
-            // ✅ Deserialize directly (no fixes needed)
-            var seriesData = JsonConvert.DeserializeObject<List<SeriesContainer>>(json);
-
-            var container = seriesData[0];
-            var seriesList = container.series;
-
-            string fullName = seriesList.FirstOrDefault()?.name ?? "PX";
-
-            string shortName = fullName.Contains(":")
-                ? fullName.Split(':')[0]
-                : fullName;
-
-            // --- Collect all months ---
-            string ToPxMonth(long ms)
-            {
-                var dt = DateTimeOffset.FromUnixTimeMilliseconds(ms).UtcDateTime;
-                return dt.ToString("yyyy'M'MM");
-            }
-
-            var allMonths = seriesList
-                .SelectMany(s => s.data)
-                .Select(d => ToPxMonth(Convert.ToInt64(d[0])))
-                .Distinct()
-                .OrderBy(x => x)
-                .ToList();
-
-            var categories = seriesList.Select(s => s.desc).ToList();
-
-            // --- Build PX ---
-            var sb = new StringBuilder();
-
-            sb.AppendLine("CHARSET=\"ANSI\";");
-            sb.AppendLine("AXIS-VERSION=\"2013\";");
-            //sb.AppendLine($"TITLE=\"{container.mytitle}\";");
-            sb.AppendLine($"TITLE=\"{seriesList[0].title}\";");
-            sb.AppendLine($"SUBTITLE=\"{container.subtitle}\";");
-            //sb.AppendLine("SOURCE=\"Harmonize\";");
-            sb.AppendLine($"SOURCE=\"{seriesList[0].source}\";");
-            sb.AppendLine($"UNITS=\"{seriesList[0].unit}\";");
-            sb.AppendLine($"DECIMALS={container.deci};");
-
-            sb.AppendLine("STUB=\"Category\";");
-            sb.AppendLine("HEADING=\"Month\";");
-
-            sb.AppendLine($"VALUES(\"Category\")={FormatList(categories)};");
-            sb.AppendLine($"VALUES(\"Month\")={FormatList(allMonths)};");
-
-            sb.AppendLine("DATA=");
-
-            foreach (var s in seriesList)
-            {
-                var dict = s.data.ToDictionary(
-                    d => ToPxMonth(Convert.ToInt64(d[0])),
-                    d => Convert.ToDouble(d[1])
-                );
-
-                foreach (var m in allMonths)
+                public static void ConvertJsonToPx(string jsonPath)
                 {
-                    if (dict.ContainsKey(m))
-                        sb.Append(dict[m].ToString("0.###") + " ");
-                    else
-                        sb.Append(". ");
+                    // ✅ Just read JSON directly
+                    string json = File.ReadAllText(jsonPath);
+
+                    // ✅ Deserialize directly (no fixes needed)
+                    var seriesData = JsonConvert.DeserializeObject<List<SeriesContainer>>(json);
+
+                    var container = seriesData[0];
+                    var seriesList = container.series;
+
+                    string fullName = seriesList.FirstOrDefault()?.name ?? "PX";
+
+                    string shortName = fullName.Contains(":")
+                        ? fullName.Split(':')[0]
+                        : fullName;
+
+                    // --- Collect all months ---
+                    string ToPxMonth(long ms)
+                    {
+                        var dt = DateTimeOffset.FromUnixTimeMilliseconds(ms).UtcDateTime;
+                        return dt.ToString("yyyy'M'MM");
+                    }
+
+                    var allMonths = seriesList
+                        .SelectMany(s => s.data)
+                        .Select(d => ToPxMonth(Convert.ToInt64(d[0])))
+                        .Distinct()
+                        .OrderBy(x => x)
+                        .ToList();
+
+                    var categories = seriesList.Select(s => s.desc).ToList();
+
+                    // --- Build PX ---
+                    var sb = new StringBuilder();
+
+                    sb.AppendLine("CHARSET=\"ANSI\";");
+                    sb.AppendLine("AXIS-VERSION=\"2013\";");
+                    //sb.AppendLine($"TITLE=\"{container.mytitle}\";");
+                    sb.AppendLine($"TITLE=\"{seriesList[0].title}\";");
+                    sb.AppendLine($"SUBTITLE=\"{container.subtitle}\";");
+                    //sb.AppendLine("SOURCE=\"Harmonize\";");
+                    sb.AppendLine($"SOURCE=\"{seriesList[0].source}\";");
+                    sb.AppendLine($"UNITS=\"{seriesList[0].unit}\";");
+                    sb.AppendLine($"DECIMALS={container.deci};");
+
+                    sb.AppendLine("STUB=\"Category\";");
+                    sb.AppendLine("HEADING=\"Month\";");
+
+                    sb.AppendLine($"VALUES(\"Category\")={FormatList(categories)};");
+                    sb.AppendLine($"VALUES(\"Month\")={FormatList(allMonths)};");
+
+                    sb.AppendLine("DATA=");
+
+                    foreach (var s in seriesList)
+                    {
+                        var dict = s.data.ToDictionary(
+                            d => ToPxMonth(Convert.ToInt64(d[0])),
+                            d => Convert.ToDouble(d[1])
+                        );
+
+                        foreach (var m in allMonths)
+                        {
+                            if (dict.ContainsKey(m))
+                                sb.Append(dict[m].ToString("0.###") + " ");
+                            else
+                                sb.Append(". ");
+                        }
+
+                        sb.AppendLine();
+                    }
+
+                    sb.AppendLine(";");
+
+                    string savedFile = SavePxFile(sb.ToString(), shortName);
+
+                    if (string.IsNullOrEmpty(savedFile))
+                        return;
+
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = savedFile,
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Win32Exception)
+                    {
+                        MessageBox.Show("Could not find " + savedFile + " or browser", Globals.AppName);
+                    }
                 }
-
-                sb.AppendLine();
-            }
-
-            sb.AppendLine(";");
-
-            string savedFile = SavePxFile(sb.ToString(), shortName);
-
-            if (string.IsNullOrEmpty(savedFile))
-                return;
-
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = savedFile,
-                    UseShellExecute = true
-                });
-            }
-            catch (Win32Exception)
-            {
-                MessageBox.Show("Could not find " + savedFile + " or browser", Globals.AppName);
-            }
-        }
-//end utkommentering px web
-*/
+        //end utkommentering px web
+        */
 
 
 
