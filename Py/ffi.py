@@ -23,7 +23,8 @@ print(f"Uploading to loadset: {loadsetName}")
 print(f"Input file: {InFile}")
 
 
-file_path = "connection.txt"
+# -- file_path = "connection.txt"
+file_path = r"C:\Harmonize\App\connection.txt"
 
 
 
@@ -46,17 +47,21 @@ else:
 
 
 cursor = conn.cursor()
+cursor.fast_executemany = True  # sends full batch in one network call
 
 # ----------------------------
-# SQL with parameter markers 
+# SQL with parameter markers
 # ----------------------------
 sql = f"""
 EXEC {storedProcName}
      ?, ?, ?, ?, ?, ?;
 """
 
+BATCH_SIZE = 500  # rows per executemany call
+
 start_time = time.time()
 rowcnt = 0
+batch = []
 
 # ----------------------------
 # CSV processing
@@ -77,34 +82,28 @@ with open(InFile, encoding='utf-8', newline='') as f:
             myVal     = float(row[3])
             myDesc    = row[4].strip().replace('"', '')
 
-            cursor.execute(
-                sql,
-                loadsetName,
-                mySname.upper(),
-                myDesc,
-                unitId,
-                valueDate,
-                myVal
-            )
+            batch.append((loadsetName, mySname.upper(), myDesc, unitId, valueDate, myVal))
 
-            #comitting for every 100, 100, can be 1500 which is better
-            if rowcnt % 100 == 0:            
+            if len(batch) >= BATCH_SIZE:
+                cursor.executemany(sql, batch)
                 conn.commit()
-                print( str(rowcnt) + ' Bulk committing rows.')            
-            
+                print(f'{rowcnt} rows committed.')
+                batch = []
 
         except Exception as e:
             print(f"\n❌ SQL error on row {rowcnt}")
             print(e)
             conn.rollback()
             sys.exit(1)
-            
-            
+
+
 
 # ----------------------------
-# Commit & finish
+# Flush remaining rows
 # ----------------------------
-conn.commit()
+if batch:
+    cursor.executemany(sql, batch)
+    conn.commit()
 
 elapsed = time.time() - start_time
 
@@ -120,8 +119,3 @@ conn.execute(f'EXEC UTILS_UpdateCurveInfo {loadsetName}')
 conn.commit()
 conn.close()
 print('End of ffi processing : fast flexiblefile interface')
-
-
-
-
-
