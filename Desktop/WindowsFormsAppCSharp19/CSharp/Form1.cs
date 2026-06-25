@@ -3798,7 +3798,7 @@ Globals.AppName
         private void LoadCsvToDataBase(string lname, string filePath)
         {
             int cnt =  0;
-            int commitEvery = 50;  // commit after 100 rows
+            int commitEvery = 500;
             string[] allowedFormats = new[]
             {
             "yyyyMMdd",
@@ -3811,6 +3811,8 @@ Globals.AppName
              };
 
             CleardataGridView1();
+            ShowNormalStrip($"Preparing upload to '{lname}' ...");
+            Application.DoEvents();
             DateTime startTime = DateTime.UtcNow;
             try
             {
@@ -3848,6 +3850,16 @@ Globals.AppName
                         sqlCon.Open();
 
                         SqlTransaction transaction = sqlCon.BeginTransaction();   // start first transaction
+
+                        // create command once, reuse per row
+                        SqlCommand sql_cmnd = new SqlCommand("UTILS_PutTime", sqlCon, transaction);
+                        sql_cmnd.CommandType = CommandType.StoredProcedure;
+                        sql_cmnd.Parameters.Add("@passedlsname", SqlDbType.NVarChar, 100).Value = lname;
+                        var p_sname   = sql_cmnd.Parameters.Add("@sname",        SqlDbType.NVarChar, 100);
+                        var p_desc    = sql_cmnd.Parameters.Add("@sdesc",        SqlDbType.NVarChar, 500);
+                        var p_unit    = sql_cmnd.Parameters.Add("@unit_id",      SqlDbType.Int);
+                        var p_date    = sql_cmnd.Parameters.Add("@datestr",      SqlDbType.DateTime);
+                        var p_value   = sql_cmnd.Parameters.Add("@value",        SqlDbType.Float);
 
                         while (!reader.EndOfStream)
                         {
@@ -3887,19 +3899,15 @@ Globals.AppName
                                 throw new Exception($"Invalid numeric value: {valueString}");
                             }
 
-                            using (SqlCommand sql_cmnd = new SqlCommand("UTILS_PutTime", sqlCon, transaction))
-                            {
-                                sql_cmnd.CommandType = CommandType.StoredProcedure;
+                            p_sname.Value = sname;
+                            p_desc.Value  = desc;
+                            p_unit.Value  = unit;
+                            p_date.Value  = parsedDate;
+                            p_value.Value = parsedValue;
 
-                                sql_cmnd.Parameters.Add("@passedlsname", SqlDbType.NVarChar, 100).Value = lname;
-                                sql_cmnd.Parameters.Add("@sname", SqlDbType.NVarChar, 100).Value = sname;
-                                sql_cmnd.Parameters.Add("@sdesc", SqlDbType.NVarChar, 500).Value = desc;
-                                sql_cmnd.Parameters.Add("@unit_id", SqlDbType.Int).Value = unit;
-                                sql_cmnd.Parameters.Add("@datestr", SqlDbType.DateTime).Value = parsedDate;
-                                sql_cmnd.Parameters.Add("@value", SqlDbType.Float).Value = parsedValue;
-
-                                sql_cmnd.ExecuteNonQuery();
-                            }
+                            // update transaction reference when it has been rotated
+                            sql_cmnd.Transaction = transaction;
+                            sql_cmnd.ExecuteNonQuery();
 
                             // commit every N rows
                             if (cnt % commitEvery == 0)
@@ -3907,13 +3915,14 @@ Globals.AppName
                                 transaction.Commit();
                                 toolStripStatusLabel1.Text = ($"Imported: {cnt} rows , to be cont ..");
                                 transaction.Dispose();
-                                transaction = sqlCon.BeginTransaction();   // start NEW transaction
+                                transaction = sqlCon.BeginTransaction();
 
                                 // pulse bar between 40-60 so user sees activity
                                 toolStripProgressBar1.Value = (cnt / commitEvery) % 2 == 0 ? 40 : 60;
                                 Application.DoEvents();
                             }
                         }
+                        sql_cmnd.Dispose();
 
                         // commit remaining rows
                         transaction.Commit();
