@@ -29,7 +29,7 @@ unitId= '20' #Indeks
   
 
 
-file_path = "connection.txt"
+file_path = r"C:\Harmonize\App\connection.txt"
 
 
 try:

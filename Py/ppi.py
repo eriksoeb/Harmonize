@@ -35,7 +35,7 @@ print("Starting upserting loadset...: "+ loadsetName)
                       
     
 
-file_path = "connection.txt"
+file_path = r"C:\Harmonize\App\connection.txt"
 
 
 try:

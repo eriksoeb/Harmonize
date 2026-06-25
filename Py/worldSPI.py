@@ -9,7 +9,7 @@ end = "2025"
 
 USE_ALL_COUNTRIES = False
 
-countries = ["NO", "DK", "UG"]   # used if USE_ALL_COUNTRIES = False
+countries = ["NO", "DK", "UG", "ET","CV" ]   # used if USE_ALL_COUNTRIES = False
 
 
 # ---- indicators ----
@@ -44,9 +44,11 @@ if USE_ALL_COUNTRIES:
 
 
 # ---- output file ----
+#header name,unit,date,value,desc,doc
 
 outfile = open("datafile.csv", "w", newline="", encoding="utf-8")
 writer = csv.writer(outfile)
+writer.writerow(["name", "unit", "date", "value", "desc", "doc"])
 
 
 # ---- main download loop ----
@@ -63,12 +65,17 @@ for iso2 in countries:
 
             url = f"https://api.worldbank.org/v2/countries/{iso2}/indicators/{ind}?date={start}:{end}&format=json&page={page}"
 
-            try:
-                r = requests.get(url, timeout=10)
-                r.raise_for_status()
-                data = r.json()
-            except Exception as e:
-                print("API error:", e)
+            for attempt in range(3):
+                try:
+                    r = requests.get(url, timeout=30)
+                    r.raise_for_status()
+                    data = r.json()
+                    break
+                except Exception as e:
+                    print(f"API error (attempt {attempt+1}/3):", e)
+                    if attempt < 2:
+                        time.sleep(5)
+            else:
                 break
 
             if len(data) < 2:

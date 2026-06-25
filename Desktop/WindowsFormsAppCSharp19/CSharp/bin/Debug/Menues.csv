@@ -1,65 +1,65 @@
-HarmonizedTimeSeries,KohaEUnifikuar,MudaUlioratibiwa,Harmonisert: Flaggskip,гармонізувати,تنسجم,Hindi
-&Chart,&Grafikë,&Mchoro,&Graf,Діаграма,لتشييد,चार्ट
-&MultiChart,&ShumëGrafikë,&MchoroNyingi,&MangeGraf,Діаграма,لتشييد,मल्टीचार्ट
-&Report,&Raport,&Ripoti,&Rapport,звіт,تقرير,प्रतिवेदन
-&Clear Selected,&PastroZgjedhur,&FutaZilizochaguliwa,Fjern Valgte,видалити вибране,احذف المختار,स्पष्ट
-Clear &All,Pastro &Gjitha,Futa &Zote,Fjern &Alle,видалити все,حذف الكل,मिटाना
-Name,Joker,&KadiYaPori,Navn,символ,حرف البدل,वाइल्डकार्ड
-Desc,Nënvarg,&MfuatanoNdogo,Beskriv,підрядок,سلسلة فرعية,सबस्ट्रिंगसबस्ट्रिंग
-Search&Show,Kërko&Dshfaq,Tafuta&Oonyesha,Søk&Vis,Діаграма,لتشييد,खोज
-&File,&Skedar,&Faili,&Fil,файл,ملف,फ़ाइल
-Save Chart definition,Ruaj Grafikun,Hifadhi Chati,Lagre Chart,Зберегти Діаграму,حفظ المخطط,चार्ट सहेजें
-Retrieve Chart,Merr Grafikun,Pata Chati,Hent Diagram,Отримати Діаграму,استرجاع المخطط,चार्ट प्राप्त करें
-Copy datafile as,Kopjo skedarin si,Nakili faili kama,Kopier Json web-filen som..,Копіювати як,نسخ باسم,कॉपी करें नाम से
-Export as PX-web,Eksporto si PX-Web,Hamisha kama PX-Web,Lagre som Px-web,Експортувати як PX-Web,تصدير كـ PX-Web,PX-Web के रूप में निर्यात
-&Exit,&Dalje,&Ondoka,&Avslutt,Пошук і Показ,التشييد,रुकना
-&Chart,&Grafikë,&Mchoro,&Graf,Діаграма,لتشييد,चार्ट
-&Report,&Raport,&Ripoti,&Rapport,звіт,تقرير,प्रतिवेदन
-&Options,Opsione,Chaguo,&Opsjoner,Optsii,خيارات,विकल्प
-&ExecuteReport,&Raport,&Ripoti,&KjørRapport,звіт,تقرير,प्रतिवेदन
-&Admin,&Admin,&Msimamizi,&Administrer,Адмініструвати,يدير,एडमिरल
-&Meta Manager,&Meta,&Msimamizi,&Meta Admin,Адмініструвати,يدير,एडमिरल
-Look for Updates,Përditësime,Sasisho,Se etter Oppdatinger,Перевірити оновлення,تحديثات,अपडेट्स
-&Help,&Ndihmë,&Msaada,&Hjelp,Довідка,يساعد,मदद
-CommonBasisPeriod,Bazë,KipindiMsingiChaPamoja,FellesBasisPeriode,Загальна основа,أساس مشترك,सामान्य आधार
-Name,Emër,Jina,Navn,Ім'я,التشيي,नाम
-Desc,Përshkrim,Maelezo,Beskrivelse,опис,التشيी,विवरण
-UnitId!,Njësi,Kipimo,Enhet,одиниця,التشيी,चार्ट
-Freq!,Frekuencë,Marudio,Frek,частота,التشيي,आवृत्ति
-Unit,Njësi,Kipimo,Enhet,одиниця,التشيी,चार्ट
-Url,Url,Tovuti,Url,Інтернет,التشيي,वेब
-Source,Burim,Chanzo,Kilde,джерело,التشيي,स्रोत
-Updated,Përditësuar,Sasishwa,Oppdatert,Оновлено,التشيي,अद्यतन
-UpdatedBy,PërditësuarNga,ImesasishwaNa,OppdatertAv,ОновленоКим,ثيدحترخآ,अपडेटकर्ता
-NumberOfObs,NumriIVëzhgimeve,IdadiYaUchunguzi,AntallObs,Номер,ييشتلا,संख्या
-LastObs,VëzhgimiIFundit,UchunguziWaMwisho,SisteObs,ОстаннєСпост,دصررخآ,अंतिमओब्स
-LastDiff,DallimIFundit,TofautiYaMwisho,SisteDiff,ОстанняРізн,قرفرخآ,अंतिमअंतर
-MinDate,DataMinimale,TarehiYaKwanza,FørsteDato,МінДата,خيراتىندأ,न्यूनतमदिनांक
-MaxDate,DataMaksimale,TarehiYaMwisho,SisteDato,МаксДата,خيراتىصقأ,अधिकतमदिनांक
-Interval,Interval,Kipindi,Intervall,Інтервал,ةرتف,अंतराल
-Hits,Goditje,Matokeo,Treff,Збіг,ةجيتن,परिणाम
-SetId,SetId,SetId,SetId,СетІД,SetId,SetId
-SetID,ID Dataseti,Kitambulisho,SetID,ID набору,تانايبلا فرعم,डेटासेट   
-Title,title,title,title,title,title,title
-CurveId!,CId,Kitambulisho,KurveId,ідент,التشيي,पहचान
-Name,Emër,Jina,Navn,Ім'я,التشيी,नाम
-Desc,Përshkrim,Maelezo,Beskrivelse,опис,التشيी,विवरण
-Color,Ngjyrë,Rangi,Farge,Колір,اللون,रंग
-Width,Gjerësia,Upana,Bredde,Ширина,العرض,चौड़ाई
-Style,Vijë,Mstari,Style,Пунктирна,متقطع,डैश रेखा
-Axis,Bosht,Mhimili,Akse,вісь,التشيी,एक्सिस
-Function,Funksion,Kazi,Funksjon,функція,التشيي,कार्य
-Step,Hap,Hatua,Steg,крок,التشيी,कदम
-Convert,Konverto,Badilisha,Konverter,Конвертувати,ليوحت,बदलें
-Interval,Interval,Kipindi,Intervall,Інтервал,التشيي,मध्यान्तर
-Aggregate,Agregat,Jumlisho,Aggregat,агрегатний,التشيي,सकल
-Type,Lloj,Aina,Type,Тип,التشيي,प्रकार
-Stacking,Shtresim,Upangaji,Stabling,Укладання,التشيي,स्टैकिंग
-Order,Renditje,Panga,Sortere,Сортування,الترتيب,क्रमबद्ध करें
+HarmonizedTimeSeries,KohaEUnifikuar,MudaUlioratibiwa,Harmonisert: Flaggskip,гармонізувати,تنسجم,Hindi,SériesHarmonizadas
+&Chart,&Grafikë,&Mchoro,&Graf,Діаграма,لتشييد,चार्ट,&Gráfico
+&MultiChart,&ShumëGrafikë,&MchoroNyingi,&MangeGraf,Діаграма,لتشييد,मल्टीचार्ट,&MultiGráfico
+&Report,&Raport,&Ripoti,&Rapport,звіт,تقرير,प्रतिवेदन,&Relatório
+&Clear Selected,&PastroZgjedhur,&FutaZilizochaguliwa,Fjern Valgte,видалити вибране,احذف المختار,स्पष्ट,&Limpar Selecionados
+Clear &All,Pastro &Gjitha,Futa &Zote,Fjern &Alle,видалити все,حذف الكل,मिटाना,Limpar &Tudo
+Name,Joker,&KadiYaPori,Navn,символ,حرف البدل,वाइल्डकार्ड,Nome
+Desc,Nënvarg,&MfuatanoNdogo,Beskriv,підрядок,سلسلة فرعية,सबस्ट्रिंगसबस्ट्रिंग,Desc
+Search&Show,Kërko&Dshfaq,Tafuta&Oonyesha,Søk&Vis,Діаграма,لتشييد,खोज,Pesquisar&Mostrar
+&File,&Skedar,&Faili,&Fil,файл,ملف,फ़ाइल,&Ficheiro
+Save Chart definition,Ruaj Grafikun,Hifadhi Chati,Lagre Chart,Зберегти Діаграму,حفظ المخطط,चार्ट सहेजें,Guardar Gráfico
+Retrieve Chart,Merr Grafikun,Pata Chati,Hent Diagram,Отримати Діаграму,استرجاع المخطط,चार्ट प्राप्त करें,Obter Gráfico
+Copy datafile as,Kopjo skedarin si,Nakili faili kama,Kopier Json web-filen som..,Копіювати як,نسخ باسم,कॉपी करें नाम से,Copiar ficheiro como
+Export as PX-web,Eksporto si PX-Web,Hamisha kama PX-Web,Lagre som Px-web,Експортувати як PX-Web,تصدير كـ PX-Web,PX-Web के रूप में निर्यात,Exportar como PX-web
+&Exit,&Dalje,&Ondoka,&Avslutt,Пошук і Показ,التشييد,रुकना,&Sair
+&Chart,&Grafikë,&Mchoro,&Graf,Діаграма,لتشييد,चार्ट,&Gráfico
+&Report,&Raport,&Ripoti,&Rapport,звіт,تقرير,प्रतिवेदन,&Relatório
+&Options,Opsione,Chaguo,&Opsjoner,Optsii,خيارات,विकल्प,&Opções
+&ExecuteReport,&Raport,&Ripoti,&KjørRapport,звіт,تقرير,प्रतिवेदन,&ExecutarRelatório
+&Admin,&Admin,&Msimamizi,&Administrer,Адмініструвати,يدير,एडमिरल,&Admin
+&Meta Manager,&Meta,&Msimamizi,&Meta Admin,Адмініструвати,يدير,एडमिरल,&Gestor Meta
+Look for Updates,Përditësime,Sasisho,Se etter Oppdatinger,Перевірити оновлення,تحديثات,अपडेट्स,Verificar Atualizações
+&Help,&Ndihmë,&Msaada,&Hjelp,Довідка,يساعد,मदद,&Ajuda
+CommonBasisPeriod,Bazë,KipindiMsingiChaPamoja,FellesBasisPeriode,Загальна основа,أساس مشترك,सामान्य आधार,PeríodoBaseComum
+Name,Emër,Jina,Navn,Ім'я,التشيي,नाम,Nome
+Desc,Përshkrim,Maelezo,Beskrivelse,опис,التشيی,विवरण,Descrição
+UnitId!,Njësi,Kipimo,Enhet,одиниця,التشيی,चार्ट,UnitId!
+Freq!,Frekuencë,Marudio,Frek,частота,التشيي,आवृत्ति,Freq!
+Unit,Njësi,Kipimo,Enhet,одиниця,التشيی,चार्ट,Unidade
+Url,Url,Tovuti,Url,Інтернет,التشيي,वेब,Url
+Source,Burim,Chanzo,Kilde,джерело,التشيي,स्रोत,Fonte
+Updated,Përditësuar,Sasishwa,Oppdatert,Оновлено,التشيي,अद्यतन,Atualizado
+UpdatedBy,PërditësuarNga,ImesasishwaNa,OppdatertAv,ОновленоКим,ثيدحترخآ,अपडेटकर्ता,AtualizadoPor
+NumberOfObs,NumriIVëzhgimeve,IdadiYaUchunguzi,AntallObs,Номер,ييشتلا,संख्या,NúmObs
+LastObs,VëzhgimiIFundit,UchunguziWaMwisho,SisteObs,ОстаннєСпост,دصررخآ,अंतिमओब्स,ÚltimaObs
+LastDiff,DallimIFundit,TofautiYaMwisho,SisteDiff,ОстанняРізн,قرفرخآ,अंतिमअंतर,ÚltimaDif
+MinDate,DataMinimale,TarehiYaKwanza,FørsteDato,МінДата,خيراتىندأ,न्यूनतमदिनांक,DataMín
+MaxDate,DataMaksimale,TarehiYaMwisho,SisteDato,МаксДата,خيراتىصقأ,अधिकतमदिनांक,DataMáx
+Interval,Interval,Kipindi,Intervall,Інтервал,ةرتف,अंतराल,Intervalo
+Hits,Goditje,Matokeo,Treff,Збіг,ةجيتن,परिणाम,Resultados
+SetId,SetId,SetId,SetId,СетІД,SetId,SetId,SetId
+SetID,ID Dataseti,Kitambulisho,SetID,ID набору,تانايبلا فرعم,डेटासेट   ,SetID
+Title,title,title,title,title,title,title,Título
+CurveId!,CId,Kitambulisho,KurveId,ідент,التشيي,पहचान,CurveId!
+Name,Emër,Jina,Navn,Ім'я,التشيी,नाम,Nome
+Desc,Përshkrim,Maelezo,Beskrivelse,опис,التشيی,विवरण,Descrição
+Color,Ngjyrë,Rangi,Farge,Колір,اللون,रंग,Cor
+Width,Gjerësia,Upana,Bredde,Ширина,العرض,चौड़ाई,Largura
+Style,Vijë,Mstari,Style,Пунктирна,متقطع,डैश रेखा,Estilo
+Axis,Bosht,Mhimili,Akse,вісь,التشيی,एक्सिस,Eixo
+Function,Funksion,Kazi,Funksjon,функція,التشيي,कार्य,Função
+Step,Hap,Hatua,Steg,крок,التشيی,कदम,Passo
+Convert,Konverto,Badilisha,Konverter,Конвертувати,ليوحت,बदलें,Converter
+Interval,Interval,Kipindi,Intervall,Інтервал,التشيي,मध्यान्तर,Intervalo
+Aggregate,Agregat,Jumlisho,Aggregat,агрегатний,التشيي,सकल,Agregar
+Type,Lloj,Aina,Type,Тип,التشيي,प्रकार,Tipo
+Stacking,Shtresim,Upangaji,Stabling,Укладання,التشيي,स्टैकिंग,Empilhamento
+Order,Renditje,Panga,Sortere,Сортування,الترتيب,क्रमबद्ध करें,Ordenar
 UnitID!,UnitID!,UnitID!,UnitID!,UnitID!,UnitID!,UnitID!,UnitID!,
-&YearChart,&YGrafikë,&YMchoro,&ÅrGraf,Діаграма,لتشييد,चार्ट
-Decimals#,Decimalë,Desimali,Desimaler,Десяткові,الكسور,दशमलव
-DateFormat,Formati i datës,Muundo wa tarehe,Datoformat,Формат дати,تنسيق التاريخ,दिनांक प्रारूप
-Wildcarding,Karaktere zëvendësuese,Herufi mbadala,Jokernotasjon,Шаблони,أحرف البدل,वाइल्डकार्ड
-Releases..,Publikimet,Matoleo,Oppgraderinger..,Версії,الإصدارات,रिलीज़
-About,Rreth,Kuhusu,Om Harmonize,Про програму,حول,के बारे में
+&YearChart,&YGrafikë,&YMchoro,&ÅrGraf,Діаграма,لتشييد,चार्ट,&GráficoAnual
+Decimals#,Decimalë,Desimali,Desimaler,Десяткові,الكسور,दशमलव,Decimais
+DateFormat,Formati i datës,Muundo wa tarehe,Datoformat,Формат дати,تنسيق التاريخ,दिनांक प्रारूप,FormatoData
+Wildcarding,Karaktere zëvendësuese,Herufi mbadala,Jokernotasjon,Шаблони,أحرف البدل,वाइल्डकार्ड,Curinga
+Releases..,Publikimet,Matoleo,Oppgraderinger..,Версії,الإصدارات,रिलीज़,Versões..
+About,Rreth,Kuhusu,Om Harmonize,Про програму,حول,के बारे में,Sobre

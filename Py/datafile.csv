@@ -1,0 +1,409 @@
+name,unit,date,value,desc,doc
+NO.IQ.SPI.OVRL,20,2024-01-01,94.1433333333333,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2023-01-01,94.5566666666667,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2022-01-01,92.6991666666667,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2021-01-01,93.7625,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2020-01-01,90.4683333333333,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2019-01-01,90.09375,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2018-01-01,90.1625,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2017-01-01,82.61625,Statistical Performance Indicators (SPI) Overall score
+NO.IQ.SPI.OVRL,20,2016-01-01,78.8220833333333,Statistical Performance Indicators (SPI) Overall score
+NO.SPI.INDEX.PIL1,20,2023-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2022-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2021-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2020-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2019-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2018-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2017-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2016-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL1,20,2015-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+NO.SPI.INDEX.PIL2,20,2023-01-01,97.2333333333333,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2022-01-01,97.2333333333333,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2021-01-01,94.3,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2020-01-01,94.3,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2019-01-01,92.2333333333333,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2018-01-01,92.2333333333333,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2017-01-01,59.0333333333333,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL2,20,2016-01-01,62.6,Statistical Performance Indicators (SPI) Pillar 2
+NO.SPI.INDEX.PIL3,20,2023-01-01,86.7,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2022-01-01,77.4125,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2021-01-01,87.2375,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2020-01-01,79.1,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2019-01-01,77.56875,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2018-01-01,77.9125,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2017-01-01,77.93125,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2016-01-01,66.09375,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL3,20,2015-01-01,61.21875,Statistical Performance Indicators (SPI) Pillar 3
+NO.SPI.INDEX.PIL4,20,2023-01-01,83.85,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2022-01-01,83.85,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2021-01-01,82.275,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2020-01-01,73.9416666666667,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2019-01-01,75.6666666666667,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2018-01-01,75.6666666666667,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2017-01-01,71.1166666666667,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL4,20,2016-01-01,70.4166666666667,Statistical Performance Indicators (SPI) Pillar 4
+NO.SPI.INDEX.PIL5,20,2023-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2022-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2021-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2020-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2019-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2018-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2017-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+NO.SPI.INDEX.PIL5,20,2016-01-01,90,Statistical Performance Indicators (SPI) Pillar 5
+NO.NY.GDP.PCAP.KD.ZG,20,2024-01-01,1.13204599317447,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2023-01-01,-1.06055299614016,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2022-01-01,2.32282354360895,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2021-01-01,3.35449506555356,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2020-01-01,-1.85769609648001,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2019-01-01,0.44339856309783,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2018-01-01,0.165560788690883,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2017-01-01,1.63950712591077,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2016-01-01,0.277407788765373,GDP per capita growth (annual %)
+NO.NY.GDP.PCAP.KD.ZG,20,2015-01-01,0.848799114123295,GDP per capita growth (annual %)
+NO.FP.CPI.TOTL,20,2024-01-01,145.109039905891,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2023-01-01,140.684100986336,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2022-01-01,133.327300696769,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2021-01-01,126.06098995566,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2020-01-01,121.81703013302,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2019-01-01,120.269658854402,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2018-01-01,117.717853587911,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2017-01-01,114.55071939191,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2016-01-01,112.442312912859,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL,20,2015-01-01,108.587458148584,Consumer price index (2010 = 100)
+NO.FP.CPI.TOTL.ZG,20,2024-01-01,3.14530134431081,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2023-01-01,5.51784987104659,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2022-01-01,5.76412317852272,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2021-01-01,3.48388055266669,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2020-01-01,1.28658490707996,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2019-01-01,2.16773003305411,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2018-01-01,2.76483134528797,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2017-01-01,1.87510059552545,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2016-01-01,3.55000000000007,"Inflation, consumer prices (annual %)"
+NO.FP.CPI.TOTL.ZG,20,2015-01-01,2.17113665389527,"Inflation, consumer prices (annual %)"
+DK.IQ.SPI.OVRL,20,2024-01-01,92.0504166666667,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2023-01-01,95.2558333333333,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2022-01-01,93.2033333333333,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2021-01-01,94.4145833333333,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2020-01-01,89.4591666666667,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2019-01-01,88.8820833333333,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2018-01-01,88.7645833333333,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2017-01-01,81.1179166666667,Statistical Performance Indicators (SPI) Overall score
+DK.IQ.SPI.OVRL,20,2016-01-01,79.6383333333334,Statistical Performance Indicators (SPI) Overall score
+DK.SPI.INDEX.PIL1,20,2023-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2022-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2021-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2020-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2019-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2018-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2017-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2016-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL1,20,2015-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+DK.SPI.INDEX.PIL2,20,2023-01-01,98.4666666666666,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2022-01-01,98.4666666666666,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2021-01-01,97.6666666666667,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2020-01-01,97.6666666666667,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2019-01-01,98.7,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2018-01-01,98.7,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2017-01-01,65.0666666666667,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL2,20,2016-01-01,62.9,Statistical Performance Indicators (SPI) Pillar 2
+DK.SPI.INDEX.PIL3,20,2023-01-01,90.7125,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2022-01-01,80.45,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2021-01-01,86.45625,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2020-01-01,70.0125,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2019-01-01,68.01875,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2018-01-01,69.13125,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2017-01-01,68.35625,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2016-01-01,63.225,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL3,20,2015-01-01,60.3875,Statistical Performance Indicators (SPI) Pillar 3
+DK.SPI.INDEX.PIL4,20,2023-01-01,87.1,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2022-01-01,87.1,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2021-01-01,87.95,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2020-01-01,79.6166666666667,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2019-01-01,77.6916666666667,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2018-01-01,75.9916666666667,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2017-01-01,72.1666666666667,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL4,20,2016-01-01,72.0666666666667,Statistical Performance Indicators (SPI) Pillar 4
+DK.SPI.INDEX.PIL5,20,2023-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2022-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2021-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2020-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2019-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2018-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2017-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.SPI.INDEX.PIL5,20,2016-01-01,100,Statistical Performance Indicators (SPI) Pillar 5
+DK.NY.GDP.PCAP.KD.ZG,20,2024-01-01,2.95776259160623,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2023-01-01,-0.138322294600371,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2022-01-01,-0.344058639271637,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2021-01-01,6.03966577353796,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2020-01-01,-2.06613837683189,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2019-01-01,1.34779245340653,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2018-01-01,1.35619600199787,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2017-01-01,2.39559065097636,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2016-01-01,2.27180151789635,GDP per capita growth (annual %)
+DK.NY.GDP.PCAP.KD.ZG,20,2015-01-01,1.38566632188861,GDP per capita growth (annual %)
+DK.FP.CPI.TOTL,20,2024-01-01,127.292206053031,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2023-01-01,125.569145611999,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2022-01-01,121.551647174359,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2021-01-01,112.864922774752,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2020-01-01,110.811534684403,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2019-01-01,110.347290420498,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2018-01-01,109.517007410052,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2017-01-01,108.633157753772,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2016-01-01,107.401124899562,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL,20,2015-01-01,107.133291670386,Consumer price index (2010 = 100)
+DK.FP.CPI.TOTL.ZG,20,2024-01-01,1.37220049768925,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2023-01-01,3.30517811237605,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2022-01-01,7.69656699889259,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2021-01-01,1.85304543989689,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2020-01-01,0.420711974110024,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2019-01-01,0.75813157251162,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2018-01-01,0.813609467455631,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2017-01-01,1.14713216957601,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2016-01-01,0.250000000000031,"Inflation, consumer prices (annual %)"
+DK.FP.CPI.TOTL.ZG,20,2015-01-01,0.452034153691574,"Inflation, consumer prices (annual %)"
+UG.IQ.SPI.OVRL,20,2024-01-01,68.6995833333333,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2023-01-01,66.6275,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2022-01-01,65.25875,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2021-01-01,72.4933333333333,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2020-01-01,68.6954166666667,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2019-01-01,67.7375,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2018-01-01,65.8483333333333,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2017-01-01,67.79,Statistical Performance Indicators (SPI) Overall score
+UG.IQ.SPI.OVRL,20,2016-01-01,63.9345833333333,Statistical Performance Indicators (SPI) Overall score
+UG.SPI.INDEX.PIL1,20,2023-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2022-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2021-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2020-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2019-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2018-01-01,90,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2017-01-01,100,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2016-01-01,90,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL1,20,2015-01-01,60,Statistical Performance Indicators (SPI) Pillar 1
+UG.SPI.INDEX.PIL2,20,2023-01-01,65.7666666666667,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2022-01-01,65.7666666666667,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2021-01-01,66.6333333333333,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2020-01-01,66.6333333333333,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2019-01-01,64.2,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2018-01-01,64.2,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2017-01-01,65.1333333333333,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL2,20,2016-01-01,45.5,Statistical Performance Indicators (SPI) Pillar 2
+UG.SPI.INDEX.PIL3,20,2023-01-01,78.9125,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2022-01-01,77.06875,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2021-01-01,81.55,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2020-01-01,80.89375,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2019-01-01,74.7875,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2018-01-01,77.825,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2017-01-01,78.25,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2016-01-01,70.93125,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL3,20,2015-01-01,63.84375,Statistical Performance Indicators (SPI) Pillar 3
+UG.SPI.INDEX.PIL4,20,2023-01-01,40.1083333333333,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2022-01-01,40.1083333333333,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2021-01-01,39.2833333333333,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2020-01-01,35.1166666666667,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2019-01-01,33.8666666666667,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2018-01-01,38.0333333333333,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2017-01-01,36.4333333333333,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2016-01-01,43.225,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL4,20,2015-01-01,46.2,Statistical Performance Indicators (SPI) Pillar 4
+UG.SPI.INDEX.PIL5,20,2023-01-01,75,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2022-01-01,70,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2021-01-01,70,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2020-01-01,60,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2019-01-01,65,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2018-01-01,60,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2017-01-01,60,Statistical Performance Indicators (SPI) Pillar 5
+UG.SPI.INDEX.PIL5,20,2016-01-01,65,Statistical Performance Indicators (SPI) Pillar 5
+UG.NY.GDP.PCAP.KD.ZG,20,2024-01-01,3.17493921238938,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2023-01-01,2.42759459782118,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2022-01-01,1.48927085105888,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2021-01-01,0.258075577364949,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2020-01-01,-0.423922683361482,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2019-01-01,2.88958690241905,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2018-01-01,2.75300382511665,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2017-01-01,-0.406390812740796,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2016-01-01,1.35743312909598,GDP per capita growth (annual %)
+UG.NY.GDP.PCAP.KD.ZG,20,2015-01-01,2.00429943099081,GDP per capita growth (annual %)
+UG.FP.CPI.TOTL,20,2024-01-01,216.908166071118,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2023-01-01,209.931348222214,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2022-01-01,199.268589530793,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2021-01-01,185.892180700766,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2020-01-01,181.882451026004,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2019-01-01,176.049367040563,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2018-01-01,171.141727345227,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2017-01-01,166.778774735588,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2016-01-01,158.52031485061,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL,20,2015-01-01,149.962871001285,Consumer price index (2010 = 100)
+UG.FP.CPI.TOTL.ZG,20,2024-01-01,3.3233806708656,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2023-01-01,5.35094804280395,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2022-01-01,7.1957888597581,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2021-01-01,2.20457204757414,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2020-01-01,3.31332289544502,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2019-01-01,2.867588034469,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2018-01-01,2.61601190952274,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2017-01-01,5.20971705914209,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2016-01-01,5.70637504616212,"Inflation, consumer prices (annual %)"
+UG.FP.CPI.TOTL.ZG,20,2015-01-01,5.58968606251725,"Inflation, consumer prices (annual %)"
+ET.IQ.SPI.OVRL,20,2024-01-01,61.74875,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2023-01-01,62.67375,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2022-01-01,61.9120833333333,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2021-01-01,60.84375,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2020-01-01,50.14375,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2019-01-01,50.0925,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2018-01-01,54.42625,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2017-01-01,56.3720833333333,Statistical Performance Indicators (SPI) Overall score
+ET.IQ.SPI.OVRL,20,2016-01-01,51.31875,Statistical Performance Indicators (SPI) Overall score
+ET.SPI.INDEX.PIL1,20,2023-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2022-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2021-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2020-01-01,70,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2019-01-01,70,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2018-01-01,90,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2017-01-01,90,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2016-01-01,90,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL1,20,2015-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+ET.SPI.INDEX.PIL2,20,2023-01-01,64.5333333333333,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2022-01-01,64.5333333333333,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2021-01-01,55.8666666666667,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2020-01-01,55.8666666666667,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2019-01-01,59.9666666666667,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2018-01-01,59.9666666666667,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2017-01-01,58.6666666666667,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL2,20,2016-01-01,40.4,Statistical Performance Indicators (SPI) Pillar 2
+ET.SPI.INDEX.PIL3,20,2023-01-01,78.79375,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2022-01-01,75.81875,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2021-01-01,81.46875,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2020-01-01,74.66875,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2019-01-01,71.4125,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2018-01-01,71.38125,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2017-01-01,76.31875,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2016-01-01,70.26875,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL3,20,2015-01-01,65.3375,Statistical Performance Indicators (SPI) Pillar 3
+ET.SPI.INDEX.PIL4,20,2023-01-01,35.0416666666667,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2022-01-01,39.2083333333333,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2021-01-01,36.8833333333333,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2020-01-01,35.1833333333333,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2019-01-01,34.0833333333333,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2018-01-01,35.7833333333333,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2017-01-01,41.875,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2016-01-01,40.925,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL4,20,2015-01-01,41.325,Statistical Performance Indicators (SPI) Pillar 4
+ET.SPI.INDEX.PIL5,20,2023-01-01,45,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2022-01-01,40,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2021-01-01,40,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2020-01-01,15,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2019-01-01,15,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2018-01-01,15,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2017-01-01,15,Statistical Performance Indicators (SPI) Pillar 5
+ET.SPI.INDEX.PIL5,20,2016-01-01,15,Statistical Performance Indicators (SPI) Pillar 5
+ET.NY.GDP.PCAP.KD.ZG,20,2024-01-01,4.86819977515492,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2023-01-01,3.85475025230436,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2022-01-01,2.59539967644373,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2021-01-01,2.85565763078523,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2020-01-01,3.22311599492807,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2019-01-01,5.48664148021712,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2018-01-01,3.97407545942133,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2017-01-01,6.61862070026751,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2016-01-01,6.5099145630674,GDP per capita growth (annual %)
+ET.NY.GDP.PCAP.KD.ZG,20,2015-01-01,7.4680767605293,GDP per capita growth (annual %)
+ET.FP.CPI.TOTL,20,2024-01-01,1039.01639764881,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2023-01-01,858.423451765945,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2022-01-01,659.216079717135,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2021-01-01,492.356913864235,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2020-01-01,388.173106848802,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2019-01-01,322.51984792587,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2018-01-01,278.49138441874,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2017-01-01,244.649000887413,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2016-01-01,221.027534076201,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL,20,2015-01-01,207.288195981494,Consumer price index (2010 = 100)
+ET.FP.CPI.TOTL.ZG,20,2024-01-01,21.037746057771,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2023-01-01,30.2188278135278,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2022-01-01,33.8898797100898,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2021-01-01,26.8395221557722,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2020-01-01,20.3563468559061,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2019-01-01,15.8096321719344,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2018-01-01,13.8330356586661,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2017-01-01,10.6871150284238,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2016-01-01,6.62813337230924,"Inflation, consumer prices (annual %)"
+ET.FP.CPI.TOTL.ZG,20,2015-01-01,9.56889955968623,"Inflation, consumer prices (annual %)"
+CV.IQ.SPI.OVRL,20,2024-01-01,59.87375,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2023-01-01,60.5241666666667,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2022-01-01,65.2020833333333,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2021-01-01,67.385,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2020-01-01,60.77125,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2019-01-01,56.6654166666667,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2018-01-01,56.5529166666667,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2017-01-01,55.91375,Statistical Performance Indicators (SPI) Overall score
+CV.IQ.SPI.OVRL,20,2016-01-01,53.0125,Statistical Performance Indicators (SPI) Overall score
+CV.SPI.INDEX.PIL1,20,2023-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2022-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2021-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2020-01-01,60,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2019-01-01,60,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2018-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2017-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2016-01-01,80,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL1,20,2015-01-01,60,Statistical Performance Indicators (SPI) Pillar 1
+CV.SPI.INDEX.PIL2,20,2023-01-01,31.3333333333333,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2022-01-01,64.6666666666667,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2021-01-01,64.8,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2020-01-01,64.8,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2019-01-01,59.3333333333333,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2018-01-01,59.3333333333333,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2017-01-01,57.0333333333333,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL2,20,2016-01-01,45.2333333333333,Statistical Performance Indicators (SPI) Pillar 2
+CV.SPI.INDEX.PIL3,20,2023-01-01,67.5625,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2022-01-01,67.61875,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2021-01-01,76.05,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2020-01-01,67.98125,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2019-01-01,59.59375,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2018-01-01,59.03125,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2017-01-01,60.74375,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2016-01-01,59.2625,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL3,20,2015-01-01,58.675,Statistical Performance Indicators (SPI) Pillar 3
+CV.SPI.INDEX.PIL4,20,2023-01-01,68.725,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2022-01-01,68.725,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2021-01-01,71.075,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2020-01-01,71.075,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2019-01-01,64.4,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2018-01-01,64.4,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2017-01-01,56.7916666666667,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2016-01-01,55.5666666666667,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL4,20,2015-01-01,60.5666666666667,Statistical Performance Indicators (SPI) Pillar 4
+CV.SPI.INDEX.PIL5,20,2023-01-01,55,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2022-01-01,45,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2021-01-01,45,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2020-01-01,20,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2019-01-01,20,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2018-01-01,20,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2017-01-01,25,Statistical Performance Indicators (SPI) Pillar 5
+CV.SPI.INDEX.PIL5,20,2016-01-01,25,Statistical Performance Indicators (SPI) Pillar 5
+CV.NY.GDP.PCAP.KD.ZG,20,2024-01-01,6.72368173800109,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2023-01-01,4.2751322057766,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2022-01-01,15.1545081084513,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2021-01-01,6.62540765957627,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2020-01-01,-20.8937523404244,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2019-01-01,6.80449531732363,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2018-01-01,3.60152349643896,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2017-01-01,4.48221093147532,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2016-01-01,4.24816232606327,GDP per capita growth (annual %)
+CV.NY.GDP.PCAP.KD.ZG,20,2015-01-01,0.922631249857901,GDP per capita growth (annual %)
+CV.FP.CPI.TOTL,20,2024-01-01,128.103100283253,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2023-01-01,126.77429041426,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2022-01-01,122.222274152969,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2021-01-01,113.241195056328,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2020-01-01,111.171021033351,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2019-01-01,110.501606515952,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2018-01-01,109.291196346283,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2017-01-01,107.93536426201,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2016-01-01,107.095292454783,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL,20,2015-01-01,108.624526319135,Consumer price index (2010 = 100)
+CV.FP.CPI.TOTL.ZG,20,2024-01-01,1.0481698336865,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2023-01-01,3.72437535861454,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2022-01-01,7.93092928079189,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2021-01-01,1.86215256793885,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2020-01-01,0.6057961856899,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2019-01-01,1.10750930553819,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2018-01-01,1.25615185860785,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2017-01-01,0.784415251101334,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2016-01-01,-1.40781637091705,"Inflation, consumer prices (annual %)"
+CV.FP.CPI.TOTL.ZG,20,2015-01-01,0.131187999024544,"Inflation, consumer prices (annual %)"

@@ -35,7 +35,8 @@ procname = 'UTILS_PutTime '
   
 
 
-file_path = "connection.txt"
+# --file_path = "connection.txt"
+file_path = r"C:\Harmonize\App\connection.txt"
 
 
 

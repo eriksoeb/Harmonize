@@ -131,6 +131,13 @@
   <ItemGroup>
     <Content Include="Awicons-Vista-Artistic-Chart.ico" />
     <Content Include="Norway-Flag.ico" />
+    <None Include="Resources\chart3.png" />
+    <None Include="Resources\eyes.png" />
+    <None Include="Resources\vask.png" />
+    <None Include="Resources\wipe.png" />
+    <None Include="Resources\glass.png" />
+    <None Include="Resources\soap.png" />
+    <None Include="Resources\clear.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_41C4D9292A0DF5F478A9924F25BBE6BB"
+        "OwnerKey" = "8:_36A76181884945FD8A72F269004686D1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_449BF1BC46F34EC4A2B64D4CA6F9E683"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -165,12 +171,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C74C3079C39CB503AF0F6D2D4E6726D5"
-        "OwnerKey" = "8:_36A76181884945FD8A72F269004686D1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F1A691EBDA9446C59708333F1C181211"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -178,6 +178,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F3812EDDB8C44D799FD115DA5A523508"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F832FA49467F42F4BC96CD063EB94AD5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -202,7 +208,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C74C3079C39CB503AF0F6D2D4E6726D5"
+        "OwnerKey" = "8:_41C4D9292A0DF5F478A9924F25BBE6BB"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -398,6 +404,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_41C4D9292A0DF5F478A9924F25BBE6BB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_41C4D9292A0DF5F478A9924F25BBE6BB"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2DE8C69ED8724FDCB8062A96917948F3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_449BF1BC46F34EC4A2B64D4CA6F9E683"
@@ -802,37 +839,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C74C3079C39CB503AF0F6D2D4E6726D5"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C74C3079C39CB503AF0F6D2D4E6726D5"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_2DE8C69ED8724FDCB8062A96917948F3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F1A691EBDA9446C59708333F1C181211"
             {
             "SourcePath" = "8:..\\CSharp\\bin\\Debug\\Report.html"
@@ -857,6 +863,26 @@
             {
             "SourcePath" = "8:..\\CSharp\\bin\\Debug\\Chart.html"
             "TargetName" = "8:Chart.html"
+            "Tag" = "8:"
+            "Folder" = "8:_2DE8C69ED8724FDCB8062A96917948F3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F832FA49467F42F4BC96CD063EB94AD5"
+            {
+            "SourcePath" = "8:..\\CSharp\\bin\\Debug\\demoaddin.xlsx"
+            "TargetName" = "8:demoaddin.xlsx"
             "Tag" = "8:"
             "Folder" = "8:_2DE8C69ED8724FDCB8062A96917948F3"
             "Condition" = "8:"
@@ -929,25 +955,25 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Harmonize"
-        "ProductCode" = "8:{9BD8DE88-3E2F-4F61-807D-B3B9F06E2C90}"
-        "PackageCode" = "8:{0FB4EDDA-BEBD-4081-AA5F-0623119DDE26}"
+        "ProductCode" = "8:{EDB6545E-56F8-4AF2-8AB0-EF8D49A7F977}"
+        "PackageCode" = "8:{237EB039-51F5-48A5-A22B-E2B0B281B82D}"
         "UpgradeCode" = "8:{C463EE0B-414F-4E46-8FEC-529D6628EF46}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.9.9"
+        "ProductVersion" = "8:1.9.86"
         "Manufacturer" = "8:HP Inc."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Harmonize.Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:HP Inc."
+        "ARPCONTACT" = "8:Erik"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:Harmonize"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_B755D8275D8542D2AD5EE2B414589858"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

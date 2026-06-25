@@ -14,7 +14,14 @@
       "Bash(mv:*)",
       "Bash(sed -i 's|demo/demo.html|templates/demo.html|g; s|href=\"demo/|href=\"templates/|g' C:/HarmonizeCode/www/index.html)",
       "Bash(sed -i 's|\\\\.\\\\./demo/|../templates/|g' C:/HarmonizeCode/www/data/index.html)",
-      "Bash(sed -i 's|href=\"demo.html\"|href=\"../templates/demo.html\"|g; s|href=\"../index.html\"|href=\"../index.html\"|g' C:/HarmonizeCode/www/templates/article.html)"
+      "Bash(sed -i 's|href=\"demo.html\"|href=\"../templates/demo.html\"|g; s|href=\"../index.html\"|href=\"../index.html\"|g' C:/HarmonizeCode/www/templates/article.html)",
+      "Bash(git commit:*)",
+      "Bash(git check-ignore:*)",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "Bash(python convert_nadabas.py)",
+      "Bash(python:*)"
     ]
   }
 }

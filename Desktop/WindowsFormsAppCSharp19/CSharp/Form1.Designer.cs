@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,25 +73,26 @@
             this.applyFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Wild_label3 = new System.Windows.Forms.Label();
             this.buttonpanel2 = new System.Windows.Forms.Panel();
-            this.YearChartRepo_btn = new System.Windows.Forms.Button();
             this.Base_Label = new System.Windows.Forms.Label();
             this.comboBasisBox = new System.Windows.Forms.ComboBox();
             this.checkedListBoxMonths = new System.Windows.Forms.CheckedListBox();
-            this.NyMulti_btn = new System.Windows.Forms.Button();
-            this.NyChart_btn = new System.Windows.Forms.Button();
-            this.Clear2_Btn = new System.Windows.Forms.Button();
-            this.ClearOne2_btn = new System.Windows.Forms.Button();
             this.toppanel2 = new System.Windows.Forms.Panel();
             this.Substr_label4 = new System.Windows.Forms.Label();
             this.Wild_txt = new System.Windows.Forms.TextBox();
             this.LangBox1 = new System.Windows.Forms.ComboBox();
-            this.Search_btn = new System.Windows.Forms.Button();
             this.connect_btn = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.wipe_btn = new System.Windows.Forms.Button();
+            this.Search_btn = new System.Windows.Forms.Button();
+            this.YearChartRepo_btn = new System.Windows.Forms.Button();
+            this.NyMulti_btn = new System.Windows.Forms.Button();
+            this.NyChart_btn = new System.Windows.Forms.Button();
+            this.Clear2_Btn = new System.Windows.Forms.Button();
+            this.ClearOne2_btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.buttonpanel2.SuspendLayout();
@@ -143,7 +144,7 @@
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(285, 24);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.saveAsToolStripMenuItem.Text = "&Save Chart definition ..";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_DoubleClick);
             // 
@@ -151,7 +152,7 @@
             // 
             this.retriveToolStripMenuItem.Name = "retriveToolStripMenuItem";
             this.retriveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.G)));
-            this.retriveToolStripMenuItem.Size = new System.Drawing.Size(285, 24);
+            this.retriveToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.retriveToolStripMenuItem.Text = "&Get Chart definition ..";
             this.retriveToolStripMenuItem.Click += new System.EventHandler(this.retriveToolStripMenuItem_Click);
             // 
@@ -168,7 +169,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(285, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -404,23 +405,23 @@
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView2.Location = new System.Drawing.Point(257, 456);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
@@ -492,21 +493,6 @@
             this.buttonpanel2.Size = new System.Drawing.Size(1132, 67);
             this.buttonpanel2.TabIndex = 19;
             // 
-            // YearChartRepo_btn
-            // 
-            this.YearChartRepo_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.YearChartRepo_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.YearChartRepo_btn.Image = ((System.Drawing.Image)(resources.GetObject("YearChartRepo_btn.Image")));
-            this.YearChartRepo_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.YearChartRepo_btn.Location = new System.Drawing.Point(327, 14);
-            this.YearChartRepo_btn.Name = "YearChartRepo_btn";
-            this.YearChartRepo_btn.Size = new System.Drawing.Size(150, 50);
-            this.YearChartRepo_btn.TabIndex = 7;
-            this.YearChartRepo_btn.Tag = "Report.html";
-            this.YearChartRepo_btn.Text = "&Report";
-            this.YearChartRepo_btn.UseVisualStyleBackColor = true;
-            this.YearChartRepo_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
             // Base_Label
             // 
             this.Base_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -546,68 +532,13 @@
             this.checkedListBoxMonths.TabIndex = 9;
             this.checkedListBoxMonths.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxMonths_SelectedIndexChanged);
             // 
-            // NyMulti_btn
-            // 
-            this.NyMulti_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NyMulti_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.NyMulti_btn.Image = global::CSharp.Properties.Resources.chart2;
-            this.NyMulti_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.NyMulti_btn.Location = new System.Drawing.Point(162, 14);
-            this.NyMulti_btn.Name = "NyMulti_btn";
-            this.NyMulti_btn.Size = new System.Drawing.Size(150, 50);
-            this.NyMulti_btn.TabIndex = 6;
-            this.NyMulti_btn.Tag = "MultiChart.html";
-            this.NyMulti_btn.Text = "&MultiChart";
-            this.NyMulti_btn.UseVisualStyleBackColor = true;
-            this.NyMulti_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
-            // NyChart_btn
-            // 
-            this.NyChart_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NyChart_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NyChart_btn.Image = global::CSharp.Properties.Resources.chart;
-            this.NyChart_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.NyChart_btn.Location = new System.Drawing.Point(6, 14);
-            this.NyChart_btn.Name = "NyChart_btn";
-            this.NyChart_btn.Size = new System.Drawing.Size(150, 50);
-            this.NyChart_btn.TabIndex = 5;
-            this.NyChart_btn.Tag = "Chart.html";
-            this.NyChart_btn.Text = "Chart";
-            this.NyChart_btn.UseVisualStyleBackColor = true;
-            this.NyChart_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
-            // Clear2_Btn
-            // 
-            this.Clear2_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Clear2_Btn.Image = global::CSharp.Properties.Resources.cancel;
-            this.Clear2_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Clear2_Btn.Location = new System.Drawing.Point(956, 14);
-            this.Clear2_Btn.Name = "Clear2_Btn";
-            this.Clear2_Btn.Size = new System.Drawing.Size(150, 50);
-            this.Clear2_Btn.TabIndex = 11;
-            this.Clear2_Btn.Text = "Clear &All";
-            this.Clear2_Btn.UseVisualStyleBackColor = true;
-            this.Clear2_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
-            // 
-            // ClearOne2_btn
-            // 
-            this.ClearOne2_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearOne2_btn.Image = global::CSharp.Properties.Resources.delete;
-            this.ClearOne2_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearOne2_btn.Location = new System.Drawing.Point(800, 14);
-            this.ClearOne2_btn.Name = "ClearOne2_btn";
-            this.ClearOne2_btn.Size = new System.Drawing.Size(150, 50);
-            this.ClearOne2_btn.TabIndex = 10;
-            this.ClearOne2_btn.Text = "&Clear Selected";
-            this.ClearOne2_btn.UseVisualStyleBackColor = true;
-            this.ClearOne2_btn.Click += new System.EventHandler(this.ClearOne2_btn_Click);
-            // 
             // toppanel2
             // 
             this.toppanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toppanel2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.toppanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.toppanel2.Controls.Add(this.wipe_btn);
             this.toppanel2.Controls.Add(this.Substr_label4);
             this.toppanel2.Controls.Add(this.Wild_txt);
             this.toppanel2.Controls.Add(this.LangBox1);
@@ -645,27 +576,13 @@
             this.LangBox1.BackColor = System.Drawing.SystemColors.Window;
             this.LangBox1.FormattingEnabled = true;
             this.LangBox1.ItemHeight = 13;
-            this.LangBox1.Location = new System.Drawing.Point(1015, 19);
+            this.LangBox1.Location = new System.Drawing.Point(1031, 23);
             this.LangBox1.Name = "LangBox1";
             this.LangBox1.Size = new System.Drawing.Size(87, 21);
             this.LangBox1.TabIndex = 20;
             this.LangBox1.TabStop = false;
             this.LangBox1.Text = "English";
             this.LangBox1.SelectedIndexChanged += new System.EventHandler(this.LangBox1_SelectedIndexChanged);
-            // 
-            // Search_btn
-            // 
-            this.Search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.Image = global::CSharp.Properties.Resources.search;
-            this.Search_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Search_btn.Location = new System.Drawing.Point(618, 9);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(310, 35);
-            this.Search_btn.TabIndex = 4;
-            this.Search_btn.Text = "Search&Show";
-            this.Search_btn.UseVisualStyleBackColor = true;
-            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
             // connect_btn
             // 
@@ -729,23 +646,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.Location = new System.Drawing.Point(257, 100);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -754,6 +671,101 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // wipe_btn
+            // 
+            this.wipe_btn.Image = global::CSharp.Properties.Resources.wipe;
+            this.wipe_btn.Location = new System.Drawing.Point(941, 9);
+            this.wipe_btn.Name = "wipe_btn";
+            this.wipe_btn.Size = new System.Drawing.Size(68, 35);
+            this.wipe_btn.TabIndex = 22;
+            this.wipe_btn.UseVisualStyleBackColor = true;
+            this.wipe_btn.Click += new System.EventHandler(this.wipe_btn_Click);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_btn.Image = global::CSharp.Properties.Resources.eyes;
+            this.Search_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Search_btn.Location = new System.Drawing.Point(618, 9);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(310, 35);
+            this.Search_btn.TabIndex = 4;
+            this.Search_btn.Text = "Search&Show";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
+            // YearChartRepo_btn
+            // 
+            this.YearChartRepo_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.YearChartRepo_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.YearChartRepo_btn.Image = ((System.Drawing.Image)(resources.GetObject("YearChartRepo_btn.Image")));
+            this.YearChartRepo_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.YearChartRepo_btn.Location = new System.Drawing.Point(327, 14);
+            this.YearChartRepo_btn.Name = "YearChartRepo_btn";
+            this.YearChartRepo_btn.Size = new System.Drawing.Size(150, 50);
+            this.YearChartRepo_btn.TabIndex = 7;
+            this.YearChartRepo_btn.Tag = "Report.html";
+            this.YearChartRepo_btn.Text = "&Report";
+            this.YearChartRepo_btn.UseVisualStyleBackColor = true;
+            this.YearChartRepo_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
+            // NyMulti_btn
+            // 
+            this.NyMulti_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NyMulti_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.NyMulti_btn.Image = global::CSharp.Properties.Resources.chart2;
+            this.NyMulti_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NyMulti_btn.Location = new System.Drawing.Point(162, 14);
+            this.NyMulti_btn.Name = "NyMulti_btn";
+            this.NyMulti_btn.Size = new System.Drawing.Size(150, 50);
+            this.NyMulti_btn.TabIndex = 6;
+            this.NyMulti_btn.Tag = "MultiChart.html";
+            this.NyMulti_btn.Text = "&MultiChart";
+            this.NyMulti_btn.UseVisualStyleBackColor = true;
+            this.NyMulti_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
+            // NyChart_btn
+            // 
+            this.NyChart_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NyChart_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NyChart_btn.Image = global::CSharp.Properties.Resources.chart3;
+            this.NyChart_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NyChart_btn.Location = new System.Drawing.Point(6, 14);
+            this.NyChart_btn.Name = "NyChart_btn";
+            this.NyChart_btn.Size = new System.Drawing.Size(150, 50);
+            this.NyChart_btn.TabIndex = 5;
+            this.NyChart_btn.Tag = "Chart.html";
+            this.NyChart_btn.Text = "Chart";
+            this.NyChart_btn.UseVisualStyleBackColor = true;
+            this.NyChart_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
+            // Clear2_Btn
+            // 
+            this.Clear2_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Clear2_Btn.Image = global::CSharp.Properties.Resources.cancel;
+            this.Clear2_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clear2_Btn.Location = new System.Drawing.Point(956, 14);
+            this.Clear2_Btn.Name = "Clear2_Btn";
+            this.Clear2_Btn.Size = new System.Drawing.Size(150, 50);
+            this.Clear2_Btn.TabIndex = 11;
+            this.Clear2_Btn.Text = "Clear &All";
+            this.Clear2_Btn.UseVisualStyleBackColor = true;
+            this.Clear2_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
+            // 
+            // ClearOne2_btn
+            // 
+            this.ClearOne2_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearOne2_btn.Image = global::CSharp.Properties.Resources.delete;
+            this.ClearOne2_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearOne2_btn.Location = new System.Drawing.Point(800, 14);
+            this.ClearOne2_btn.Name = "ClearOne2_btn";
+            this.ClearOne2_btn.Size = new System.Drawing.Size(150, 50);
+            this.ClearOne2_btn.TabIndex = 10;
+            this.ClearOne2_btn.Text = "&Clear Selected";
+            this.ClearOne2_btn.UseVisualStyleBackColor = true;
+            this.ClearOne2_btn.Click += new System.EventHandler(this.ClearOne2_btn_Click);
             // 
             // Form1
             // 
@@ -857,6 +869,7 @@
         private System.Windows.Forms.ToolStripMenuItem HOURLYToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem upgradeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyDatafileToolStripMenuItem;
+        private System.Windows.Forms.Button wipe_btn;
     }
 }
 
