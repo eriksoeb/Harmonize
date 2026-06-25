@@ -4537,12 +4537,22 @@ Globals.AppName
 
         private void wipe_btn_Click(object sender, EventArgs e)
         {
-            //spar language
-            //dataGridView1.Rows.Clear(); resuse:
-            dataGridView1.DataSource = null;
+            //storing selected language
+            // Initially this holds the startuplanguage : Globals.LangColumn = Int32.Parse(sr.ReadLine()); 
 
+
+            int LangColumn = LangBox1.SelectedIndex >= 0 ? LangBox1.SelectedIndex : Globals.LangColumn;
+            
+
+            //this clears data grid but bring back default non langual column names This part is OK
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = Curve;
-            //SetAutoScrollMargin til language
+
+            //rfresh the language
+            LangBox1.SelectedIndex = LangColumn;
+            Globals.LangColumn = LangColumn;
+            GetMenuesFromFile();
+
 
         }
 
