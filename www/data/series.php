@@ -119,7 +119,7 @@ if (!file_exists($catalogFile)) {
 
         $found++;
         $timestamp = date('Y-m-d H:i', filemtime($path));
-        $jsonUrl   = $domain . '/series/' . $filename;
+        $jsonUrl   = 'getseries.php?domain=' . $domain . '&name=' . pathinfo($filename, PATHINFO_FILENAME);
         $chartUrl  = '../templates/Chart.html?filename=../data/' . $domain . '/series/' . $filename;
         $name      = !empty($entry['name']) ? $entry['name'] : pathinfo($filename, PATHINFO_FILENAME);
 
