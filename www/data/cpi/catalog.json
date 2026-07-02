@@ -1,0 +1,18 @@
+[
+    {"file": "c00.idx.json",        "name": "C00.IDX",        "description": "Consumer Price Index – Total"},
+    {"file": "c01.idx.json",        "name": "C01.IDX",        "description": "Food and non-alcoholic beverages"},
+    {"file": "c02.idx.json",        "name": "C02.IDX",        "description": "Alcoholic beverages and tobacco"},
+    {"file": "c03.idx.json",        "name": "C03.IDX",        "description": "Clothing and footwear"},
+    {"file": "c04.idx.json",        "name": "C04.IDX",        "description": "Housing, water, electricity and fuels"},
+    {"file": "c05.idx.json",        "name": "C05.IDX",        "description": "Furnishings and household equipment"},
+    {"file": "c06.idx.json",        "name": "C06.IDX",        "description": "Health"},
+    {"file": "c07.idx.json",        "name": "C07.IDX",        "description": "Transport"},
+    {"file": "c08.idx.json",        "name": "C08.IDX",        "description": "Communication"},
+    {"file": "c09.idx.json",        "name": "C09.IDX",        "description": "Recreation and culture"},
+    {"file": "c10.idx.json",        "name": "C10.IDX",        "description": "Education"},
+    {"file": "c11.idx.json",        "name": "C11.IDX",        "description": "Restaurants and hotels"},
+    {"file": "c12.idx.json",        "name": "C12.IDX",        "description": "Miscellaneous goods and services"},
+    {"file": "c01.1.1.1.idx.json", "name": "C01.1.1.1.IDX", "description": "Bread and cereals"},
+    {"file": "c01.1.4.7.idx.json", "name": "C01.1.4.7.IDX", "description": "Milk, cheese and eggs"},
+    {"file": "c01.1.8.4.idx.json", "name": "C01.1.8.4.IDX", "description": "Sugar, jam, honey and confectionery"}
+]

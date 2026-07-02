@@ -49,6 +49,10 @@ MyData.js
 # Claude Code local settings
 .claude/
 
+# Paper drafts (work in progress, not for repo)
+paper*.md
+paper*.txt
+
 # OS
 Thumbs.db
 Desktop.ini
