@@ -3343,28 +3343,84 @@ Globals.AppName
         //saver datagrid2 til en fil
         private void saveAsToolStripMenuItem_DoubleClick(object sender, EventArgs e)
         {
-
-
-
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                sfd.Filter = "CSV files (*.csv)|*.csv";
-                sfd.Title = "Save as CSV";
-                sfd.InitialDirectory = Globals.UserDir;   // <-- default folder
+                sfd.Filter = "Chart definition (*.chartdef)|*.chartdef|CSV files (*.csv)|*.csv";
+                sfd.Title = "Save chart definition";
+                sfd.InitialDirectory = Globals.UserDir;
                 sfd.RestoreDirectory = true;
-                sfd.FileName = "Exportchartdef.csv";
-                // sfd.InitialDirectory = @"C:\Temp";
+                sfd.FileName = "Exportchartdef.chartdef";
+                sfd.FilterIndex = 1;
 
                 dataGridView2.EndEdit();
                 dataGridView2.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    ExportDataGridViewToCsv(dataGridView2, sfd.FileName);
-                    MessageBox.Show("CSV file saved successfully.", "Export",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string ext = Path.GetExtension(sfd.FileName).ToLowerInvariant();
+                    if (ext == ".chartdef" || ext == ".json")
+                    {
+                        ExportChartDefToJson(dataGridView2, sfd.FileName);
+                        MessageBox.Show("Chart definition saved successfully.", "Export",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        ExportDataGridViewToCsv(dataGridView2, sfd.FileName);
+                        MessageBox.Show("CSV file saved successfully.", "Export",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
+        }
+
+
+        private void ExportChartDefToJson(DataGridView dgv, string filePath)
+        {
+            var doc = new
+            {
+                decimals = int.TryParse(Globals.deci, out int deciInt) ? deciInt : 1,
+                basePeriod = Globals.BaseMnds >= 1900 ? Globals.BaseMnds.ToString() : "",
+                frequency = Globals.freq ?? "",
+                series = BuildSeriesListForJson(dgv)
+            };
+
+            string json = JsonConvert.SerializeObject(doc, Formatting.Indented);
+            File.WriteAllText(filePath, json, Encoding.UTF8);
+        }
+
+
+        private List<Dictionary<string, object>> BuildSeriesListForJson(DataGridView dgv)
+        {
+            var list = new List<Dictionary<string, object>>();
+
+            // Column names that should be stored as integers
+            var intColumns = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+                { "Id", "Lag", "Order", "UnitId" };
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var dict = new Dictionary<string, object>();
+                foreach (DataGridViewColumn col in dgv.Columns)
+                {
+                    string raw = "";
+                    if (col.Name == "Color")
+                        raw = row.Cells[col.Name].Value?.ToString() ?? "";
+                    else
+                        raw = row.Cells[col.Name].FormattedValue?.ToString() ?? "";
+
+                    raw = raw.Trim();
+
+                    if (intColumns.Contains(col.Name) && int.TryParse(raw, out int intVal))
+                        dict[col.Name] = intVal;
+                    else
+                        dict[col.Name] = raw;
+                }
+                list.Add(dict);
+            }
+            return list;
         }
 
 
@@ -3428,24 +3484,27 @@ Globals.AppName
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "CSV files (*.csv)|*.csv";
-                ofd.Title = "Open CSV file";
+                ofd.Filter = "Chart definition (*.chartdef)|*.chartdef|CSV files (*.csv)|*.csv";
+                ofd.Title = "Open chart definition";
                 ofd.InitialDirectory = Globals.UserDir;
                 ofd.RestoreDirectory = true;
-                // ofd.InitialDirectory = @"C:\Harmonize";   // <-- default folder
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
+                    string ext = Path.GetExtension(ofd.FileName).ToLowerInvariant();
                     try
                     {
-                        ImportCsvToDataGridView(dataGridView2, ofd.FileName);
-
+                        if (ext == ".chartdef" || ext == ".json")
+                            ImportJsonToDataGridView(dataGridView2, ofd.FileName);
+                        else
+                            ImportCsvToDataGridView(dataGridView2, ofd.FileName);
                     }
                     catch (Exception ex)
                     {
+                        string format = (ext == ".chartdef" || ext == ".json") ? "Chart definition" : "CSV";
                         MessageBox.Show(
-                            $"The selected file is not a valid CSV file.\n\n{ex.Message}",
-                            "CSV Import Error",
+                            $"The selected file is not a valid {format} file.\n\n{ex.Message}",
+                            $"{format} Import Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error
                         );
@@ -3455,6 +3514,95 @@ Globals.AppName
             //test buttons chart / clear avail if success
             UpdateButtonStates(); //ghoster buttons
             dataGridView2.ClearSelection();  //ingen valgt
+        }
+
+
+        private void ImportJsonToDataGridView(DataGridView dgv, string filePath)
+        {
+            string json = File.ReadAllText(filePath, Encoding.UTF8);
+            var doc = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+
+            if (doc == null)
+                throw new Exception("JSON file could not be parsed or is empty.");
+
+            // --- document-level fields ---
+            if (doc.ContainsKey("decimals"))
+            {
+                Globals.deci = doc["decimals"]?.ToString() ?? "1";
+                foreach (ToolStripMenuItem item in decimalToolStripMenuItem.DropDownItems)
+                    item.Enabled = item.Tag?.ToString() != Globals.deci;
+            }
+
+            if (doc.ContainsKey("frequency"))
+            {
+                string freq = doc["frequency"]?.ToString() ?? "";
+                if (!string.IsNullOrWhiteSpace(freq))
+                {
+                    Globals.freq = freq;
+                    foreach (ToolStripMenuItem item in imageDateToolStripMenuItem.DropDownItems)
+                        item.Enabled = item.Tag?.ToString() != Globals.freq;
+                }
+            }
+
+            if (doc.ContainsKey("basePeriod"))
+            {
+                string bp = doc["basePeriod"]?.ToString() ?? "";
+                if (int.TryParse(bp, out int bpInt) && bpInt >= 1900)
+                {
+                    if (bpInt > 9999)
+                    {
+                        Globals.BaseYear = bpInt / 100;
+                        Globals.BaseMnds = bpInt;
+                    }
+                    else
+                    {
+                        Globals.BaseYear = bpInt;
+                        Globals.BaseMnds = bpInt;
+                    }
+                    comboBasisBox.Text = Globals.BaseYear.ToString();
+                }
+                else
+                {
+                    Globals.BaseYear = 1;
+                    Globals.BaseMnds = 0;
+                    comboBasisBox.Text = "";
+                }
+            }
+
+            // --- series rows ---
+            if (!doc.ContainsKey("series"))
+                throw new Exception("JSON file has no 'series' array.");
+
+            var seriesToken = doc["series"] as Newtonsoft.Json.Linq.JArray;
+            if (seriesToken == null)
+                throw new Exception("'series' in JSON is not an array.");
+
+            dgv.Rows.Clear();
+
+            foreach (var item in seriesToken)
+            {
+                var seriesDict = item as Newtonsoft.Json.Linq.JObject;
+                if (seriesDict == null) continue;
+
+                int rowIndex = dgv.Rows.Add();
+
+                foreach (var kvp in seriesDict)
+                {
+                    string columnName = kvp.Key;
+                    string cellValue = kvp.Value?.ToString() ?? "";
+
+                    if (!dgv.Columns.Contains(columnName)) continue;
+
+                    if (columnName == "Color")
+                    {
+                        SetColorCellValue(dgv, rowIndex, cellValue);
+                    }
+                    else
+                    {
+                        dgv.Rows[rowIndex].Cells[columnName].Value = cellValue.Trim();
+                    }
+                }
+            }
         }
 
 
