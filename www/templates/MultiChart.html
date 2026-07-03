@@ -117,12 +117,14 @@ function initChart() {
 	
 	  const sortedSeries = chartGroup.series.map(s => ({
         ...s,
+        ...(s.style || {}),          // flatten style fields so Highcharts sees them
+        dashStyle: s.style?.linestyle, // rename linestyle → dashStyle for Highcharts
         data: [...s.data].sort((a, b) => a[0] - b[0]) // ascending
     }));
 	
 	
-const DECIMALS = chartGroup.deci ?? seriesData[0].deci ?? 1;  //default
-const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
+const DECIMALS = chartGroup.decimals ?? seriesData[0].decimals ?? 1;  //default
+const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
 
         // Date format switch
         let dateFmt;
@@ -151,8 +153,8 @@ wrapper.append('<div id="' + containerId + '" style="width:100%; height:30%; mar
 
             Highcharts.chart(containerId, {
                 chart: { type: s.type, zoomType: 'x' },
-                title: { text: s.desc, floating:true, y:15, style:{fontSize:'14px'} },
-                subtitle: { text: s.func + ' '+s.aggregation + ' '+ s.name || '', floating:true, y:30, style:{fontSize:'12px'} },
+                title: { text: s.description, floating:true, y:15, style:{fontSize:'14px'} },
+                subtitle: { text: (s['function'] || '') + ' '+s.aggregation + ' '+ s.name || '', floating:true, y:30, style:{fontSize:'12px'} },
                 credits: { enabled: false },
                 exporting: { enabled: false },
 
@@ -163,8 +165,8 @@ xAxis: {
     type: 'datetime',
     alternateGridColor: 'rgba(0,0,0,0.05)',
     title: {
-              text: seriesData[0].mybaseperiod 
-              ? 'Baseperiod: ' + seriesData[0].mybaseperiod 
+              text: seriesData[0].baseperiod
+              ? 'Baseperiod: ' + seriesData[0].baseperiod
               : '',
         align: 'low',   // aligns near the axis
         x: 5,         // move left (negative = left, positive = right)
@@ -217,9 +219,10 @@ tooltip: {
                    // color: Highcharts.getOptions().colors[
                     //    (groupIndex + seriesIndex) % Highcharts.getOptions().colors.length
                     //],
-					color:s.color,
+					color: s.color,
+                    dashStyle: s.dashStyle,
                     marker: { enabled: false },
-                    lineWidth: 4
+                    lineWidth: s.lineWidth || 4
                 }]
             });
         });
