@@ -249,7 +249,7 @@ namespace CSharp
             Globals.Version = fvi.FileVersion;
             //MessageBox.Show(Globals.AppName + "debug \n" + Globals.Version, Globals.AppName);
 
-            LogMessage();
+           // LogMessage();
             //Harmonize.HarmonizeInstaller.Version = Globals.Version; set manually
 
 
@@ -258,12 +258,13 @@ namespace CSharp
             if (Globals.DBStr == "error")
             {
                 MessageBox.Show(Globals.AppName + "Cannot find database connection str\n"+Globals.Version, Globals.AppName);
+                LogMessage();
                 Environment.Exit(0);
 
             }
 
 
-    
+            LogMessageOK();
 
 
             string[] mrow = Globals.LangLineList.Split(';');
@@ -2230,14 +2231,13 @@ Globals.AppName
                 file.WriteLine("\"subtitle\":\"Harmonize\",");
 
 
-                // file.WriteLine("freq : '" + Globals.freq + "',");
-                //  file.WriteLine("decimal : " + Globals.deci.ToString() + ",");
-                // file.WriteLine("executed_UTC : '" + isoUtcDateTime + "',");
 
 
-                file.WriteLine($"\"freq\":\"{Globals.freq}\",");
-                file.WriteLine($"\"deci\":{Globals.deci},");
-                file.WriteLine($"\"executed_UTC\":\"{isoUtcDateTime}\",");
+                file.WriteLine($"\"generated_utc\":\"{isoUtcDateTime}\",");
+
+                file.WriteLine($"\"frequency\":\"{Globals.freq}\",");
+                file.WriteLine($"\"decimals\":{Globals.deci},");
+                
 
 
 
@@ -2248,16 +2248,12 @@ Globals.AppName
                 //file.WriteLine("mytimezone : ''  ,");               
 
                 if (Globals.BaseMnds >= 1900)
-                {
-                    //file.WriteLine("mybaseperiod : " + Globals.BaseMnds.ToString() +
-                    //
-                    file.WriteLine("\"mybaseperiod\":\"" + Globals.BaseMnds.ToString() + "\", ");
-
+                {             
+                    file.WriteLine("\"baseperiod\":\"" + Globals.BaseMnds.ToString() + "\", ");
                 }
                 else
                 {
-                   // file.WriteLine("mybaseperiod : '',");
-                    file.WriteLine("\"mybaseperiod\":\"\",");
+                    file.WriteLine("\"baseperiod\":\"\",");
 
                 }
 
@@ -2482,6 +2478,46 @@ Globals.AppName
                     //ny felle serie 
                     file.WriteLine("{");
 
+
+
+                    file.WriteLine($"\"name\":\"{CurveName}\",");
+
+                  
+
+                    file.WriteLine($"\"title\":\"{Title}\", ");
+                    file.WriteLine($"\"description\":\"{SerieName.Trim()}\", ");
+                    file.WriteLine($"\"source\":\"{Source}\", ");
+                    file.WriteLine($"\"unit\":\"{Unit}\", ");
+                    // file.WriteLine($"\"unitid\":\"{UnitId}\", "); //not needed ?
+                    file.WriteLine($"\"interval\":\"{Iname}\", ");
+                    file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
+                    
+
+                    file.WriteLine("\"style\": {");
+
+                    file.WriteLine($"\"type\":\"{linetype}\", ");
+
+                    if (stacking == null)
+                        file.WriteLine("\"stacking\": null,");
+                    else
+                        file.WriteLine($"\"stacking\": \"{stacking}\",");
+
+
+                    file.WriteLine($"\"yAxis\":{LRName}, ");  //int
+                    file.WriteLine($"\"lineWidth\":{WidthValue}, ");  //int
+                    file.WriteLine($"\"linestyle\":\"{DashValue}\", ");
+                    file.WriteLine($"\"color\":\"{mycolor}\", ");
+                    file.WriteLine($"\"function\":\"{FnameReplaced}\", ");
+                 
+                    //more flytting
+                   file.WriteLine($"\"order\":{myorder}, ");
+                   file.WriteLine($"\"zIndex\":{myzindex}");
+                   file.WriteLine("},");  //end style
+
+              //end of pure Chart Styling here:
+
+
+
                     toolStripProgressBar1.Value = 40;
 
 
@@ -2661,6 +2697,10 @@ Globals.AppName
 
                     file.WriteLine("], "); //closing data new    ????????????????????????????????????????++
 
+                    
+                    /*
+                    flyttes opp :
+
                     file.WriteLine($"\"name\":\"{CurveName}\",");
 
                     file.WriteLine($"\"unitid\":\"{UnitId}\", ");
@@ -2698,6 +2738,9 @@ Globals.AppName
 
                
 
+                    no more flytting need base year label year
+                    */
+
                     string labelYear = "";
 
                     if (!string.IsNullOrWhiteSpace(myline))
@@ -2723,23 +2766,26 @@ Globals.AppName
 
 
 
-                    file.WriteLine($"\"labelyear\":\"{labelYear}\", ");
-                    file.WriteLine($"\"order\":{myorder}, ");
-                    file.WriteLine($"\"zIndex\":{myzindex}, ");
+                    file.WriteLine($"\"labelyear\":\"{labelYear}\"");  //last field before series close
 
-                    file.WriteLine($"\"interval\":\"{Iname}\", ");
+                /*
+                  flyttes
+                file.WriteLine($"\"order\":{myorder}, ");
+                file.WriteLine($"\"zIndex\":{myzindex}, ");
+                file.WriteLine($"\"interval\":\"{Iname}\", ");
 
-                    //file.WriteLine("aggregation: '" + AggDesc + "', ");
-                    //TBC
-                   // file.WriteLine($"aggregation: '{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}', ");
 
-                    file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
 
-                    //file.WriteLine($"\"desc\":\"{SerieName.Trim() + "', " + "              }, ");  //lukker curvenn
-                    file.WriteLine($"\"desc\":\"{SerieName.Trim()}\" ");
+                file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
 
-                    //COMMA om ikke siste
-                    if (dataGridView2.Rows.Count != numseries)
+                //file.WriteLine($"\"desc\":\"{SerieName.Trim() + "', " + "              }, ");  //lukker curvenn
+                file.WriteLine($"\"desc\":\"{SerieName.Trim()}\" ");
+
+
+                */
+
+                //COMMA om ikke siste
+                if (dataGridView2.Rows.Count != numseries)
                         file.WriteLine( "  }, "); //more to come..
                     else file.WriteLine("  } " );  //last series
 
@@ -3838,35 +3884,6 @@ Globals.AppName
 
 
 
-        //try to log
-        /*
-        void LogMessage()
-        {
-            try
-            {
-               string url = "https://www.eriksberg.no/Harmonizelog/Harmonizelog.php";
-
-           string line =
-           $"{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} | " +
-           $"PC={Environment.MachineName} | " +
-           $"User={Environment.UserName} | " +
-           $"Version={Globals.Version} | " +
-           $"Country={RegionInfo.CurrentRegion.TwoLetterISORegionName} | " +
-           $"Lang={CultureInfo.CurrentCulture.Name}  " ;
-
-
-                using (WebClient wc = new WebClient())
-                {
-                  
-                    wc.UploadString(url, line);
-                }
-            }
-            catch
-            {
-                // Ignore if offline or server unreachable
-            }
-        }
-        */
 
 
 
@@ -4543,21 +4560,15 @@ Globals.AppName
 
         }
 
-        ///
-        //testing for upgrades
-
-
-        //log
-
+        
 
 
         async void LogMessage()
+            //executed when error no connection could be upgrade is needed
         {
-
             if (Globals.MaxNum != 666) 
                     { 
-            string url = "https://harmonize.no/api/testforupgrade.php?product=HARMONIZE&client=Start-" + Environment.UserName + "&version=" + Globals.Version;
-
+            string url = "https://harmonize.no/api/testforupgrade.php?product=HARMONIZE&client=Error-" + Environment.UserName + "&version=" + Globals.Version;
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -4578,11 +4589,37 @@ Globals.AppName
         }
 
 
+        async void LogMessageOK()
+        //call this only after loogged in
+        {
+            if (Globals.MaxNum != 666)
+            {
+                string url = "https://harmonize.no/api/testforupgrade.php?product=HARMONIZE&client=Succes-" + Environment.UserName + "&version=" + Globals.Version;
+
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string json = await client.GetStringAsync(url);
+
+                        var result = JsonConvert.DeserializeObject<UpgradeResponse>(json);
+
+
+                    }
+                    //catch (Exception ex)
+                    catch (Exception)
+                    {
+                        //MessageBox.Show("Harmonize.no -Error: " + ex.Message);
+                    }
+                }
+            }//if
+        }
+
+
 
 
         private async void Check_Updates_Click(object sender, EventArgs e)
         {
-
             if (Globals.MaxNum != 666)
             {
 

@@ -104,14 +104,16 @@ function initChart() {
 //sorteing here ..
 const chartSeries = seriesData[0].series.map(s => ({
     ...s,
+    ...(s.style || {}),          // flatten style fields so Highcharts sees them
+    dashStyle: s.style?.linestyle, // rename linestyle → dashStyle for Highcharts
     data: [...s.data].sort((a, b) => a[0] - b[0]) // ascending
 }));
 
 
 
 
-const DECIMALS = seriesData[0].deci ?? 1;  //default
-const FREQ = seriesData[0].freq ?? 'MONTHLY';  //default
+const DECIMALS = seriesData[0].decimals ?? 1;  //default
+const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
 
         // Date format switch
         let dateFmt;
@@ -222,7 +224,7 @@ tooltip: {
 
         this.points.forEach(point => { 
             s +=
-                '<span style="color:' + point.series.color + '">&#9679;</span> ' +  point.series.options.func + ' '+
+                '<span style="color:' + point.series.color + '">&#9679;</span> ' +  (point.series.options.style?.function || '') + ' '+
                 point.series.name + ': <b>' +
                 Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') + // formats with chosen decimals
                 (point.series.tooltipOptions.valueSuffix || '') +
@@ -242,9 +244,9 @@ tooltip: {
 	scrollbar: { enabled: true },
     alternateGridColor: 'rgba(0,0,0,0.05)',
     title: {     
-        text: seriesData[0].mybaseperiod 
-              ? 'Baseperiod: ' + seriesData[0].mybaseperiod 
-		  
+        text: seriesData[0].baseperiod
+              ? 'Baseperiod: ' + seriesData[0].baseperiod
+
               : '',
 		
         align: 'low',   // aligns near the axis
@@ -320,12 +322,12 @@ tooltip: {
 		
 		let namesHtml = chartSeries.map((s, i) => {
 			let color = chart.series[i].color; // get actual chart color
-			let func = chart.series[i].function; // get actual chart color
-		
-        return `<span class="series-name" data-index="${i}" 
+			let func = chart.series[i].options.style?.function || '';
+
+        return `<span class="series-name" data-index="${i}"
                      style="margin-right:15px; cursor:pointer; display:inline-flex; align-items:center;">
                     <span style="display:inline-block;width:12px;height:12px;background-color:${color};margin-right:5px;"></span>
-                    ${s.func} ${s.aggregation} ${s.name} ${s.desc} 
+                    ${s.style?.function || ''} ${s.aggregation} ${s.name} ${s.description}
                 </span>`;
     }).join('');
 

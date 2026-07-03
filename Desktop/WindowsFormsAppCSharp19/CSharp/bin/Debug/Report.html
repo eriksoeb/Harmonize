@@ -146,7 +146,7 @@ function formatDate2(ts) {
 function formatDate(ts) {
   const d = new Date(ts);
 
-  // Extract UTC fields ONLY
+  // Use UTC to match Highcharts display
   const y = d.getUTCFullYear();
   const m = d.getUTCMonth() + 1;
   const day = d.getUTCDate();
@@ -201,17 +201,29 @@ function initReport() {
     }
 
     const dataToDisplay = seriesData[0].series;
-	const DECIMALS = seriesData[0].deci ?? 0;  //default
+	const DECIMALS = seriesData[0].decimals ?? 0;  //default
     const tableContainer = document.getElementById('textDataTable');
     let isVertical = true;
+
+    if ((seriesData[0].frequency ?? '') === 'HOURLY') useLongDate = true;
 	
 
     const getAllDates = () => {
-        const allDates = new Set();
+        // Count max occurrences of each timestamp across all series (handles DST duplicates)
+        const maxCount = {};
         dataToDisplay.forEach(series => {
-            series.data.forEach(item => allDates.add(item[0]));
+            const counts = {};
+            series.data.forEach(item => { counts[item[0]] = (counts[item[0]] || 0) + 1; });
+            Object.keys(counts).forEach(ts => {
+                maxCount[ts] = Math.max(maxCount[ts] || 0, counts[ts]);
+            });
         });
-        return Array.from(allDates).sort((a,b)=>a-b);
+        // Expand: each timestamp repeated by its max occurrence count
+        const allDates = [];
+        Object.keys(maxCount).map(Number).sort((a,b) => a-b).forEach(ts => {
+            for (let i = 0; i < maxCount[ts]; i++) allDates.push({ ts, occ: i });
+        });
+        return allDates;
     }
 
     const renderTable = () => {
@@ -228,31 +240,23 @@ function initReport() {
 
             dataToDisplay.forEach(series => {
                 const th = document.createElement('th');
-                th.innerHTML = `${series.func} ${series.name}<span class="desc">${series.desc || ''}</span>`;
+                th.innerHTML = `${series.style?.function || ''} ${series.name}<span class="desc">${series.description || ''}</span>`;
                 headerRow.appendChild(th);
             });
             thead.appendChild(headerRow);
             table.appendChild(thead);
 
             const tbody = document.createElement('tbody');
-            allDates.forEach((ts,i) => {
+            allDates.forEach(({ts, occ}) => {
                 const row = document.createElement('tr');
                 const dateCell = document.createElement('td');
-                const d = new Date(ts);
-                //replace to use toogle below
-				//dateCell.innerText = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-                
 				dateCell.innerText = formatDate(ts);
 				row.appendChild(dateCell);
 
                 dataToDisplay.forEach(series => {
                     const cell = document.createElement('td');
-                    const point = series.data.find(item => item[0] === ts);
-                    
+                    const point = series.data.filter(item => item[0] === ts)[occ];
 					cell.innerText = point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '';
-					
-										
-					
                     row.appendChild(cell);
                 });
 
@@ -267,9 +271,7 @@ function initReport() {
             const firstCell = document.createElement('th'); firstCell.innerText = 'Series';
             headerRow.appendChild(firstCell);
 
-            allDates.forEach(ts => {
-                const d = new Date(ts);
-                //const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+            allDates.forEach(({ts}) => {
                 const dateStr = formatDate(ts);
 				const th = document.createElement('th'); th.innerText = dateStr;
                 headerRow.appendChild(th);
@@ -281,14 +283,13 @@ function initReport() {
             dataToDisplay.forEach((series,i) => {
                 const row = document.createElement('tr');
                 const seriesCell = document.createElement('td');
-                seriesCell.innerHTML = `${series.name}<span class="desc">${series.desc || ''}</span>`;
+                seriesCell.innerHTML = `${series.name}<span class="desc">${series.description || ''}</span>`;
                 row.appendChild(seriesCell);
 
-                allDates.forEach(ts => {
+                allDates.forEach(({ts, occ}) => {
                     const cell = document.createElement('td');
-                    const point = series.data.find(item => item[0] === ts);
+                    const point = series.data.filter(item => item[0] === ts)[occ];
                     cell.innerText = point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '';
-					
                     row.appendChild(cell);
                 });
 
@@ -308,7 +309,9 @@ function initReport() {
     });
 	
 	 /* ---------- TOGGLE s---------- */
-	document.getElementById('toggleDateFormat').addEventListener('click', function () {
+    const toggleDateBtn = document.getElementById('toggleDateFormat');
+    toggleDateBtn.innerText = useLongDate ? 'Short date' : 'Long date';
+	toggleDateBtn.addEventListener('click', function () {
 	useLongDate = !useLongDate;
 	this.innerText = useLongDate ? 'Short date' : 'Long date';
 	renderTable();
@@ -328,36 +331,26 @@ function initReport() {
         const allDates = getAllDates();
 
         if (isVertical) {
-            const header = ['Date'].concat(dataToDisplay.map(s => `"${s.name} - ${s.desc || ''}"`));
+            const header = ['Date'].concat(dataToDisplay.map(s => `"${s.name} - ${s.description || ''}"`));
             csv.push(header.join(','));
 
-            allDates.forEach(ts => {
-                const d = new Date(ts);
-				const dateStr = formatDate(ts);
-                //const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-                const row = [dateStr];
+            allDates.forEach(({ts, occ}) => {
+                const row = [formatDate(ts)];
                 dataToDisplay.forEach(series => {
-                    const point = series.data.find(item => item[0] === ts);
-                    //row.push(point && typeof point[1] === 'number' ? point[1].toFixed(2) : '');
+                    const point = series.data.filter(item => item[0] === ts)[occ];
 					row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
-					//row.push(  Number.isFinite(point?.[1])    ? String(point[1])    : '');
                 });
                 csv.push(row.join(','));
             });
 
         } else {
-            const header = ['Series'].concat(allDates.map(ts => {
-                const d = new Date(ts);
-				const dateStr = formatDate(ts);
-				return dateStr;
-               // return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-            }));
+            const header = ['Series'].concat(allDates.map(({ts}) => formatDate(ts)));
             csv.push(header.join(','));
 
             dataToDisplay.forEach(series => {
-                const row = [`"${series.name} - ${series.desc || ''}"`];
-                allDates.forEach(ts => {
-                    const point = series.data.find(item => item[0] === ts);
+                const row = [`"${series.name} - ${series.description || ''}"`];
+                allDates.forEach(({ts, occ}) => {
+                    const point = series.data.filter(item => item[0] === ts)[occ];
                     row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
 					
 					//row.push(  Number.isFinite(point?.[1])    ? String(point[1])    : '');
