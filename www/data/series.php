@@ -134,8 +134,8 @@ if (!file_exists($catalogFile)) {
         echo "                <td>\n";
         echo "                    <a class=\"btn btn-chart\"  href=\"" . htmlspecialchars($chartUrl)  . "\">Chart</a>\n";
         echo "                    <a class=\"btn btn-report\" href=\"" . htmlspecialchars($reportUrl) . "\">Report</a>\n";
-        echo "                    <a class=\"btn btn-csv\"    href=\"" . htmlspecialchars($csvUrl)    . "\">CSV</a>\n";
         echo "                    <a class=\"btn btn-raw\"    href=\"" . htmlspecialchars($jsonUrl)   . "\" target=\"_blank\">JSON</a>\n";
+        echo "                    <a class=\"btn btn-csv\"    href=\"" . htmlspecialchars($csvUrl)    . "\">&#8595; CSV</a>\n";
         echo "                </td>\n";
         echo "            </tr>\n";
     }
