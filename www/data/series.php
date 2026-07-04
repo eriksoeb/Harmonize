@@ -124,7 +124,7 @@ if (!file_exists($catalogFile)) {
         $jsonUrl   = 'getseries.php?domain=' . $domain . '&name=' . pathinfo($filename, PATHINFO_FILENAME);
         $chartUrl  = '../templates/Chart.html?filename=../data/' . $domain . '/series/' . $filename;
         $reportUrl  = '../templates/Report.html?filename=../data/' . $domain . '/series/' . $filename;
-        $csvUrl     = '../templates/Report.html?filename=../data/' . $domain . '/series/' . $filename . '&download=csv';
+        $csvUrl     = 'csvdownload.php?file=' . $domain . '/series/' . $filename;
         $name       = !empty($entry['name']) ? $entry['name'] : pathinfo($filename, PATHINFO_FILENAME);
 
         echo "            <tr>\n";
