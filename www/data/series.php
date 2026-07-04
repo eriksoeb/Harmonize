@@ -35,9 +35,10 @@
             font-weight: bold;
             white-space: nowrap;
         }
-        .btn-chart { background-color: #00824d; color: white; }
-        .btn-raw   { background-color: #888;    color: white; }
-        .btn:hover { opacity: 0.85; }
+        .btn-chart  { background-color: #00824d; color: white; }
+        .btn-report { background-color: #004381; color: white; }
+        .btn-raw    { background-color: #888;    color: white; }
+        .btn:hover  { opacity: 0.85; }
         .published {
             white-space: nowrap;
             color: #555;
@@ -121,6 +122,7 @@ if (!file_exists($catalogFile)) {
         $timestamp = date('Y-m-d H:i', filemtime($path));
         $jsonUrl   = 'getseries.php?domain=' . $domain . '&name=' . pathinfo($filename, PATHINFO_FILENAME);
         $chartUrl  = '../templates/Chart.html?filename=../data/' . $domain . '/series/' . $filename;
+        $reportUrl = '../templates/Report.html?filename=../data/' . $domain . '/series/' . $filename;
         $name      = !empty($entry['name']) ? $entry['name'] : pathinfo($filename, PATHINFO_FILENAME);
 
         echo "            <tr>\n";
@@ -128,8 +130,9 @@ if (!file_exists($catalogFile)) {
         echo "                <td>" . htmlspecialchars($desc, ENT_QUOTES, 'UTF-8') . "</td>\n";
         echo "                <td class=\"published\">" . $timestamp . "</td>\n";
         echo "                <td>\n";
-        echo "                    <a class=\"btn btn-chart\" href=\"" . htmlspecialchars($chartUrl) . "\">Chart</a>\n";
-        echo "                    <a class=\"btn btn-raw\"   href=\"" . htmlspecialchars($jsonUrl) . "\" target=\"_blank\">JSON</a>\n";
+        echo "                    <a class=\"btn btn-chart\"  href=\"" . htmlspecialchars($chartUrl)  . "\">Chart</a>\n";
+        echo "                    <a class=\"btn btn-report\" href=\"" . htmlspecialchars($reportUrl) . "\">Report</a>\n";
+        echo "                    <a class=\"btn btn-raw\"    href=\"" . htmlspecialchars($jsonUrl)   . "\" target=\"_blank\">JSON</a>\n";
         echo "                </td>\n";
         echo "            </tr>\n";
     }
