@@ -338,7 +338,7 @@ function initReport() {
 	
 
     /* ---------- CSV ---------- */
-    document.getElementById('exportCsv').addEventListener('click', function() {
+    const doExportCsv = () => {
         let csv = [];
         const allDates = getAllDates();
 
@@ -350,7 +350,7 @@ function initReport() {
                 const row = [formatDate(ts)];
                 dataToDisplay.forEach(series => {
                     const point = series.data.filter(item => item[0] === ts)[occ];
-					row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
+                    row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
                 });
                 csv.push(row.join(','));
             });
@@ -373,13 +373,20 @@ function initReport() {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = isVertical ? 'report_vertical.csv' : 'report_horizontal.csv';
+        a.download = (fileName.split('/').pop().replace('.json', '') || 'report') + '.csv';
         a.click();
         URL.revokeObjectURL(url);
-    });
+    };
+
+    document.getElementById('exportCsv').addEventListener('click', doExportCsv);
 
     // Initial render
     renderTable();
+
+    // Auto-download if ?download=csv is in the URL
+    if (getQueryParam('download') === 'csv') {
+        doExportCsv();
+    }
 
 }
 </script>
