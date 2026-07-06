@@ -2819,6 +2819,9 @@ Globals.AppName
 
 
 
+            // Catalogue generation: JSON is written - skip JS wrap and browser launch
+            if (htmlfileName == "series") return;
+
             try
             {
                 string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4750,167 +4753,91 @@ Globals.AppName
 
         }
 
-
-
-        //px-web no point supporting obslotete data formats.
-        /*
-        private void convertLastesToPXToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createCatalogwebfiles_Click(object sender, EventArgs e)
         {
+            // One JSON file per series + catalog.json.
+            // Reuses NyChart_btn_Click with Tag="series" to skip browser launch.
+            // Filename: everything after the colon in CurveName, lowercased + .json
+            // e.g.  CPI:C00.IDX  ->  c00.idx.json
 
-        string myfile = Globals.UserDir + "\\Mydata.json";
-
-            if (!File.Exists(myfile))
-              //  MessageBox.Show("No file to convert: "+ myfile, "Harmonize");
-            return;
-
-            ConvertJsonToPx(myfile);
-        }
-        */
-
-
-        /*
-        static string SavePxFile(string pxText, string shortName)
-        {
-            using (SaveFileDialog dlg = new SaveFileDialog())
+            if (dataGridView2.Rows.Count == 0)
             {
-
-                dlg.Title = $"Save {shortName} as PX file";
-                dlg.Filter = "PX files (*.px)|*.px";
-                dlg.FileName = $"{shortName}_{DateTime.Now:yyyyMM}.px";
-
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    File.WriteAllText(dlg.FileName, pxText, Encoding.GetEncoding(1252));
-                     MessageBox.Show("PX file saved successfully!",  "Harmonize");
-                    //Form1.toolStripStatusLabel1.Text = "PX file saved successfully! in : ";
-                    return dlg.FileName;   // ✅ return actual path
-                }
+                MessageBox.Show("No series in the chart grid.", Globals.AppName);
+                return;
             }
-            return null; // user cancelled
+
+            // Ask for output folder
+            string outputFolder;
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Select folder to save catalogue and series JSON files";
+                fbd.SelectedPath = Globals.UserDir;
+                if (fbd.ShowDialog() != DialogResult.OK) return;
+                outputFolder = fbd.SelectedPath;
+            }
+
+            // Save all rows from datagrid2
+            var savedRows = new List<Dictionary<string, object>>();
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cells = new Dictionary<string, object>();
+                foreach (DataGridViewColumn col in dataGridView2.Columns)
+                    cells[col.Name] = row.Cells[col.Name].Value;
+                savedRows.Add(cells);
+            }
+
+            string myjson = System.IO.Path.Combine(Globals.UserDir, "Mydata.json");
+            var catalogEntries = new List<string>();
+            var fakeSender = new Button { Tag = "series" };
+
+            foreach (var savedRow in savedRows)
+            {
+                // Isolate this one series in datagrid2
+                dataGridView2.Rows.Clear();
+                int n = dataGridView2.Rows.Add();
+                foreach (var kv in savedRow)
+                    dataGridView2.Rows[n].Cells[kv.Key].Value = kv.Value;
+
+                // Generate Mydata.json for this series (browser launch skipped)
+                NyChart_btn_Click(fakeSender, EventArgs.Empty);
+
+                // Derive filename: after colon, lowercase + .json
+                string curveName = savedRow.ContainsKey("Name") ? savedRow["Name"]?.ToString() ?? "" : "";
+                int colonIdx = curveName.IndexOf(':');
+                string shortName = colonIdx >= 0 ? curveName.Substring(colonIdx + 1) : curveName;
+                string fileName = shortName.ToLower() + ".json";
+                string destPath = System.IO.Path.Combine(outputFolder, fileName);
+
+                // Copy Mydata.json -> series file
+                if (System.IO.File.Exists(myjson))
+                    System.IO.File.Copy(myjson, destPath, overwrite: true);
+
+                // Catalog entry
+                string descr = savedRow.ContainsKey("Descr") ? savedRow["Descr"]?.ToString() ?? "" : "";
+                catalogEntries.Add($"  {{ \"file\": \"{fileName}\", \"name\": \"{shortName}\", \"description\": \"{descr}\" }}");
+
+                toolStripStatusLabel1.Text = "Catalogue: written " + fileName;
+                Application.DoEvents();
+            }
+
+            // Restore datagrid2
+            dataGridView2.Rows.Clear();
+            foreach (var savedRow in savedRows)
+            {
+                int n = dataGridView2.Rows.Add();
+                foreach (var kv in savedRow)
+                    dataGridView2.Rows[n].Cells[kv.Key].Value = kv.Value;
+            }
+
+            // Write catalog.json
+            string catalogPath = System.IO.Path.Combine(outputFolder, "catalog.json");
+            System.IO.File.WriteAllText(catalogPath,
+                "[" + System.Environment.NewLine + string.Join("," + System.Environment.NewLine, catalogEntries) + System.Environment.NewLine + "]",
+                System.Text.Encoding.UTF8);
+            toolStripProgressBar1.Value = 0;
+            ShowNormalStrip($"Catalogue: {savedRows.Count} series files + catalog.json written.");
+            MessageBox.Show($"Generated {savedRows.Count} series file(s) and catalog.json in:\n{outputFolder}", Globals.AppName);
         }
-        */
-
-
-        /*
-         //only used by pc web -- commented out
-        static string FormatList(List<string> list)
-        {
-            return string.Join(",", list.Select(x => $"\"{x}\""));
-        }
-        */
-
-
-
-
-        //px web conversion  need to fix yearly
-        //commented out
-        /*
-
-                public static void ConvertJsonToPx(string jsonPath)
-                {
-                    // ✅ Just read JSON directly
-                    string json = File.ReadAllText(jsonPath);
-
-                    // ✅ Deserialize directly (no fixes needed)
-                    var seriesData = JsonConvert.DeserializeObject<List<SeriesContainer>>(json);
-
-                    var container = seriesData[0];
-                    var seriesList = container.series;
-
-                    string fullName = seriesList.FirstOrDefault()?.name ?? "PX";
-
-                    string shortName = fullName.Contains(":")
-                        ? fullName.Split(':')[0]
-                        : fullName;
-
-                    // --- Collect all months ---
-                    string ToPxMonth(long ms)
-                    {
-                        var dt = DateTimeOffset.FromUnixTimeMilliseconds(ms).UtcDateTime;
-                        return dt.ToString("yyyy'M'MM");
-                    }
-
-                    var allMonths = seriesList
-                        .SelectMany(s => s.data)
-                        .Select(d => ToPxMonth(Convert.ToInt64(d[0])))
-                        .Distinct()
-                        .OrderBy(x => x)
-                        .ToList();
-
-                    var categories = seriesList.Select(s => s.desc).ToList();
-
-                    // --- Build PX ---
-                    var sb = new StringBuilder();
-
-                    sb.AppendLine("CHARSET=\"ANSI\";");
-                    sb.AppendLine("AXIS-VERSION=\"2013\";");
-                    //sb.AppendLine($"TITLE=\"{container.mytitle}\";");
-                    sb.AppendLine($"TITLE=\"{seriesList[0].title}\";");
-                    sb.AppendLine($"SUBTITLE=\"{container.subtitle}\";");
-                    //sb.AppendLine("SOURCE=\"Harmonize\";");
-                    sb.AppendLine($"SOURCE=\"{seriesList[0].source}\";");
-                    sb.AppendLine($"UNITS=\"{seriesList[0].unit}\";");
-                    sb.AppendLine($"DECIMALS={container.deci};");
-
-                    sb.AppendLine("STUB=\"Category\";");
-                    sb.AppendLine("HEADING=\"Month\";");
-
-                    sb.AppendLine($"VALUES(\"Category\")={FormatList(categories)};");
-                    sb.AppendLine($"VALUES(\"Month\")={FormatList(allMonths)};");
-
-                    sb.AppendLine("DATA=");
-
-                    foreach (var s in seriesList)
-                    {
-                        var dict = s.data.ToDictionary(
-                            d => ToPxMonth(Convert.ToInt64(d[0])),
-                            d => Convert.ToDouble(d[1])
-                        );
-
-                        foreach (var m in allMonths)
-                        {
-                            if (dict.ContainsKey(m))
-                                sb.Append(dict[m].ToString("0.###") + " ");
-                            else
-                                sb.Append(". ");
-                        }
-
-                        sb.AppendLine();
-                    }
-
-                    sb.AppendLine(";");
-
-                    string savedFile = SavePxFile(sb.ToString(), shortName);
-
-                    if (string.IsNullOrEmpty(savedFile))
-                        return;
-
-                    try
-                    {
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = savedFile,
-                            UseShellExecute = true
-                        });
-                    }
-                    catch (Win32Exception)
-                    {
-                        MessageBox.Show("Could not find " + savedFile + " or browser", Globals.AppName);
-                    }
-                }
-        //end utkommentering px web
-        */
-
-
-
-
-
-
-
-
-
-
-        //skal være igjem 2
-    }
 
 }
