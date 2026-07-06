@@ -103,8 +103,8 @@ echo "    <title>Harmonize – $title Series</title>\n";
         </thead>
         <tbody>
 <?php
-$catalogFile = __DIR__ . '/' . $domain . '/catalog.json';
 $seriesDir   = __DIR__ . '/' . $domain . '/series/';
+$catalogFile = $seriesDir . 'catalog.json';
 
 if (!file_exists($catalogFile)) {
     echo "            <tr><td colspan=\"4\">No catalog found for " . htmlspecialchars($domain) . ".</td></tr>\n";
