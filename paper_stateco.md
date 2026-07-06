@@ -1,6 +1,4 @@
-# Une représentation JSON conviviale pour l'IA dans la diffusion des statistiques officielles : une alternative pratique
-
-**An AI-Friendly JSON Representation for Official Time Series: A Practical Alternative for Statistical Dissemination**
+# An AI-Friendly JSON Representation for Official Time Series: A Practical Alternative for Statistical Dissemination
 
 ---
 
@@ -10,19 +8,11 @@ erik.soberg@ssb.no
 
 ---
 
-## Résumé
-
-L'adoption croissante des grands modèles de langage (LLM) et des agents d'intelligence artificielle dans l'analyse des données statistiques modifie profondément les exigences posées aux systèmes de diffusion des offices statistiques nationaux. Les formats institutionnels actuels — notamment SDMX, JSON-stat et PX-Web — ont été conçus pour l'interopérabilité institutionnelle et la modélisation multidimensionnelle, mais introduisent une complexité structurelle qui freine leur consommation directe par les systèmes automatisés. Un problème central commun à ces formats est l'absence d'un standard de date et d'heure universel et lisible par machine : les notations spécifiques à chaque fréquence (`2025-Q1`, `2025M12`, `2025W53`) ne sont ni directement triables ni directement comparables sans étapes de conversion coûteuses. PX-Web, en particulier, a été conçu comme une interface de navigation pour utilisateurs humains, et son modèle de stockage sous-jacent reflète des contraintes d'espace disque d'une autre époque. Cet article propose une représentation JSON simplifiée pour les séries temporelles statistiques, fondée sur des horodatages Unix, une structure minimale et des métadonnées intégrées. Nous soutenons qu'un format complémentaire, léger et orienté machine, peut améliorer l'accessibilité des statistiques officielles à l'ère de l'IA sans remplacer les standards existants.
-
-**Mots-clés :** diffusion statistique, intelligence artificielle, séries temporelles, JSON, SDMX, interopérabilité
-
----
-
 ## Abstract
 
-The increasing adoption of large language models (LLMs) and AI agents in statistical analysis is reshaping the requirements placed on dissemination systems of national statistical offices (NSOs). Current institutional formats — notably SDMX, JSON-stat, and PX-Web — were designed for institutional interoperability and multidimensional reporting, not for machine-native, low-overhead consumption. A central limitation shared across these formats is the absence of a universal datetime standard: frequency-specific period notations such as `2025-Q1`, `2025M12`, and `2025W53` are neither directly sortable nor directly comparable across series without conversion steps that impose implementation complexity and error risk. PX-Web, in particular, was designed as a human navigation interface, and its underlying PC-Axis storage model reflects disk-space constraints of a computing era now more than three decades past — not the retrieval performance and direct integration requirements of modern analytical systems. This paper proposes a simplified JSON representation for statistical time series, based on Unix timestamps, minimal structure, and embedded metadata. We argue that a complementary lightweight machine-oriented format can reduce these barriers and make official statistics more accessible in AI-era environments without replacing existing institutional standards.
+The increasing adoption of large language models (LLMs) and AI agents in statistical analysis is reshaping the requirements placed on dissemination systems of national statistical offices (NSOs). Current institutional formats — notably SDMX, JSON-stat, and PX-Web — were designed for institutional interoperability and multidimensional reporting, not for machine-native, low-overhead consumption. A central limitation shared across these formats is the absence of a universal datetime standard: frequency-specific period notations such as `2025-Q1`, `2025M12`, and `2025W53` are neither directly sortable nor directly comparable across series without conversion steps that impose implementation complexity and error risk. PX-Web, in particular, was designed as a human navigation interface, and its underlying PC-Axis storage model reflects disk-space constraints of a computing era now more than three decades past — not the retrieval performance and direct integration requirements of modern analytical systems. This paper proposes a simplified JSON representation for statistical time series, based on epoch timestamps (milliseconds elapsed since 1970-01-01 00:00:00 UTC), minimal structure, and embedded metadata. We argue that a complementary lightweight machine-oriented format can reduce these barriers and make official statistics more accessible in AI-era environments without replacing existing institutional standards. We further argue that interface technologies such as Model Context Protocol (MCP) servers, while valuable for AI discoverability, cannot substitute for well-structured underlying data: MCP is most effective when the data it exposes already uses unambiguous time encoding and self-contained metadata — conditions that the proposed format is designed to satisfy.
 
-**Keywords:** statistical dissemination, artificial intelligence, time series, JSON, SDMX, interoperability
+**Keywords:** statistical dissemination, artificial intelligence, time series, JSON, SDMX, epoch timestamps, MCP, interoperability
 
 ---
 
@@ -203,6 +193,25 @@ A legitimate concern is metadata loss. A compact format that omits methodology n
 ### 6.3 Standardization prospects
 
 The proposed format would benefit from adoption of a common naming convention for the `name` field and a controlled vocabulary for `freq` and `unit`. This could be achieved through a lightweight profile agreement among interested NSOs, analogous to the JSON-stat community process [CITATION: Badosa, 2012], without requiring a full new standard. A standardized format of this kind has a further practical benefit: it enables NSOs to build reusable web templates for charts, data downloads, and statistical articles that consume the same format without custom integration work for each product. The same JSON response that feeds an interactive chart can feed a data download link or a machine-readable API — eliminating the duplication that currently exists between visualization, dissemination, and exchange layers. Standardization of unit notation is a necessary part of this effort; a value reported as `KWh` in one product and `kW/h` in another cannot be treated as the same unit by automated systems, and such inconsistencies undermine the interoperability that a common format is intended to provide.
+
+### 6.4 MCP servers and the limits of interface solutions
+
+A growing number of institutions are considering Model Context Protocol (MCP) servers as a practical path to making existing data and APIs accessible to AI systems. MCP provides a structured discovery layer that can meaningfully improve usability for AI agents — but it does not replace the need to organise data correctly in the first place. An institution whose underlying series use non-standard datetime formats, inconsistent unit encodings, or frequency-specific period codes cannot resolve these structural problems by adding an MCP interface layer. The conversion logic simply moves from the consumer to the server, and must be maintained there with the same rigour that would otherwise be required of the consumer.
+
+MCP also introduces additional infrastructure to deploy and maintain, and places a discovery requirement on users and AI systems: they must know the server exists and be able to connect to it. This is not a trivial condition, particularly for smaller organisations or producers whose data is not widely indexed. A well-structured, self-contained JSON file published over a standard HTTP endpoint is discoverable by any web client and consumable without prior configuration — a simpler path to the same accessibility goal.
+
+The sequencing principle implied by this analysis is straightforward: invest first in data quality and format correctness, then in interface layers. MCP is most effective when the data it exposes is already structured for machine consumption. When it is not, MCP defers rather than resolves the underlying problem.
+
+### 6.5 Adoption pathways for smaller producers
+
+The arguments in this paper are not limited to large NSOs with established SDMX infrastructure. For many statistical producers — regional agencies, national offices in smaller or lower-income countries, research institutions, and sector-specific data providers — the dissemination choice is not between a lightweight JSON layer and a full institutional exchange platform. For a substantial share of global statistical producers, the realistic alternative is not SDMX or PX-Web but the PDF report.
+
+PDF remains the predominant dissemination format across much of Africa and Asia. A machine-readable JSON file produced from the same database that generates the PDF report, served over a standard HTTP endpoint, is a transformative improvement in data accessibility at low incremental cost. It can be generated in any programming language, hosted on any web server, and consumed directly by charting libraries, analytical tools, and AI agents without custom integration work. For a producer at this starting point, a lightweight JSON layer is not a complement to a larger system — it is the system, and it is sufficient.
+
+A recurring failure mode in practice is format degradation at publication: organisations that hold data internally in a correctly structured form — with precise timestamps, consistent identifiers, clean unit labels — often destroy this structure when preparing data for dissemination, collapsing timestamps to period strings, converting UTC to local time without timezone annotation, or embedding values in formatted tables designed for human reading. The cost is borne entirely by consumers, who must reverse-engineer the original structure before the data can be used programmatically. The corrective design principle is simple: publish data in the form in which it already exists internally. Preserve the time encoding that is already correct. Minimise transformation at publication. The gain in usability for downstream consumers — human and AI alike — is immediate and substantial.
+
+A working demonstration of this approach is available at Harmonize.no (Soberg, 2026), where consumer price, producer price, and energy time series are published as plain JSON files and rendered as interactive charts, tabular reports, and downloadable CSV files using browser-based templates — maintained by a single developer, without enterprise infrastructure.
+
 ---
 
 ## 7. Conclusion
@@ -236,6 +245,8 @@ Eurostat (2020). *SDMX Information Model: Version 3.0*. Publications Office of t
 OpenAI (2023). *GPT-4 Technical Report*. arXiv:2303.08774.
 
 SDMX Global Conference (2021). *SDMX 3.0: What's New*. SDMX Secretariat.
+
+Soberg, E. (2026). *Harmonize: A lightweight time-series dissemination platform*. Retrieved from https://harmonize.no
 
 Statistics Sweden (2020). *PX-Web API Documentation*. SCB Technical Documentation Series.
 
