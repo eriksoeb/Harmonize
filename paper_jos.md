@@ -2,9 +2,9 @@
 
 ---
 
-**[Author Name]**
-[Affiliation, Address]
-[Email]
+**Erik Søberg**
+Statistics Norway (Statistisk sentralbyrå), Oslo, Norway
+erik.soeberg@ssb.no
 
 ---
 

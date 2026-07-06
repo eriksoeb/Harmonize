@@ -2,8 +2,8 @@
 
 ---
 
-**[Author Name]**
-Erik Soberg
+**Erik Søberg**
+Statistics Norway (Statistisk sentralbyrå), Oslo, Norway
 erik.soberg@ssb.no
 
 ---
@@ -30,7 +30,7 @@ This paper argues that existing formats such as SDMX and PX-Web, while robust fo
 
 ### 2.1 AI systems as data consumers
 
-Large language models and AI agents are increasingly being used by analysts, researchers, and developers to retrieve and analyze statistical data. Systems such as GPT-4, Claude, and similar tools can be instructed to retrieve data via APIs and web services, reason over retrieved observations, and present findings in natural language [CITATION: Brown et al., 2020; OpenAI, 2023].
+Large language models and AI agents are increasingly being used by analysts, researchers, and developers to retrieve and analyze statistical data. Systems such as GPT-4, Claude, and similar tools can be instructed to retrieve data via APIs and web services, reason over retrieved observations, and present findings in natural language (Brown et al., 2020; OpenAI, 2023).
 
 In practice, the behavior of AI agents when selecting data sources is strongly influenced by the complexity of the access mechanism. Agents operating with tool-use capabilities tend to favor APIs that return predictable, flat, immediately usable structures. When faced with deeply nested schemas or format-specific parsing requirements, AI systems incur additional reasoning steps, increasing both computational cost (in terms of tokens and latency) and the risk of misinterpretation.
 
@@ -48,7 +48,7 @@ This is not merely a technical inconvenience. If AI systems systematically bypas
 
 ### 3.1 SDMX
 
-The Statistical Data and Metadata eXchange standard [CITATION: SDMX Global Conference, 2021; BIS et al., 2005] is the principal interoperability framework adopted by Eurostat, the IMF, the OECD, the ECB, and most major NSOs. It provides a rigorous model for multidimensional statistical data, including concept schemes, code lists, data structure definitions (DSDs), and provenance tracking.
+The Statistical Data and Metadata eXchange standard (SDMX Global Conference, 2021; BIS et al., 2005) is the principal interoperability framework adopted by Eurostat, the IMF, the OECD, the ECB, and most major NSOs. It provides a rigorous model for multidimensional statistical data, including concept schemes, code lists, data structure definitions (DSDs), and provenance tracking.
 
 While SDMX is exceptionally powerful for institutional exchange and governance, it presents several obstacles for lightweight consumption:
 
@@ -60,7 +60,7 @@ These features are appropriate — even essential — in institutional contexts.
 
 ### 3.2 JSON-stat
 
-JSON-stat [CITATION: Badosa, 2012] was developed as a compact JSON format for statistical tables, and is used by Statistics Norway and several other NSOs via their API services. It reduces the verbosity of SDMX-ML while retaining a tabular, dimension-based structure.
+JSON-stat (Badosa, 2012) was developed as a compact JSON format for statistical tables, and is used by Statistics Norway and several other NSOs via their API services. It reduces the verbosity of SDMX-ML while retaining a tabular, dimension-based structure.
 
 However, JSON-stat is optimized for tabular cross-sectional data rather than time series retrieval or charting. Its nested dimension array structure still requires several parsing steps before a simple time-value sequence can be extracted. It does not natively support Unix epoch timestamps, requiring string-based time identifiers that inherit the same frequency-specific ambiguity as SDMX.
 
@@ -68,7 +68,7 @@ A practical consequence of these format limitations is visible in the quality of
 
 ### 3.3 PX-Web
 
-PX-Web, developed by Statistics Sweden and widely deployed across Nordic and other NSOs, provides an API layer over PC-Axis format databases [CITATION: Statistics Sweden, 2020]. It is important to understand what PX-Web was designed to be: primarily a user interface for human navigation of statistical tables. Its core interaction model — selecting dimensions, filtering variable values, and drilling down through hierarchical menus — reflects the assumption that a person is operating the system. The API was added as a secondary capability on top of this human-oriented architecture, not designed from the ground up for programmatic or machine consumption.
+PX-Web, developed by Statistics Sweden and widely deployed across Nordic and other NSOs, provides an API layer over PC-Axis format databases (Statistics Sweden, 2020). It is important to understand what PX-Web was designed to be: primarily a user interface for human navigation of statistical tables. Its core interaction model — selecting dimensions, filtering variable values, and drilling down through hierarchical menus — reflects the assumption that a person is operating the system. The API was added as a secondary capability on top of this human-oriented architecture, not designed from the ground up for programmatic or machine consumption.
 
 This origin has lasting consequences. The underlying PC-Axis file format was designed more than three decades ago, at a time when disk space was a binding constraint on data storage architecture. The format's flat, text-based structure with positional value encoding reflects optimization for compact storage rather than for retrieval performance or computational efficiency. Modern systems — which prioritize query speed, columnar access patterns, and direct integration with analytical pipelines — are poorly served by a storage model inherited from a different era of computing constraints.
 
@@ -192,7 +192,7 @@ A legitimate concern is metadata loss. A compact format that omits methodology n
 
 ### 6.3 Standardization prospects
 
-The proposed format would benefit from adoption of a common naming convention for the `name` field and a controlled vocabulary for `freq` and `unit`. This could be achieved through a lightweight profile agreement among interested NSOs, analogous to the JSON-stat community process [CITATION: Badosa, 2012], without requiring a full new standard. A standardized format of this kind has a further practical benefit: it enables NSOs to build reusable web templates for charts, data downloads, and statistical articles that consume the same format without custom integration work for each product. The same JSON response that feeds an interactive chart can feed a data download link or a machine-readable API — eliminating the duplication that currently exists between visualization, dissemination, and exchange layers. Standardization of unit notation is a necessary part of this effort; a value reported as `KWh` in one product and `kW/h` in another cannot be treated as the same unit by automated systems, and such inconsistencies undermine the interoperability that a common format is intended to provide.
+The proposed format would benefit from adoption of a common naming convention for the `name` field and a controlled vocabulary for `freq` and `unit`. This could be achieved through a lightweight profile agreement among interested NSOs, analogous to the JSON-stat community process (Badosa, 2012), without requiring a full new standard. A standardized format of this kind has a further practical benefit: it enables NSOs to build reusable web templates for charts, data downloads, and statistical articles that consume the same format without custom integration work for each product. The same JSON response that feeds an interactive chart can feed a data download link or a machine-readable API — eliminating the duplication that currently exists between visualization, dissemination, and exchange layers. Standardization of unit notation is a necessary part of this effort; a value reported as `KWh` in one product and `kW/h` in another cannot be treated as the same unit by automated systems, and such inconsistencies undermine the interoperability that a common format is intended to provide.
 
 ### 6.4 MCP servers and the limits of interface solutions
 
