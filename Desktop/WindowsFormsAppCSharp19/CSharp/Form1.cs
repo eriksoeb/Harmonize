@@ -88,8 +88,8 @@ namespace CSharp
             public string title { get; set; }
             public string subtitle { get; set; }
             public string freq { get; set; }
-       
-           public int deci { get; set; }
+
+            public int deci { get; set; }
 
             public string executed_UTC { get; set; }
             public string mybaseperiod { get; set; }
@@ -125,7 +125,7 @@ namespace CSharp
 
         public static class Globals
         {
-                       
+
             public static String UserDir = "C:/Harmonize_ie/My_Charts/";
             public static int LangColumn = 2;
             public static int MaxNum = 2000;
@@ -142,7 +142,7 @@ namespace CSharp
 
 
 
-   
+
 
             public static readonly String TotalStr = "  User:" + Environment.UserName + " " + Globals.DBStr;
             //do not show passw..
@@ -167,7 +167,7 @@ namespace CSharp
             public static int NumOfSearches = 0;
 
             public static String DragDropCurveId = "-1";
-         
+
             public static String DragDropCurveDescr = "CurveDescr";
 
 
@@ -196,10 +196,10 @@ namespace CSharp
 
 
 
-        InitializeComponent();
-        InitializeTreeContextMenu();  //bottom levels upload delete
-        InitializeTreeContextMenu2(); // Top levels expand colapse
-        toolStripStatusLabel1.ForeColor = Color.RoyalBlue;
+            InitializeComponent();
+            InitializeTreeContextMenu();  //bottom levels upload delete
+            InitializeTreeContextMenu2(); // Top levels expand colapse
+            toolStripStatusLabel1.ForeColor = Color.RoyalBlue;
 
 
 
@@ -221,16 +221,16 @@ namespace CSharp
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
-/*
-            try
-            {
-                string test = Globals.AppName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-*/
+            /*
+                        try
+                        {
+                            string test = Globals.AppName;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+            */
 
 
 
@@ -249,7 +249,7 @@ namespace CSharp
             Globals.Version = fvi.FileVersion;
             //MessageBox.Show(Globals.AppName + "debug \n" + Globals.Version, Globals.AppName);
 
-           // LogMessage();
+            // LogMessage();
             //Harmonize.HarmonizeInstaller.Version = Globals.Version; set manually
 
 
@@ -257,7 +257,7 @@ namespace CSharp
             //ingen database connection
             if (Globals.DBStr == "error")
             {
-                MessageBox.Show(Globals.AppName + "Cannot find database connection str\n"+Globals.Version, Globals.AppName);
+                MessageBox.Show(Globals.AppName + "Cannot find database connection str\n" + Globals.Version, Globals.AppName);
                 LogMessage();
                 Environment.Exit(0);
 
@@ -276,12 +276,12 @@ namespace CSharp
             foreach (var r in mrow)
             {
                 LangBox1.Items.Add(r);
-              //  MessageBox.Show("adding "+ r);
+                //  MessageBox.Show("adding "+ r);
             }
-          //  GetMenuesFromFile();  //oppfrisker knapper iht til default
+            //  GetMenuesFromFile();  //oppfrisker knapper iht til default
 
 
-       
+
 
 
 
@@ -298,8 +298,8 @@ namespace CSharp
             try
             {
 
-            mycommando.CommandText = "execute Client_Version2 1, '" + Globals.Version + "', '" + Environment.UserName+"'";
-               // MessageBox.Show(mycommando.CommandText); Husk Initial catalog i connection
+                mycommando.CommandText = "execute Client_Version2 1, '" + Globals.Version + "', '" + Environment.UserName + "'";
+                // MessageBox.Show(mycommando.CommandText); Husk Initial catalog i connection
 
                 myconnbase.Open();
 
@@ -308,7 +308,7 @@ namespace CSharp
                 int MyStatusFlag = 0;
                 String mymessage = ""; //warnig from version
                 String myenvcolor = "Control";
-                Globals.OnPrem = 0; 
+                Globals.OnPrem = 0;
                 //Globals.DbVer = "0.0.0.0";
 
                 if (reader.HasRows)
@@ -317,17 +317,17 @@ namespace CSharp
                     while (reader.Read())
                     {
                         // MessageBox.Show(reader.GetString(reader.GetOrdinal("StatusMsg")) );
-                       // already done Globals.AppName = reader.GetString(reader.GetOrdinal("DispName"));
+                        // already done Globals.AppName = reader.GetString(reader.GetOrdinal("DispName"));
                         //this.Text = Globals.AppName;
                         this.Text = reader.GetString(reader.GetOrdinal("DispName"));  //frabase overstyre
                         MyStatusFlag = reader.GetInt32(reader.GetOrdinal("StatusFlag"));
-                       //Globals.OnPrem = reader.GetInt32(reader.GetOrdinal("OnPrem"));
-                       Globals.DbVer = reader.GetString(reader.GetOrdinal("DbVer"));   // THE new
+                        //Globals.OnPrem = reader.GetInt32(reader.GetOrdinal("OnPrem"));
+                        Globals.DbVer = reader.GetString(reader.GetOrdinal("DbVer"));   // THE new
 
                         mymessage = reader.GetString(reader.GetOrdinal("StatusMsg"));
                         myenvcolor = reader.GetString(reader.GetOrdinal("EnvColor"));
 
-                       // MessageBox.Show(myenvcolor); 
+                        // MessageBox.Show(myenvcolor); 
 
                     }
 
@@ -343,7 +343,7 @@ namespace CSharp
 
                 if (appver != dbver)
                 {
-                    MessageBox.Show( "OBS Need to upgrade to get versions in sync, AppVer: " + appver + " DbVer: " + dbver, "UPS");
+                    MessageBox.Show("OBS Need to upgrade to get versions in sync, AppVer: " + appver + " DbVer: " + dbver, "UPS");
                     //LogAndexit();
                 }
 
@@ -364,25 +364,25 @@ namespace CSharp
                 comboBasisBox.Text = "";
                 for (var i = 0; i < 20; i++)
                 {
-                    comboBasisBox.Items.Add(DateTime.Now.AddYears(i*-1).Year);
+                    comboBasisBox.Items.Add(DateTime.Now.AddYears(i * -1).Year);
                 }
 
-               
+
             } //try
 
 
-           
+
             catch
             {
                 this.TopMost = true; // Here.
-                MessageBox.Show("Can NOT connect to database. (windows-user:  "+Environment.UserName+ ")\n\n"+"Version: "+Globals.Version+" +  <-> DbVersion "+ Globals.DbVer +  "\nPlease see connection details in :\n" + Globals.AppDir + "\\connection.txt\n"+Globals.DBStr, Globals.AppName);
+                MessageBox.Show("Can NOT connect to database. (windows-user:  " + Environment.UserName + ")\n\n" + "Version: " + Globals.Version + " +  <-> DbVersion " + Globals.DbVer + "\nPlease see connection details in :\n" + Globals.AppDir + "\\connection.txt\n" + Globals.DBStr, Globals.AppName);
 
-              
+
 
                 Environment.Exit(0); //avslutter appen
-             }
-           
-           
+            }
+
+
 
 
 
@@ -415,10 +415,10 @@ namespace CSharp
             //move this to be more current context
             //DataTable Curve = new DataTable("Curve");
 
-           // DataColumn c0 = new DataColumn("CurveId");
+            // DataColumn c0 = new DataColumn("CurveId");
             //Curve.Columns.Add(c0);
             //to set invisible...false
-          
+
             //was1
             DataColumn c0 = new DataColumn("CurveName");
             Curve.Columns.Add(c0);
@@ -428,7 +428,7 @@ namespace CSharp
             Curve.Columns.Add(c1);
             // definere all tbc
 
-          
+
             DataColumn c2 = new DataColumn("UnitId");
             Curve.Columns.Add(c2);
             //false
@@ -462,7 +462,7 @@ namespace CSharp
 
             DataColumn c11 = new DataColumn("LastDiff");
             Curve.Columns.Add(c11);
-                        
+
             DataColumn c12 = new DataColumn("MinDate");
             Curve.Columns.Add(c12);
 
@@ -495,8 +495,8 @@ namespace CSharp
             //dataGridView1.Columns["Descr"].Width = 210;
             // definere default bredde
             //viser ikke :
-           // dataGridView1.Columns["CurveId"].Visible = false;
-            
+            // dataGridView1.Columns["CurveId"].Visible = false;
+
             dataGridView1.Columns["Freq"].Visible = false;
             dataGridView1.Columns["UnitId"].Visible = false;
             dataGridView1.Columns["Title"].Visible = false;
@@ -526,12 +526,12 @@ namespace CSharp
             dataGridView1.Columns["LastDiff"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             //waste for non decimal
-           // dataGridView1.Columns["NumObs"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-           // dataGridView1.Columns["NumObs"].DefaultCellStyle.Format = "0"; // want no decimals??
-           // dataGridView1.Columns["NumObs"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            // dataGridView1.Columns["NumObs"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            // dataGridView1.Columns["NumObs"].DefaultCellStyle.Format = "0"; // want no decimals??
+            // dataGridView1.Columns["NumObs"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dataGridView1.ShowCellToolTips = false;
-   
+
 
 
 
@@ -541,7 +541,7 @@ namespace CSharp
             // GRID 2  2 2 2 2 2 2  ///////
             dataGridView2.Columns.Add("Id", "Id");
             dataGridView2.Columns["Id"].Width = 50; //curveid
-            dataGridView2.Columns["Id"].Visible = false; 
+            dataGridView2.Columns["Id"].Visible = false;
 
             dataGridView2.Columns.Add("Name", "Name");
             dataGridView2.Columns["Id"].ReadOnly = true; //måtte flyye lenger ned...
@@ -563,7 +563,7 @@ namespace CSharp
             cmbcolor.HeaderText = "Color";
             cmbcolor.Name = "Color";
             cmbcolor.SortMode = DataGridViewColumnSortMode.Automatic;
-          
+
             SqlConnection mycolorconn = new SqlConnection();
             mycolorconn.ConnectionString = Globals.DBStr;
             SqlCommand mycolorcommand = new SqlCommand();
@@ -588,9 +588,9 @@ namespace CSharp
             }
 
             mycolorconn.Close();
-           
-      
-            
+
+
+
 
 
             var colorColumn = new DataGridViewComboBoxColumn
@@ -605,7 +605,7 @@ namespace CSharp
             };
 
             dataGridView2.Columns.Add(colorColumn);
-          
+
 
 
 
@@ -641,7 +641,7 @@ namespace CSharp
             cmbdash.Items.Add("solid");
             cmbdash.Items.Add("dot");
             cmbdash.Items.Add("dash");
-            
+
             dataGridView2.Columns.Add(cmbdash);
             cmbdash.SortMode = DataGridViewColumnSortMode.Automatic;
 
@@ -660,7 +660,7 @@ namespace CSharp
             cmblr.Items.Add("Right");
             cmblr.Items.Add("Left-0");
             cmblr.Items.Add("Right-0");
-            
+
 
             //cmblr.SortMode = DataGridViewColumnSortMode.Automatic; maa vaere etter add
             dataGridView2.Columns.Add(cmblr);
@@ -690,18 +690,19 @@ namespace CSharp
             //command.CommandText = "select * from functions where Active = 1 order by 1 ";
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
-     
+
             try
             {
                 adapter.Fill(dt);
-          
+
             }
 
-            catch { 
-            MessageBox.Show("Ups! Functions \n"+Globals.DBStr, Globals.AppName+" "+Globals.Version);
-            Environment.Exit(0); //avslutter appen
-                            }
-            
+            catch
+            {
+                MessageBox.Show("Ups! Functions \n" + Globals.DBStr, Globals.AppName + " " + Globals.Version);
+                Environment.Exit(0); //avslutter appen
+            }
+
 
 
             foreach (DataRow dr in dt.Rows)
@@ -784,9 +785,9 @@ namespace CSharp
             DataGridViewComboBoxColumn comboint = new DataGridViewComboBoxColumn();
             comboint.DataPropertyName = "ID";
             comboint.HeaderText = "Interval";
-            comboint.Name= "Interval";
+            comboint.Name = "Interval";
             //comboint.Width = 100;
-            
+
             SqlConnection myconn = new SqlConnection();
             myconn.ConnectionString = Globals.DBStr;
             SqlCommand mycommand = new SqlCommand();
@@ -800,7 +801,7 @@ namespace CSharp
             foreach (DataRow mydr in mydt.Rows)
             {
                 comboint.Items.Add(mydr["iName"].ToString());
-             
+
 
             }
 
@@ -809,13 +810,13 @@ namespace CSharp
             comboint.DisplayMember = "Interval";
             //dataGridView2.Columns["Interval"].Width = 160; // tbe fixed
             dataGridView2.Columns.Add(comboint);
-       
+
             comboint.SortMode = DataGridViewColumnSortMode.Automatic;
             //slutt INTERVAL
 
 
             //nye felter Aggregatetion
-            
+
             DataGridViewComboBoxColumn fcastint = new DataGridViewComboBoxColumn();
             fcastint.DataPropertyName = "ID";
             fcastint.HeaderText = "Aggregate";
@@ -826,8 +827,8 @@ namespace CSharp
             fcastconn.ConnectionString = Globals.DBStr;
             SqlCommand fcastcommand = new SqlCommand();
             fcastcommand.Connection = fcastconn;
-            
-            fcastcommand.CommandText = "exec Client_Aggregate"; 
+
+            fcastcommand.CommandText = "exec Client_Aggregate";
             DataTable fcastdt = new DataTable();
             SqlDataAdapter fcastadapter = new SqlDataAdapter(fcastcommand);
             fcastadapter.Fill(fcastdt);
@@ -880,7 +881,7 @@ namespace CSharp
 
 
 
-           
+
 
 
 
@@ -894,7 +895,7 @@ namespace CSharp
             cmborder.Width = 40;
             //readonly
             //cmborder.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-          
+
             cmborder.Items.Add("0");
             cmborder.Items.Add("1");
             cmborder.Items.Add("2");
@@ -913,14 +914,14 @@ namespace CSharp
             // end order clm
 
             //
-           
+
 
 
 
 
             //siste nye unit for file csv later update
             dataGridView2.Columns.Add("UnitId", "UnitId");
-           
+
             dataGridView2.Columns["UnitId"].Visible = false;
 
             //adding for px-web make and do invisible..
@@ -939,7 +940,7 @@ namespace CSharp
 
             GetMenuesFromFile();  //oppfrisker knapper iht til default language ved oppstart
             UpdateButtonStates(); //ghoster buttons
-           // no success Search_btn.Focus();
+                                  // no success Search_btn.Focus();
 
 
         }
@@ -1017,7 +1018,7 @@ namespace CSharp
                             string myCName = reader["CName"].ToString();
                             string myLSName = reader["LSName"].ToString();
                             bool hasWriteAccess = Convert.ToBoolean(reader["HasWriteAccess"]); //now coming from proc
-                           
+
 
                             if (myPName != myPNameprev)
                             {
@@ -1038,7 +1039,7 @@ namespace CSharp
 
                             if (hasWriteAccess)
                             {
-                               // lsNode.ForeColor = Color.DarkGreen;
+                                // lsNode.ForeColor = Color.DarkGreen;
                                 lsNode.ForeColor = Color.OrangeRed;
                                 //lsNode.NodeFont = new Font(treeView1.Font, FontStyle.Bold);
                             }
@@ -1095,20 +1096,20 @@ namespace CSharp
         private void connect_btn_Click(object sender, EventArgs e)  //searcher
         {
             toolStripProgressBar1.Value = 40;
-           string mysearchstr = "'" + Search_txt.Text + "'";
+            string mysearchstr = "'" + Search_txt.Text + "'";
             Globals.table.Rows[0].SetField("Item", Search_txt.Text);
-           //erik ut dec25 string mywildcard = "'" + "%IDX%" + "'";
-         
+            //erik ut dec25 string mywildcard = "'" + "%IDX%" + "'";
+
             toolStripProgressBar1.Value = 60;
             SqlConnection conn = new SqlConnection();
-     
+
             conn.ConnectionString = Globals.DBStr;
 
             toolStripProgressBar1.Value = 80;
 
             SqlCommand command = new SqlCommand();
             command.Connection = conn;
-            
+
 
             var pList = new SqlParameter("@list", SqlDbType.Structured);
             pList.TypeName = "dbo.StringList";
@@ -1117,7 +1118,7 @@ namespace CSharp
             toolStripProgressBar1.Value = 90;
             command.Parameters.Add(pList);
 
-           
+
             command.CommandText = "EXECUTE Client_Search " + " @list" + "," + mysearchstr + "," + mysearchstr;
 
             toolStripProgressBar1.Value = 80;
@@ -1149,7 +1150,7 @@ namespace CSharp
 
         private void selectedcurves_btn_Click(object sender, EventArgs e)
         {
-        //kan slette denne om en bare bruker doubleclick
+            //kan slette denne om en bare bruker doubleclick
             string MyCurveName = "";
             string MyCurveId = "";
             string MyCurveDescr = "";
@@ -1183,10 +1184,10 @@ namespace CSharp
                 dataGridView2.Rows[n].Cells["Interval"].Value = MyInterval;
 
 
-               
+
                 //toolStripStatusLabel1.Text = dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr;
 
-                ShowNormalStrip (dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
+                ShowNormalStrip(dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
 
 
             }
@@ -1254,7 +1255,7 @@ Globals.AppName
         private void LogAndexit()
         {
             MessageBox.Show("Exit. Welcome Back !", Globals.AppName);
-           // Application.Exit();
+            // Application.Exit();
             Environment.Exit(0);
         }
 
@@ -1266,10 +1267,10 @@ Globals.AppName
             dataGridView2.Rows.Clear();
             UpdateButtonStates();
             //label1.Text = dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Curves Selected";
-           // toolStripStatusLabel1.Text = dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr;
-        ShowNormalStrip( dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
-        
-        
+            // toolStripStatusLabel1.Text = dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr;
+            ShowNormalStrip(dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
+
+
         }
 
 
@@ -1320,7 +1321,8 @@ Globals.AppName
         {
             //Name: Color
 
-            if (dataGridView2.Columns[e.ColumnIndex].Name == "Color") {
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Color")
+            {
                 UpdateColor(e.RowIndex);
 
             }
@@ -1367,15 +1369,15 @@ Globals.AppName
 
 
 
-            if (dataGridView2.Columns[e.ColumnIndex].Name == "Axis" && e.Value == null) 
-                {
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Axis" && e.Value == null)
+            {
                 e.Value = "Left";
 
             }
 
-         
-                if (dataGridView2.Columns[e.ColumnIndex].Name == "Function" && e.Value == null)
-                {
+
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Function" && e.Value == null)
+            {
                 e.Value = "None";
 
             }
@@ -1390,20 +1392,20 @@ Globals.AppName
 
 
 
-            if (e.ColumnIndex == 6  && e.Value == null)    // interval  //koper default value kommer ikke hit lenger
+            if (e.ColumnIndex == 6 && e.Value == null)    // interval  //koper default value kommer ikke hit lenger
             {
-               e.Value = "AllData";
+                e.Value = "AllData";
             }
 
 
             if (dataGridView2.Columns[e.ColumnIndex].Name == "Aggregate" && e.Value == null)    // Aggregate
             {
                 e.Value = "None"; //fefault None
-   
+
             }
 
             if (dataGridView2.Columns[e.ColumnIndex].Name == "Type" && e.Value == null)
-                //if (e.ColumnIndex == 8 && e.Value == null)    // charttype
+            //if (e.ColumnIndex == 8 && e.Value == null)    // charttype
             {
                 e.Value = "spline";
 
@@ -1417,7 +1419,7 @@ Globals.AppName
 
         }
 
-       
+
 
 
         private void ClearOne2_btn_Click(object sender, EventArgs e)
@@ -1426,14 +1428,14 @@ Globals.AppName
             int rowIndex = dataGridView2.CurrentCell.RowIndex;
             dataGridView2.Rows.RemoveAt(rowIndex);
             //label1.Text = dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Curves Selected";
-            ShowNormalStrip( dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
+            ShowNormalStrip(dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
             UpdateButtonStates();
         }
 
-       
 
-       
-            private void UpdateButtonStates()
+
+
+        private void UpdateButtonStates()
         {
             // Exclude the 'new row' if present
             int rowCount = dataGridView2.AllowUserToAddRows
@@ -1455,6 +1457,7 @@ Globals.AppName
 
             Clear2_Btn.Enabled = hasRows;
             ClearOne2_btn.Enabled = hasRows;
+            createCatalogwebfiles.Enabled = hasRows;
 
             // Other buttons can be added here similarly
         }
@@ -1482,9 +1485,9 @@ Globals.AppName
             // DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex]; //Get selected Row
 
 
-          //  string MyCurveName = "";
-          //  string MyCurveId = "";
-         //   string MyCurveDescr = "";
+            //  string MyCurveName = "";
+            //  string MyCurveId = "";
+            //   string MyCurveDescr = "";
             //string MyInterval = "";
 
 
@@ -1497,7 +1500,7 @@ Globals.AppName
 
 
             {
-                          
+
 
 
 
@@ -1506,7 +1509,7 @@ Globals.AppName
                 int n = dataGridView2.Rows.Add();
 
                 dataGridView2.Rows[n].Cells["Id"].Value = row.Cells["CurveId"].Value.ToString();
-               // dataGridView2.Columns["Id"].Visible = false; 
+                // dataGridView2.Columns["Id"].Visible = false; 
 
                 dataGridView2.Rows[n].Cells["Name"].Value = row.Cells["CurveName"].Value.ToString();
                 dataGridView2.Rows[n].Cells["Descr"].Value = row.Cells["Descr"].Value.ToString();
@@ -1530,19 +1533,19 @@ Globals.AppName
 
                 //old dataGridView2.Rows[n].Cells[6].Value = MyInterval;
                 // dataGridView2.Rows[n].Cells["Interval"].Value =   row.Cells["Interval"].Value;
-                dataGridView2.Rows[n].Cells["Interval"].Value =   row.Cells["Interval"].Value ?? "AllData";
+                dataGridView2.Rows[n].Cells["Interval"].Value = row.Cells["Interval"].Value ?? "AllData";
                 dataGridView2.Rows[n].Cells["Convert"].Value = "OFF";
 
 
 
-                int rowCount =    dataGridView2.Rows.Count -    (dataGridView2.AllowUserToAddRows ? 1 : 0);
-              // dataGridView2.Rows[n].Cells[11].Value =    Math.Min(rowCount, 9).ToString();
+                int rowCount = dataGridView2.Rows.Count - (dataGridView2.AllowUserToAddRows ? 1 : 0);
+                // dataGridView2.Rows[n].Cells[11].Value =    Math.Min(rowCount, 9).ToString();
                 dataGridView2.Rows[n].Cells["Order"].Value = Math.Min(rowCount, 9).ToString();
 
 
-                int colorIndex = (rowCount-1) % 10;
-               
-               var colorColumn =     (DataGridViewComboBoxColumn)dataGridView2.Columns["Color"];
+                int colorIndex = (rowCount - 1) % 10;
+
+                var colorColumn = (DataGridViewComboBoxColumn)dataGridView2.Columns["Color"];
 
                 //  moving to top change of scopr
                 //var colors =  (List<ColorItem>)colorColumn.DataSource;
@@ -1565,16 +1568,16 @@ Globals.AppName
               dataGridView2.Rows[n].Cells["Color"].Style.BackColor = c;  //10
                 */
 
-             
-                ShowNormalStrip (dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
-                
+
+                ShowNormalStrip(dataGridView2.Rows.Count.ToString() + " of " + dataGridView1.Rows.Count.ToString() + " Series Selected" + Globals.TotalStr);
+
             }
 
 
 
             UpdateButtonStates();
             dataGridView2.ClearSelection();
-            
+
             //slutt copy
 
 
@@ -1614,8 +1617,8 @@ Globals.AppName
 
         }
 
-      
-             
+
+
 
 
 
@@ -1636,9 +1639,9 @@ Globals.AppName
             int rowIndex = dataGridView2.CurrentCell.RowIndex;
 
             //intervallet
-           // if (dataGridView2.Rows[rowIndex].Cells[6].Value == null)    // interval blitt ny nr 6 feb 10
-                if (dataGridView2.Rows[rowIndex].Cells["Interval"].Value == null)    // interval blitt ny nr 6 feb 10
-                {
+            // if (dataGridView2.Rows[rowIndex].Cells[6].Value == null)    // interval blitt ny nr 6 feb 10
+            if (dataGridView2.Rows[rowIndex].Cells["Interval"].Value == null)    // interval blitt ny nr 6 feb 10
+            {
                 MyInterval = "AllData";
             }
             else
@@ -1661,7 +1664,7 @@ Globals.AppName
                     dataGridView2.Rows[i].Cells["Interval"].Value = MyInterval;
 
                 }
-            } 
+            }
 
 
 
@@ -1674,7 +1677,7 @@ Globals.AppName
             }
             else
             {
-               // MyFunction = dataGridView2.Rows[rowIndex].Cells[4].Value.ToString();
+                // MyFunction = dataGridView2.Rows[rowIndex].Cells[4].Value.ToString();
                 MyFunction = dataGridView2.Rows[rowIndex].Cells["Function"].Value.ToString();
             }
 
@@ -1720,7 +1723,7 @@ Globals.AppName
 
 
             //type start
-           
+
             if (dataGridView2.Rows[rowIndex].Cells["Type"].Value == null)    // type nr 8
             {
                 MyType = "spline";
@@ -1743,7 +1746,7 @@ Globals.AppName
 
             //start //axis new
 
-            if (dataGridView2.Rows[rowIndex].Cells["Axis"].Value == null)    
+            if (dataGridView2.Rows[rowIndex].Cells["Axis"].Value == null)
             {
                 MyAxis = "Left";
             }
@@ -1948,7 +1951,7 @@ Globals.AppName
 
             Globals.table.Rows.Clear(); //sletter forrige valg
                                         // comboBox1.Text = "";
-            //label1.Text = "";
+                                        //label1.Text = "";
 
             //dt.Dispose();
             //Globals.table.Rows.Add("%"); //search string foreste recorden
@@ -1998,15 +2001,15 @@ Globals.AppName
 
 
 
-       // private void comboBox1_TextChanged(object sender, EventArgs e)
+        // private void comboBox1_TextChanged(object sender, EventArgs e)
         //{
-            //MessageBox.Show(comboBox1.Text);
-            //søker ikke naar appl starter men alltid ellers
-          //  if (Globals.NumOfSearches >= 1)
-           // {
-             //   connect_btn_Click(sender, e); //utfører søket.
-           // }
-            //Globals.NumOfSearches = Globals.NumOfSearches + 1;
+        //MessageBox.Show(comboBox1.Text);
+        //søker ikke naar appl starter men alltid ellers
+        //  if (Globals.NumOfSearches >= 1)
+        // {
+        //   connect_btn_Click(sender, e); //utfører søket.
+        // }
+        //Globals.NumOfSearches = Globals.NumOfSearches + 1;
         //}
 
 
@@ -2018,12 +2021,12 @@ Globals.AppName
             string basepath = Application.StartupPath;
             string txtpath = basepath + @"/connection.txt";  //filename
             string connectionstring = ""; // "Data Source=dbserver;Initial Catalog=dw;Integrated Security=True";
-            
+
             if (File.Exists(txtpath))
             {
                 using (StreamReader sr = new StreamReader(txtpath))
                 {
-               
+
                     //leser foreste linje fra der exe fila ligger
                     string ss = sr.ReadLine();
                     //MessageBox.Show(ss.ToString(), "getconn");
@@ -2056,17 +2059,17 @@ Globals.AppName
 
                 //MessageBox.Show(ss.ToString());
                 return connectionstring;
-                
+
 
             }
             else
-            { 
-            MessageBox.Show("connection.txt file missing in: " + basepath, Globals.AppName);
-            return("error");
-            }          
+            {
+                MessageBox.Show("connection.txt file missing in: " + basepath, Globals.AppName);
+                return ("error");
             }
+        }
 
-    
+
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -2098,7 +2101,7 @@ Globals.AppName
             }
             catch (Win32Exception)
             {
-                MessageBox.Show("Could not find application: "+ txtpath, Globals.AppName);
+                MessageBox.Show("Could not find application: " + txtpath, Globals.AppName);
             }
 
 
@@ -2224,7 +2227,7 @@ Globals.AppName
             new System.IO.StreamWriter(mfile, false))
             {
 
-               // file.WriteLine("seriesData = ["); js til json
+                // file.WriteLine("seriesData = ["); js til json
                 file.WriteLine("[  {");
 
                 file.WriteLine("\"title\":\"Harmonize\",");
@@ -2237,7 +2240,7 @@ Globals.AppName
 
                 file.WriteLine($"\"frequency\":\"{Globals.freq}\",");
                 file.WriteLine($"\"decimals\":{Globals.deci},");
-                
+
 
 
 
@@ -2248,7 +2251,7 @@ Globals.AppName
                 //file.WriteLine("mytimezone : ''  ,");               
 
                 if (Globals.BaseMnds >= 1900)
-                {             
+                {
                     file.WriteLine("\"baseperiod\":\"" + Globals.BaseMnds.ToString() + "\", ");
                 }
                 else
@@ -2271,7 +2274,7 @@ Globals.AppName
 
                 WidthValue = "5";
                 DashValue = "solid";
-                
+
                 CurveId = "";
                 CurveDescr = "";
                 Fname = "";
@@ -2285,7 +2288,7 @@ Globals.AppName
                 CurveName = "";
                 //Forecast = "0";
                 FnLag = "1";
-                
+
                 stacking = "";
                 myorder = "0";
                 myzindex = 9;
@@ -2423,7 +2426,7 @@ Globals.AppName
                     // Name: LineType
                     var lineTypeValue = row.Cells["Type"].Value?.ToString();
 
-                   // linetype = string.IsNullOrEmpty(lineTypeValue) || lineTypeValue == "spline"
+                    // linetype = string.IsNullOrEmpty(lineTypeValue) || lineTypeValue == "spline"
                     //    ? "'spline'"
                     //    : $"'{lineTypeValue}'";   // 
 
@@ -2482,7 +2485,7 @@ Globals.AppName
 
                     file.WriteLine($"\"name\":\"{CurveName}\",");
 
-                  
+
 
                     file.WriteLine($"\"title\":\"{Title}\", ");
                     file.WriteLine($"\"description\":\"{SerieName.Trim()}\", ");
@@ -2491,7 +2494,7 @@ Globals.AppName
                     // file.WriteLine($"\"unitid\":\"{UnitId}\", "); //not needed ?
                     file.WriteLine($"\"interval\":\"{Iname}\", ");
                     file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
-                    
+
 
                     file.WriteLine("\"style\": {");
 
@@ -2508,13 +2511,13 @@ Globals.AppName
                     file.WriteLine($"\"linestyle\":\"{DashValue}\", ");
                     file.WriteLine($"\"color\":\"{mycolor}\", ");
                     file.WriteLine($"\"function\":\"{FnameReplaced}\", ");
-                 
-                    //more flytting
-                   file.WriteLine($"\"order\":{myorder}, ");
-                   file.WriteLine($"\"zIndex\":{myzindex}");
-                   file.WriteLine("},");  //end style
 
-              //end of pure Chart Styling here:
+                    //more flytting
+                    file.WriteLine($"\"order\":{myorder}, ");
+                    file.WriteLine($"\"zIndex\":{myzindex}");
+                    file.WriteLine("},");  //end style
+
+                    //end of pure Chart Styling here:
 
 
 
@@ -2540,7 +2543,7 @@ Globals.AppName
 
                         sql_cmnd.Parameters.AddWithValue("@format", SqlDbType.NVarChar).Value = "client";  //kan utga
                         sql_cmnd.Parameters.AddWithValue("@agg", SqlDbType.NVarChar).Value = Agg;
-                   
+
                         sql_cmnd.Parameters.AddWithValue("@convert2freq", SqlDbType.NVarChar).Value = Convert;
                         sql_cmnd.Parameters.AddWithValue("@sort", SqlDbType.NVarChar).Value = "asc";
                         sql_cmnd.Parameters.AddWithValue("@top", SqlDbType.Int).Value = Globals.MaxNum;  //from connection file
@@ -2548,8 +2551,8 @@ Globals.AppName
 
 
 
-//                      toolStripStatusLabel1.Text = "StpGetSeries " + CurveName + "," + Globals.BaseMnds.ToString() + ", " + Iname + ", " + Fname + ", " + FnLag + ", " + Agg + ", " + Globals.MaxNum + ", " + "asc"; //det over i totalstr og vise til slutt
-                        toolStripStatusLabel1.Text = "StpGetSeries " + CurveName + "," + Globals.BaseMnds.ToString() + ", " + Iname + ", " + Fname + ", " + FnLag + ", " + Agg + ", " + Convert+ ", asc, "+ Globals.MaxNum; //det over i totalstr og vise til slutt
+                        //                      toolStripStatusLabel1.Text = "StpGetSeries " + CurveName + "," + Globals.BaseMnds.ToString() + ", " + Iname + ", " + Fname + ", " + FnLag + ", " + Agg + ", " + Globals.MaxNum + ", " + "asc"; //det over i totalstr og vise til slutt
+                        toolStripStatusLabel1.Text = "StpGetSeries " + CurveName + "," + Globals.BaseMnds.ToString() + ", " + Iname + ", " + Fname + ", " + FnLag + ", " + Agg + ", " + Convert + ", asc, " + Globals.MaxNum; //det over i totalstr og vise til slutt
 
 
                         //toolStripStatusLabel1.Text = mycommand.CommandText; //trenger bare å vise siste evt hente det over i totalstr og vise til slutt
@@ -2571,7 +2574,7 @@ Globals.AppName
                                     cnt = cnt + 1;
                                     if (cnt == 1)
 
-                                        
+
                                     {
 
                                         //myline = (reader.GetValue(reader.GetOrdinal("Epodateval")).ToString()); //ok foer arabisk 
@@ -2617,7 +2620,7 @@ Globals.AppName
 
                                     }
 
-                            
+
 
                                     toolStripProgressBar1.Value = 70;
                                     //file.WriteLine(reader.GetString(reader.GetOrdinal("Epodateval")) + ",");
@@ -2630,7 +2633,7 @@ Globals.AppName
 
                                     //file.WriteLine(reader.GetValue(reader.GetOrdinal("Epodateval")) + ",");
 
-                                    
+
 
 
 
@@ -2680,7 +2683,7 @@ Globals.AppName
 
 
 
-                       
+
 
                     } //use flyttet hit nedover
 
@@ -2691,13 +2694,13 @@ Globals.AppName
                     //reader.Close();
 
 
-                    
+
 
                     // was  file.WriteLine("].sort((a, b) => a[0] - b[0]),     ");
 
                     file.WriteLine("], "); //closing data new    ????????????????????????????????????????++
 
-                    
+
                     /*
                     flyttes opp :
 
@@ -2768,26 +2771,26 @@ Globals.AppName
 
                     file.WriteLine($"\"labelyear\":\"{labelYear}\"");  //last field before series close
 
-                /*
-                  flyttes
-                file.WriteLine($"\"order\":{myorder}, ");
-                file.WriteLine($"\"zIndex\":{myzindex}, ");
-                file.WriteLine($"\"interval\":\"{Iname}\", ");
+                    /*
+                      flyttes
+                    file.WriteLine($"\"order\":{myorder}, ");
+                    file.WriteLine($"\"zIndex\":{myzindex}, ");
+                    file.WriteLine($"\"interval\":\"{Iname}\", ");
 
 
 
-                file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
+                    file.WriteLine($"\"aggregation\":\"{(string.IsNullOrEmpty(AggDesc) || AggDesc == "None" ? "" : AggDesc)}\", ");
 
-                //file.WriteLine($"\"desc\":\"{SerieName.Trim() + "', " + "              }, ");  //lukker curvenn
-                file.WriteLine($"\"desc\":\"{SerieName.Trim()}\" ");
+                    //file.WriteLine($"\"desc\":\"{SerieName.Trim() + "', " + "              }, ");  //lukker curvenn
+                    file.WriteLine($"\"desc\":\"{SerieName.Trim()}\" ");
 
 
-                */
+                    */
 
-                //COMMA om ikke siste
-                if (dataGridView2.Rows.Count != numseries)
-                        file.WriteLine( "  }, "); //more to come..
-                    else file.WriteLine("  } " );  //last series
+                    //COMMA om ikke siste
+                    if (dataGridView2.Rows.Count != numseries)
+                        file.WriteLine("  }, "); //more to come..
+                    else file.WriteLine("  } ");  //last series
 
 
 
@@ -2849,7 +2852,7 @@ Globals.AppName
                 var fileUri = new Uri(myfiletoshow);
 
 
-               
+
 
                 Process.Start(new ProcessStartInfo
                 {
@@ -2875,7 +2878,7 @@ Globals.AppName
 
 
 
-//end of high independent
+        //end of high independent
 
 
 
@@ -2899,7 +2902,7 @@ Globals.AppName
                     {
 
                         String line = streamReader.ReadLine();
-                        String[]words = line.Split(',');
+                        String[] words = line.Split(',');
                         //MessageBox.Show(words[0]);
                         // words[0].Text = words[1];
                         //  this.Controls.Find(words[0], true).FirstOrDefault().Text = words[2];
@@ -2921,7 +2924,7 @@ Globals.AppName
                         //adding dec25 btn and menue same text
                         line = streamReader.ReadLine(); words = line.Split(',');
                         YearChartRepo_btn.Text = words[Globals.LangColumn];
-                      
+
 
 
 
@@ -2938,11 +2941,11 @@ Globals.AppName
                         line = streamReader.ReadLine(); words = line.Split(',');
                         Substr_label4.Text = words[Globals.LangColumn];
 
-                        
+
                         line = streamReader.ReadLine(); words = line.Split(',');
                         Search_btn.Text = words[Globals.LangColumn];
 
-                      
+
 
 
                         line = streamReader.ReadLine(); words = line.Split(',');
@@ -2961,7 +2964,7 @@ Globals.AppName
                         copyDatafileToolStripMenuItem.Text = words[Globals.LangColumn];
                         line = streamReader.ReadLine(); words = line.Split(',');
 
-                        
+
                         //convertLastesToPXToolStripMenuItem new
                         //convertLastesToPXToolStripMenuItem.Text = words[Globals.LangColumn];
                         line = streamReader.ReadLine(); words = line.Split(',');
@@ -2983,7 +2986,7 @@ Globals.AppName
                         //flyttet
                         line = streamReader.ReadLine(); words = line.Split(',');
                         reportToolStripMenuItem1.Text = words[Globals.LangColumn];
-                        
+
 
 
 
@@ -3000,14 +3003,14 @@ Globals.AppName
                         line = streamReader.ReadLine(); words = line.Split(',');
                         helpToolStripMenuItem.Text = words[Globals.LangColumn]; //help
 
-                      
+
                         line = streamReader.ReadLine(); words = line.Split(',');
                         Base_Label.Text = words[Globals.LangColumn]; //base
 
 
 
-                         // curve datagrid starts at 0
-                             for (int i = 0; i < dataGridView1.Columns.Count; i++)  //Ups  length for hidden
+                        // curve datagrid starts at 0
+                        for (int i = 0; i < dataGridView1.Columns.Count; i++)  //Ups  length for hidden
                         {
                             line = streamReader.ReadLine();
                             words = line.Split(',');
@@ -3076,14 +3079,14 @@ Globals.AppName
 
 
                         // curve datagrid starts at 0
-                      
+
                         for (int i = 0; i < 16; i++) //noen hidden er ikke i translatefila tbc
                         {
                             line = streamReader.ReadLine();
                             words = line.Split(',');
                             dataGridView2.Columns[i].HeaderText = words[Globals.LangColumn];
                         }
-                      
+
 
 
                         //Valgte curve datagrid2
@@ -3128,7 +3131,7 @@ Globals.AppName
 
                         */
 
-                    
+
 
                         line = streamReader.ReadLine(); words = line.Split(',');
                         yearChartToolStripMenuItem.Text = words[Globals.LangColumn];
@@ -3149,7 +3152,7 @@ Globals.AppName
                         line = streamReader.ReadLine(); words = line.Split(',');
                         releasesToolStripMenuItem.Text = words[Globals.LangColumn];
 
-                       
+
 
 
 
@@ -3186,7 +3189,7 @@ Globals.AppName
 
 
 
-            private void Search_btn_Click(object sender, EventArgs e)
+        private void Search_btn_Click(object sender, EventArgs e)
         {
             RunSearch();
         }
@@ -3202,7 +3205,7 @@ Globals.AppName
         {
             //argumenter wildcard ny search
 
-            
+
             toolStripProgressBar1.Value = 80;
 
             SqlConnection sqlCon = null;
@@ -3213,12 +3216,12 @@ Globals.AppName
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
 
 
-            var pList = new SqlParameter("listOfIDstbl", SqlDbType.Structured);
-            pList.TypeName = "dbo.StringList";
-            pList.Value = Globals.table;
+                var pList = new SqlParameter("listOfIDstbl", SqlDbType.Structured);
+                pList.TypeName = "dbo.StringList";
+                pList.Value = Globals.table;
 
 
-            toolStripProgressBar1.Value = 90;
+                toolStripProgressBar1.Value = 90;
 
                 sql_cmnd.Parameters.Add(pList);
 
@@ -3227,14 +3230,14 @@ Globals.AppName
 
 
 
-            toolStripProgressBar1.Value = 80;
-            DataTable data = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(sql_cmnd);
-            adapter.Fill(data);
-            toolStripProgressBar1.Value = 50;
+                toolStripProgressBar1.Value = 80;
+                DataTable data = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql_cmnd);
+                adapter.Fill(data);
+                toolStripProgressBar1.Value = 50;
 
 
-            dataGridView1.DataSource = data;
+                dataGridView1.DataSource = data;
 
                 // Format all DateTime columns
                 foreach (DataGridViewColumn col in dataGridView1.Columns)
@@ -3263,17 +3266,17 @@ Globals.AppName
 
         }
 
-       
+
         private void releasesToolStripMenuItem_Click(object sender, EventArgs e)
-        {    
-           
+        {
+
 
 
             try
             {
 
-               // string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;  //show path of exe
-              //  var myfiletoshow = System.IO.Path.GetDirectoryName(strExeFilePath) + "\\" + "Releases.html";
+                // string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;  //show path of exe
+                //  var myfiletoshow = System.IO.Path.GetDirectoryName(strExeFilePath) + "\\" + "Releases.html";
 
 
                 Process.Start(new ProcessStartInfo
@@ -3306,10 +3309,10 @@ Globals.AppName
 
         }
 
-       
 
 
-    
+
+
 
         private void checkedListBoxMonths_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3341,17 +3344,17 @@ Globals.AppName
                     s = s + checkedListBoxMonths.Items[i].ToString();
                 }
 
-                if (checkedListBoxMonths.GetItemChecked(0) )  //all months first pos
+                if (checkedListBoxMonths.GetItemChecked(0))  //all months first pos
                 {
                     checkedListBoxMonths.SetItemChecked(i, false);  //setter alle til unselected
                     s = "";
                     chk = true;
-                    checkedListBoxMonths.SetItemChecked(0,true);  //alle måneder sender bare året
+                    checkedListBoxMonths.SetItemChecked(0, true);  //alle måneder sender bare året
 
                 }
 
-               
-               }
+
+            }
 
             //if no year I set to a year
 
@@ -3376,7 +3379,7 @@ Globals.AppName
 
 
 
-            Globals.BaseMnds = int.Parse(Globals.BaseYear.ToString() +(s));
+            Globals.BaseMnds = int.Parse(Globals.BaseYear.ToString() + (s));
 
 
             // MessageBox.Show((Globals.BaseMnds));
@@ -3496,7 +3499,7 @@ Globals.AppName
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
                     string value = "";
-   
+
                     if (dgv.Columns[i].Name == "Color") // or index == 10
                     {
                         value = row.Cells[i].Value?.ToString() ?? "";
@@ -3673,7 +3676,7 @@ Globals.AppName
                     if (headers.Length == 0)
                         throw new Exception("CSV header could not be parsed.");
 
-                   // HEADER VALIDATION
+                    // HEADER VALIDATION
                     if (!headers[0].Trim().Equals("Id", StringComparison.OrdinalIgnoreCase))
                         throw new Exception("Invalid Harmonize CSV file ... ");
 
@@ -3718,16 +3721,16 @@ Globals.AppName
 
 
 
-                                if (columnName == "Color")
+                            if (columnName == "Color")
                             {
-                               // MessageBox.Show("calling set color..");
+                                // MessageBox.Show("calling set color..");
                                 SetColorCellValue(dgv, rowIndex, cellValue);
                             }
                             else
                             {
                                 //MessageBox.Show(columnName + "  ok?");
                                 dgv.Rows[rowIndex].Cells[columnName].Value = cellValue?.Trim();
-                               
+
                             }
                         }
 
@@ -3785,7 +3788,7 @@ Globals.AppName
 
 
 
-      private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
         }
@@ -3843,9 +3846,9 @@ Globals.AppName
 
         private void deciToolStripMenuItem_Click(object sender, EventArgs e)
         {
- 
-                if (sender is ToolStripMenuItem menuItem)
-                {
+
+            if (sender is ToolStripMenuItem menuItem)
+            {
                 Globals.deci = menuItem.Tag?.ToString();
 
                 foreach (ToolStripMenuItem item in menuItem.Owner.Items)
@@ -3965,7 +3968,7 @@ Globals.AppName
 
         private void LoadCsvToDataBase(string lname, string filePath)
         {
-            int cnt =  0;
+            int cnt = 0;
             int commitEvery = 500;
             string[] allowedFormats = new[]
             {
@@ -4023,11 +4026,11 @@ Globals.AppName
                         SqlCommand sql_cmnd = new SqlCommand("UTILS_PutTime", sqlCon, transaction);
                         sql_cmnd.CommandType = CommandType.StoredProcedure;
                         sql_cmnd.Parameters.Add("@passedlsname", SqlDbType.NVarChar, 100).Value = lname;
-                        var p_sname   = sql_cmnd.Parameters.Add("@sname",        SqlDbType.NVarChar, 100);
-                        var p_desc    = sql_cmnd.Parameters.Add("@sdesc",        SqlDbType.NVarChar, 500);
-                        var p_unit    = sql_cmnd.Parameters.Add("@unit_id",      SqlDbType.Int);
-                        var p_date    = sql_cmnd.Parameters.Add("@datestr",      SqlDbType.DateTime);
-                        var p_value   = sql_cmnd.Parameters.Add("@value",        SqlDbType.Float);
+                        var p_sname = sql_cmnd.Parameters.Add("@sname", SqlDbType.NVarChar, 100);
+                        var p_desc = sql_cmnd.Parameters.Add("@sdesc", SqlDbType.NVarChar, 500);
+                        var p_unit = sql_cmnd.Parameters.Add("@unit_id", SqlDbType.Int);
+                        var p_date = sql_cmnd.Parameters.Add("@datestr", SqlDbType.DateTime);
+                        var p_value = sql_cmnd.Parameters.Add("@value", SqlDbType.Float);
 
                         while (!reader.EndOfStream)
                         {
@@ -4068,9 +4071,9 @@ Globals.AppName
                             }
 
                             p_sname.Value = sname;
-                            p_desc.Value  = desc;
-                            p_unit.Value  = unit;
-                            p_date.Value  = parsedDate;
+                            p_desc.Value = desc;
+                            p_unit.Value = unit;
+                            p_date.Value = parsedDate;
                             p_value.Value = parsedValue;
 
                             // update transaction reference when it has been rotated
@@ -4095,43 +4098,43 @@ Globals.AppName
                         // commit remaining rows
                         transaction.Commit();
                         transaction.Dispose();
-                 
-
-                    toolStripProgressBar1.Value = 10;
 
 
+                        toolStripProgressBar1.Value = 10;
 
-                    using (SqlTransaction updateTransaction = sqlCon.BeginTransaction())
-                    {
-                        using (SqlCommand sql_cmnd2 = new SqlCommand("UTILS_UpdateCurveinfo", sqlCon, updateTransaction))
+
+
+                        using (SqlTransaction updateTransaction = sqlCon.BeginTransaction())
                         {
-                            sql_cmnd2.CommandType = CommandType.StoredProcedure;
-                            sql_cmnd2.Parameters.Add("@loadsetName", SqlDbType.NVarChar, 100).Value = lname;
+                            using (SqlCommand sql_cmnd2 = new SqlCommand("UTILS_UpdateCurveinfo", sqlCon, updateTransaction))
+                            {
+                                sql_cmnd2.CommandType = CommandType.StoredProcedure;
+                                sql_cmnd2.Parameters.Add("@loadsetName", SqlDbType.NVarChar, 100).Value = lname;
 
-                            sql_cmnd2.ExecuteNonQuery();
+                                sql_cmnd2.ExecuteNonQuery();
+                            }
+
+                            updateTransaction.Commit();
                         }
 
-                        updateTransaction.Commit();
+
                     }
 
 
                 }
 
 
-                    }
 
 
+                toolStripProgressBar1.Value = 0;
+                DateTime endTime = DateTime.UtcNow;
+
+                TimeSpan duration = endTime - startTime;
+                //search as well to refresh ?
+                RunSearch();
+                toolStripStatusLabel1.Text = ($"Imported: {cnt} rows finished in {duration.TotalSeconds:F2} seconds");
 
 
-                    toolStripProgressBar1.Value = 0;
-                    DateTime endTime = DateTime.UtcNow;
-
-                    TimeSpan duration = endTime - startTime;
-                    //search as well to refresh ?
-                    RunSearch();
-                    toolStripStatusLabel1.Text = ($"Imported: {cnt} rows finished in {duration.TotalSeconds:F2} seconds");
-
-               
             }
 
             catch (IOException ex)
@@ -4148,7 +4151,7 @@ Globals.AppName
         }
 
 
-      
+
 
 
 
@@ -4166,7 +4169,7 @@ Globals.AppName
 
                     try
                     {
-                       LoadCsvToDataBase(treeView1.SelectedNode.Text, ofd.FileName);
+                        LoadCsvToDataBase(treeView1.SelectedNode.Text, ofd.FileName);
                     }
                     catch (Exception ex)
                     {
@@ -4273,7 +4276,7 @@ Globals.AppName
         }
 
 
-      
+
 
 
         private async void Delete_Click(object sender, EventArgs e)
@@ -4304,7 +4307,7 @@ Globals.AppName
             try
             {
                 using (SqlConnection sqlCon = new SqlConnection(Globals.DBStr))
-                    //try dbo
+                //try dbo
                 using (SqlCommand cmd = new SqlCommand("dbo.Stp_DeleteLoadsetDataOnly_Client", sqlCon))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -4358,7 +4361,7 @@ Globals.AppName
             string loadsetName = treeView1.SelectedNode.Text;
 
             try
-        
+
             {
                 toolStripProgressBar1.Value = 75;
                 using (SqlConnection sqlCon = new SqlConnection(Globals.DBStr))
@@ -4367,13 +4370,13 @@ Globals.AppName
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@loadsetname", SqlDbType.NVarChar, 64).Value = loadsetName;
-    
+
 
                     await sqlCon.OpenAsync();
                     await cmd.ExecuteNonQueryAsync();
                     toolStripProgressBar1.Value = 50;
                     BuildTree();  //refreshing the tree
-                    toolStripStatusLabel1.Text ="Write access Granted .";
+                    toolStripStatusLabel1.Text = "Write access Granted .";
 
                 }
             }
@@ -4474,7 +4477,7 @@ Globals.AppName
                 e.Cancel = true;
                 return;
             }
-            
+
             // Only apply logic to dataset level nodes based on write access 
             if (treeView1.SelectedNode.Tag is bool hasWriteAccess)
             {
@@ -4486,12 +4489,12 @@ Globals.AppName
             else
             {
                 // Parent? nodes (Project / Customer etc.)
-                treeContextMenu.Items[0].Enabled = false; 
+                treeContextMenu.Items[0].Enabled = false;
                 treeContextMenu.Items[1].Enabled = false;
-              
+
 
             }
-            
+
 
 
         }
@@ -4563,32 +4566,32 @@ Globals.AppName
 
         }
 
-        
+
 
 
         async void LogMessage()
-            //executed when error no connection could be upgrade is needed
+        //executed when error no connection could be upgrade is needed
         {
-            if (Globals.MaxNum != 666) 
-                    { 
-            string url = "https://harmonize.no/api/testforupgrade.php?product=HARMONIZE&client=Error-" + Environment.UserName + "&version=" + Globals.Version;
-            using (HttpClient client = new HttpClient())
+            if (Globals.MaxNum != 666)
             {
-                try
+                string url = "https://harmonize.no/api/testforupgrade.php?product=HARMONIZE&client=Error-" + Environment.UserName + "&version=" + Globals.Version;
+                using (HttpClient client = new HttpClient())
                 {
-                    string json = await client.GetStringAsync(url);
+                    try
+                    {
+                        string json = await client.GetStringAsync(url);
 
-                    var result = JsonConvert.DeserializeObject<UpgradeResponse>(json);
+                        var result = JsonConvert.DeserializeObject<UpgradeResponse>(json);
 
 
+                    }
+                    //catch (Exception ex)
+                    catch (Exception)
+                    {
+                        //MessageBox.Show("Harmonize.no -Error: " + ex.Message);
+                    }
                 }
-                //catch (Exception ex)
-                catch (Exception)
-                {
-                    //MessageBox.Show("Harmonize.no -Error: " + ex.Message);
-                }
-            }
-        }//if
+            }//if
         }
 
 
@@ -4658,7 +4661,7 @@ Globals.AppName
                 MessageBox.Show("Could not verify latest version. Please See Harmonize.no " + Globals.Version);
             }
 
-            }
+        }
 
 
 
@@ -4699,7 +4702,7 @@ Globals.AppName
                     //File.Copy(sourceFile, targetFile, true);
                     File.Copy(sourceFile2, targetFile2, true);
 
-                    MessageBox.Show(targetFile2+" Successfully saved ",
+                    MessageBox.Show(targetFile2 + " Successfully saved ",
                         Globals.AppName,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -4720,16 +4723,16 @@ Globals.AppName
 
 
         private void ShowErrorStrip(string message)
-        {  
+        {
             toolStripStatusLabel1.Text = message;
             toolStripStatusLabel1.ForeColor = Color.DarkRed;
         }
 
         private void ShowNormalStrip(string message)
-        {    
+        {
             toolStripStatusLabel1.Text = message;
             toolStripStatusLabel1.ForeColor = Color.RoyalBlue;
-           // toolStripStatusLabel1.Font = _defaultStatusFont;
+            // toolStripStatusLabel1.Font = _defaultStatusFont;
         }
 
         private void wipe_btn_Click(object sender, EventArgs e)
@@ -4739,7 +4742,7 @@ Globals.AppName
 
 
             int LangColumn = LangBox1.SelectedIndex >= 0 ? LangBox1.SelectedIndex : Globals.LangColumn;
-            
+
 
             //this clears data grid but bring back default non langual column names This part is OK
             dataGridView1.DataSource = null;
@@ -4789,7 +4792,7 @@ Globals.AppName
 
             string myjson = System.IO.Path.Combine(Globals.UserDir, "Mydata.json");
             var catalogEntries = new List<string>();
-            var fakeSender = new Button { Tag = "series" };
+            var fakeSender = new System.Windows.Forms.Button { Tag = "series" };
 
             foreach (var savedRow in savedRows)
             {
@@ -4834,10 +4837,11 @@ Globals.AppName
             string catalogPath = System.IO.Path.Combine(outputFolder, "catalog.json");
             System.IO.File.WriteAllText(catalogPath,
                 "[" + System.Environment.NewLine + string.Join("," + System.Environment.NewLine, catalogEntries) + System.Environment.NewLine + "]",
-                System.Text.Encoding.UTF8);
+                new System.Text.UTF8Encoding(false));
             toolStripProgressBar1.Value = 0;
             ShowNormalStrip($"Catalogue: {savedRows.Count} series files + catalog.json written.");
             MessageBox.Show($"Generated {savedRows.Count} series file(s) and catalog.json in:\n{outputFolder}", Globals.AppName);
         }
 
+    }
 }
