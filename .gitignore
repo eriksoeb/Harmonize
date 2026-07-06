@@ -52,6 +52,7 @@ MyData.js
 # Paper drafts (work in progress, not for repo)
 paper*.md
 paper*.txt
+paper*.docx
 
 # OS
 Thumbs.db
