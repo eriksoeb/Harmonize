@@ -13,7 +13,7 @@
 /* --- Base layout --- */
 html, body {
     font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     background-color: white;
     color: black;
