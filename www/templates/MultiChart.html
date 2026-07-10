@@ -152,7 +152,7 @@ const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
 wrapper.append('<div id="' + containerId + '" style="width:100%; height:30%; margin:10px auto;"></div>');
 
             Highcharts.chart(containerId, {
-                chart: { type: s.type, zoomType: 'x' },
+                chart: { type: s.type, zoomType: 'x', backgroundColor: '#ffffff' },
                 title: { text: s.description, floating:true, y:15, style:{fontSize:'14px'} },
                 subtitle: { text: (s['function'] || '') + ' '+s.aggregation + ' '+ s.name || '', floating:true, y:30, style:{fontSize:'12px'} },
                 credits: { enabled: false },
