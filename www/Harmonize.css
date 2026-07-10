@@ -21,6 +21,7 @@ html, body {
 }
 
 body {
+    min-height: 100vh;        /* absolute units — safe in flex column layout */
     display: flex;
     flex-direction: column;   /* sticky footer support */
     line-height: 1.6;

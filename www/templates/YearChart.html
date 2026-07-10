@@ -6,15 +6,13 @@
 <meta name="color-scheme" content="light">
 <link rel="icon" href="../images/no.png" type="image/png">
 
-<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=6">
+<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=8">
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 
 
@@ -65,7 +63,7 @@ or in current dir same as exe and html :
 </div>
 
 
-<div id="container" style="width:100%; min-height:80%; height:90%; margin:0 auto;"></div>
+<div id="container"></div>
 
 
 <!-- Series names container -->
@@ -182,62 +180,8 @@ const DECIMALS = seriesData[0].decimals ?? 0;  //default
         enabled: false    // (optional) hides the buttons like 1M, 1Y, Max… confusing when 2000
     },
 		
-//would be nice to show labelyear in addition to series name when exporting as well..
-		//erik exporting with labeleyesr
-		exporting: {
-    showTable: false,
-	tableCaption: '',//MyDatatable',
-    filename: 'MyYear',
-    csv: {
-        dateFormat: '%B',
-		decimalPoint: '.',
-
-        columnHeaderFormatter: function (item, key) {
-            // X axis column
-            if (!item || item.isXAxis) {
-                return 'Month';
-            }
-			
 
 
-            // Series column
-            const labelYear = item.options.labelyear || '';
-            return item.name + (labelYear ? ' ' + labelYear : '');
-        }
-    },
-    buttons: {
-        //contextButton: {
-         //   menuItems: ['downloadCSV', 'separator', 'viewData', 'separator','printChart']
-        //}
-		 contextButton: {
-            menuItems: [
-			'separator',
-            'viewFullscreen',
-				'separator',
-                'downloadCSV',
-                'downloadXLS',			
-                'separator',
-                'downloadPNG',
-                'downloadJPEG',
-                'downloadPDF',
-                'downloadSVG',
-				'separator',
-                'viewData',
-                'separator',
-                'printChart',
-				'separator'
-            ]
-        }
-		
-		
-		
-		
-		
-		
-    }
-},
-
-		
 
 //bruker text labelyear from structured data
 tooltip: {

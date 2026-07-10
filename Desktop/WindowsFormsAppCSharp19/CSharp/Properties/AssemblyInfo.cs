@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Harmonize")]
 [assembly: AssemblyDescription("Timeseries")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ErikSberg")]
+[assembly: AssemblyCompany("Harmonize.no")]
 [assembly: AssemblyProduct("Harmonize")]
 [assembly: AssemblyCopyright("Harmonize® 2026")]
 [assembly: AssemblyTrademark("Harmonize®")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 //erik 
-[assembly: AssemblyVersion("1.9.8.6")]  //vises ikke
+[assembly: AssemblyVersion("1.9.9.0")]  //vises ikke
 
-[assembly: AssemblyFileVersion("1.9.8.6")]  //brukes color ver
+[assembly: AssemblyFileVersion("1.9.9.0")]  //brukes color ver

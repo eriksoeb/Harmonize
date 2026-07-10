@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +41,7 @@
             this.retriveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyDatafileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createCatalogwebfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,26 +74,26 @@
             this.applyFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Wild_label3 = new System.Windows.Forms.Label();
             this.buttonpanel2 = new System.Windows.Forms.Panel();
+            this.YearChartRepo_btn = new System.Windows.Forms.Button();
             this.Base_Label = new System.Windows.Forms.Label();
             this.comboBasisBox = new System.Windows.Forms.ComboBox();
             this.checkedListBoxMonths = new System.Windows.Forms.CheckedListBox();
+            this.NyMulti_btn = new System.Windows.Forms.Button();
+            this.NyChart_btn = new System.Windows.Forms.Button();
+            this.Clear2_Btn = new System.Windows.Forms.Button();
+            this.ClearOne2_btn = new System.Windows.Forms.Button();
             this.toppanel2 = new System.Windows.Forms.Panel();
+            this.wipe_btn = new System.Windows.Forms.Button();
             this.Substr_label4 = new System.Windows.Forms.Label();
             this.Wild_txt = new System.Windows.Forms.TextBox();
             this.LangBox1 = new System.Windows.Forms.ComboBox();
+            this.Search_btn = new System.Windows.Forms.Button();
             this.connect_btn = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.wipe_btn = new System.Windows.Forms.Button();
-            this.Search_btn = new System.Windows.Forms.Button();
-            this.YearChartRepo_btn = new System.Windows.Forms.Button();
-            this.NyMulti_btn = new System.Windows.Forms.Button();
-            this.NyChart_btn = new System.Windows.Forms.Button();
-            this.Clear2_Btn = new System.Windows.Forms.Button();
-            this.ClearOne2_btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.buttonpanel2.SuspendLayout();
@@ -132,6 +133,7 @@
             this.saveAsToolStripMenuItem,
             this.retriveToolStripMenuItem,
             this.copyDatafileToolStripMenuItem,
+            this.createCatalogwebfiles,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -172,6 +174,14 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // createCatalogwebfiles
+            // 
+            this.createCatalogwebfiles.Name = "createCatalogwebfiles";
+            this.createCatalogwebfiles.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
+            this.createCatalogwebfiles.Size = new System.Drawing.Size(286, 24);
+            this.createCatalogwebfiles.Text = "Save Catalog webfiles";
+            this.createCatalogwebfiles.Click += new System.EventHandler(this.createCatalogwebfiles_Click);
             // 
             // graphToolStripMenuItem
             // 
@@ -230,48 +240,48 @@
             this.deci3ToolStripMenuItem,
             this.deci6ToolStripMenuItem});
             this.decimalToolStripMenuItem.Name = "decimalToolStripMenuItem";
-            this.decimalToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
-            this.decimalToolStripMenuItem.Text = "Decimal";
+            this.decimalToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.decimalToolStripMenuItem.Text = "Decimals#";
             // 
             // deci0ToolStripMenuItem
             // 
             this.deci0ToolStripMenuItem.Name = "deci0ToolStripMenuItem";
-            this.deci0ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.deci0ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deci0ToolStripMenuItem.Tag = "0";
-            this.deci0ToolStripMenuItem.Text = "Deci 0";
+            this.deci0ToolStripMenuItem.Text = "Decimal 0";
             this.deci0ToolStripMenuItem.Click += new System.EventHandler(this.deciToolStripMenuItem_Click);
             // 
             // deci1ToolStripMenuItem
             // 
             this.deci1ToolStripMenuItem.Enabled = false;
             this.deci1ToolStripMenuItem.Name = "deci1ToolStripMenuItem";
-            this.deci1ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.deci1ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deci1ToolStripMenuItem.Tag = "1";
-            this.deci1ToolStripMenuItem.Text = "Deci 1";
+            this.deci1ToolStripMenuItem.Text = "Decimal 1";
             this.deci1ToolStripMenuItem.Click += new System.EventHandler(this.deciToolStripMenuItem_Click);
             // 
             // deci2ToolStripMenuItem
             // 
             this.deci2ToolStripMenuItem.Name = "deci2ToolStripMenuItem";
-            this.deci2ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.deci2ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deci2ToolStripMenuItem.Tag = "2";
-            this.deci2ToolStripMenuItem.Text = "Deci 2";
+            this.deci2ToolStripMenuItem.Text = "Decimal 2";
             this.deci2ToolStripMenuItem.Click += new System.EventHandler(this.deciToolStripMenuItem_Click);
             // 
             // deci3ToolStripMenuItem
             // 
             this.deci3ToolStripMenuItem.Name = "deci3ToolStripMenuItem";
-            this.deci3ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.deci3ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deci3ToolStripMenuItem.Tag = "3";
-            this.deci3ToolStripMenuItem.Text = "Deci 3";
+            this.deci3ToolStripMenuItem.Text = "Decimal 3";
             this.deci3ToolStripMenuItem.Click += new System.EventHandler(this.deciToolStripMenuItem_Click);
             // 
             // deci6ToolStripMenuItem
             // 
             this.deci6ToolStripMenuItem.Name = "deci6ToolStripMenuItem";
-            this.deci6ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.deci6ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deci6ToolStripMenuItem.Tag = "6";
-            this.deci6ToolStripMenuItem.Text = "Deci 6";
+            this.deci6ToolStripMenuItem.Text = "Decimal 6";
             this.deci6ToolStripMenuItem.Click += new System.EventHandler(this.deciToolStripMenuItem_Click);
             // 
             // imageDateToolStripMenuItem
@@ -282,13 +292,13 @@
             this.DAILYToolStripMenuItem,
             this.HOURLYToolStripMenuItem});
             this.imageDateToolStripMenuItem.Name = "imageDateToolStripMenuItem";
-            this.imageDateToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.imageDateToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.imageDateToolStripMenuItem.Text = "ImageDate";
             // 
             // YEARLYToolStripMenuItem
             // 
             this.YEARLYToolStripMenuItem.Name = "YEARLYToolStripMenuItem";
-            this.YEARLYToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.YEARLYToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.YEARLYToolStripMenuItem.Tag = "YEARLY";
             this.YEARLYToolStripMenuItem.Text = "YEARLY";
             this.YEARLYToolStripMenuItem.Click += new System.EventHandler(this.FreqToolStripMenuItem_Click);
@@ -297,7 +307,7 @@
             // 
             this.MONTHLYToolStripMenuItem.Enabled = false;
             this.MONTHLYToolStripMenuItem.Name = "MONTHLYToolStripMenuItem";
-            this.MONTHLYToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.MONTHLYToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.MONTHLYToolStripMenuItem.Tag = "MONTHLY";
             this.MONTHLYToolStripMenuItem.Text = "MONTHLY";
             this.MONTHLYToolStripMenuItem.Click += new System.EventHandler(this.FreqToolStripMenuItem_Click);
@@ -305,7 +315,7 @@
             // DAILYToolStripMenuItem
             // 
             this.DAILYToolStripMenuItem.Name = "DAILYToolStripMenuItem";
-            this.DAILYToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.DAILYToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.DAILYToolStripMenuItem.Tag = "DAILY";
             this.DAILYToolStripMenuItem.Text = "DAILY";
             this.DAILYToolStripMenuItem.Click += new System.EventHandler(this.FreqToolStripMenuItem_Click);
@@ -313,7 +323,7 @@
             // HOURLYToolStripMenuItem
             // 
             this.HOURLYToolStripMenuItem.Name = "HOURLYToolStripMenuItem";
-            this.HOURLYToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.HOURLYToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.HOURLYToolStripMenuItem.Tag = "HOURLY";
             this.HOURLYToolStripMenuItem.Text = "HOURLY";
             this.HOURLYToolStripMenuItem.Click += new System.EventHandler(this.FreqToolStripMenuItem_Click);
@@ -405,23 +415,23 @@
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Location = new System.Drawing.Point(257, 456);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
@@ -493,6 +503,21 @@
             this.buttonpanel2.Size = new System.Drawing.Size(1132, 67);
             this.buttonpanel2.TabIndex = 19;
             // 
+            // YearChartRepo_btn
+            // 
+            this.YearChartRepo_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.YearChartRepo_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.YearChartRepo_btn.Image = ((System.Drawing.Image)(resources.GetObject("YearChartRepo_btn.Image")));
+            this.YearChartRepo_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.YearChartRepo_btn.Location = new System.Drawing.Point(327, 14);
+            this.YearChartRepo_btn.Name = "YearChartRepo_btn";
+            this.YearChartRepo_btn.Size = new System.Drawing.Size(150, 50);
+            this.YearChartRepo_btn.TabIndex = 7;
+            this.YearChartRepo_btn.Tag = "Report.html";
+            this.YearChartRepo_btn.Text = "&Report";
+            this.YearChartRepo_btn.UseVisualStyleBackColor = true;
+            this.YearChartRepo_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
             // Base_Label
             // 
             this.Base_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -532,6 +557,62 @@
             this.checkedListBoxMonths.TabIndex = 9;
             this.checkedListBoxMonths.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxMonths_SelectedIndexChanged);
             // 
+            // NyMulti_btn
+            // 
+            this.NyMulti_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NyMulti_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.NyMulti_btn.Image = global::CSharp.Properties.Resources.chart2;
+            this.NyMulti_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NyMulti_btn.Location = new System.Drawing.Point(162, 14);
+            this.NyMulti_btn.Name = "NyMulti_btn";
+            this.NyMulti_btn.Size = new System.Drawing.Size(150, 50);
+            this.NyMulti_btn.TabIndex = 6;
+            this.NyMulti_btn.Tag = "MultiChart.html";
+            this.NyMulti_btn.Text = "&MultiChart";
+            this.NyMulti_btn.UseVisualStyleBackColor = true;
+            this.NyMulti_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
+            // NyChart_btn
+            // 
+            this.NyChart_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NyChart_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NyChart_btn.Image = global::CSharp.Properties.Resources.chart3;
+            this.NyChart_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NyChart_btn.Location = new System.Drawing.Point(6, 14);
+            this.NyChart_btn.Name = "NyChart_btn";
+            this.NyChart_btn.Size = new System.Drawing.Size(150, 50);
+            this.NyChart_btn.TabIndex = 5;
+            this.NyChart_btn.Tag = "Chart.html";
+            this.NyChart_btn.Text = "Chart";
+            this.NyChart_btn.UseVisualStyleBackColor = true;
+            this.NyChart_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
+            // 
+            // Clear2_Btn
+            // 
+            this.Clear2_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Clear2_Btn.Image = global::CSharp.Properties.Resources.cancel;
+            this.Clear2_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clear2_Btn.Location = new System.Drawing.Point(956, 14);
+            this.Clear2_Btn.Name = "Clear2_Btn";
+            this.Clear2_Btn.Size = new System.Drawing.Size(150, 50);
+            this.Clear2_Btn.TabIndex = 11;
+            this.Clear2_Btn.Text = "Clear &All";
+            this.Clear2_Btn.UseVisualStyleBackColor = true;
+            this.Clear2_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
+            // 
+            // ClearOne2_btn
+            // 
+            this.ClearOne2_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearOne2_btn.Image = global::CSharp.Properties.Resources.delete;
+            this.ClearOne2_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearOne2_btn.Location = new System.Drawing.Point(800, 14);
+            this.ClearOne2_btn.Name = "ClearOne2_btn";
+            this.ClearOne2_btn.Size = new System.Drawing.Size(150, 50);
+            this.ClearOne2_btn.TabIndex = 10;
+            this.ClearOne2_btn.Text = "&Clear Selected";
+            this.ClearOne2_btn.UseVisualStyleBackColor = true;
+            this.ClearOne2_btn.Click += new System.EventHandler(this.ClearOne2_btn_Click);
+            // 
             // toppanel2
             // 
             this.toppanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -550,6 +631,16 @@
             this.toppanel2.Size = new System.Drawing.Size(1135, 54);
             this.toppanel2.TabIndex = 20;
             this.toppanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.toppanel2_Paint);
+            // 
+            // wipe_btn
+            // 
+            this.wipe_btn.Image = global::CSharp.Properties.Resources.wipe;
+            this.wipe_btn.Location = new System.Drawing.Point(941, 9);
+            this.wipe_btn.Name = "wipe_btn";
+            this.wipe_btn.Size = new System.Drawing.Size(68, 35);
+            this.wipe_btn.TabIndex = 22;
+            this.wipe_btn.UseVisualStyleBackColor = true;
+            this.wipe_btn.Click += new System.EventHandler(this.wipe_btn_Click);
             // 
             // Substr_label4
             // 
@@ -583,6 +674,20 @@
             this.LangBox1.TabStop = false;
             this.LangBox1.Text = "English";
             this.LangBox1.SelectedIndexChanged += new System.EventHandler(this.LangBox1_SelectedIndexChanged);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_btn.Image = global::CSharp.Properties.Resources.eyes;
+            this.Search_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Search_btn.Location = new System.Drawing.Point(618, 9);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(310, 35);
+            this.Search_btn.TabIndex = 4;
+            this.Search_btn.Text = "Search&Show";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
             // connect_btn
             // 
@@ -646,23 +751,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(257, 100);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -671,101 +776,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // wipe_btn
-            // 
-            this.wipe_btn.Image = global::CSharp.Properties.Resources.wipe;
-            this.wipe_btn.Location = new System.Drawing.Point(941, 9);
-            this.wipe_btn.Name = "wipe_btn";
-            this.wipe_btn.Size = new System.Drawing.Size(68, 35);
-            this.wipe_btn.TabIndex = 22;
-            this.wipe_btn.UseVisualStyleBackColor = true;
-            this.wipe_btn.Click += new System.EventHandler(this.wipe_btn_Click);
-            // 
-            // Search_btn
-            // 
-            this.Search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.Image = global::CSharp.Properties.Resources.eyes;
-            this.Search_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Search_btn.Location = new System.Drawing.Point(618, 9);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(310, 35);
-            this.Search_btn.TabIndex = 4;
-            this.Search_btn.Text = "Search&Show";
-            this.Search_btn.UseVisualStyleBackColor = true;
-            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
-            // 
-            // YearChartRepo_btn
-            // 
-            this.YearChartRepo_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.YearChartRepo_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.YearChartRepo_btn.Image = ((System.Drawing.Image)(resources.GetObject("YearChartRepo_btn.Image")));
-            this.YearChartRepo_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.YearChartRepo_btn.Location = new System.Drawing.Point(327, 14);
-            this.YearChartRepo_btn.Name = "YearChartRepo_btn";
-            this.YearChartRepo_btn.Size = new System.Drawing.Size(150, 50);
-            this.YearChartRepo_btn.TabIndex = 7;
-            this.YearChartRepo_btn.Tag = "Report.html";
-            this.YearChartRepo_btn.Text = "&Report";
-            this.YearChartRepo_btn.UseVisualStyleBackColor = true;
-            this.YearChartRepo_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
-            // NyMulti_btn
-            // 
-            this.NyMulti_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NyMulti_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.NyMulti_btn.Image = global::CSharp.Properties.Resources.chart2;
-            this.NyMulti_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.NyMulti_btn.Location = new System.Drawing.Point(162, 14);
-            this.NyMulti_btn.Name = "NyMulti_btn";
-            this.NyMulti_btn.Size = new System.Drawing.Size(150, 50);
-            this.NyMulti_btn.TabIndex = 6;
-            this.NyMulti_btn.Tag = "MultiChart.html";
-            this.NyMulti_btn.Text = "&MultiChart";
-            this.NyMulti_btn.UseVisualStyleBackColor = true;
-            this.NyMulti_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
-            // NyChart_btn
-            // 
-            this.NyChart_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NyChart_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NyChart_btn.Image = global::CSharp.Properties.Resources.chart3;
-            this.NyChart_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.NyChart_btn.Location = new System.Drawing.Point(6, 14);
-            this.NyChart_btn.Name = "NyChart_btn";
-            this.NyChart_btn.Size = new System.Drawing.Size(150, 50);
-            this.NyChart_btn.TabIndex = 5;
-            this.NyChart_btn.Tag = "Chart.html";
-            this.NyChart_btn.Text = "Chart";
-            this.NyChart_btn.UseVisualStyleBackColor = true;
-            this.NyChart_btn.Click += new System.EventHandler(this.NyChart_btn_Click);
-            // 
-            // Clear2_Btn
-            // 
-            this.Clear2_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Clear2_Btn.Image = global::CSharp.Properties.Resources.cancel;
-            this.Clear2_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Clear2_Btn.Location = new System.Drawing.Point(956, 14);
-            this.Clear2_Btn.Name = "Clear2_Btn";
-            this.Clear2_Btn.Size = new System.Drawing.Size(150, 50);
-            this.Clear2_Btn.TabIndex = 11;
-            this.Clear2_Btn.Text = "Clear &All";
-            this.Clear2_Btn.UseVisualStyleBackColor = true;
-            this.Clear2_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
-            // 
-            // ClearOne2_btn
-            // 
-            this.ClearOne2_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearOne2_btn.Image = global::CSharp.Properties.Resources.delete;
-            this.ClearOne2_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearOne2_btn.Location = new System.Drawing.Point(800, 14);
-            this.ClearOne2_btn.Name = "ClearOne2_btn";
-            this.ClearOne2_btn.Size = new System.Drawing.Size(150, 50);
-            this.ClearOne2_btn.TabIndex = 10;
-            this.ClearOne2_btn.Text = "&Clear Selected";
-            this.ClearOne2_btn.UseVisualStyleBackColor = true;
-            this.ClearOne2_btn.Click += new System.EventHandler(this.ClearOne2_btn_Click);
             // 
             // Form1
             // 
@@ -870,6 +880,7 @@
         private System.Windows.Forms.ToolStripMenuItem upgradeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyDatafileToolStripMenuItem;
         private System.Windows.Forms.Button wipe_btn;
+        private System.Windows.Forms.ToolStripMenuItem createCatalogwebfiles;
     }
 }
 

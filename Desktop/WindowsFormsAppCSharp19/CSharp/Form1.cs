@@ -2965,15 +2965,16 @@ Globals.AppName
                         line = streamReader.ReadLine(); words = line.Split(',');
 
 
-                        //convertLastesToPXToolStripMenuItem new
-                        //convertLastesToPXToolStripMenuItem.Text = words[Globals.LangColumn];
+                        //new item
+                        //createCatalogwebfiles
                         line = streamReader.ReadLine(); words = line.Split(',');
+                        createCatalogwebfiles.Text = words[Globals.LangColumn];
 
 
+                        line = streamReader.ReadLine(); words = line.Split(',');
                         exitToolStripMenuItem.Text = words[Globals.LangColumn];
+                        
                         line = streamReader.ReadLine(); words = line.Split(',');
-
-
                         graphToolStripMenuItem.Text = words[Globals.LangColumn]; //menue
                         line = streamReader.ReadLine(); words = line.Split(',');
                         reportToolStripMenuItem.Text = words[Globals.LangColumn];
