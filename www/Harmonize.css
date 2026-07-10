@@ -17,6 +17,7 @@ html, body {
     margin: 0;
     background-color: white;
     color: black;
+    color-scheme: light;   /* prevent dark-mode from activating Highcharts dark theme */
 }
 
 body {
@@ -176,6 +177,15 @@ tr:nth-child(even) {
     border-bottom: none;
     font-size: 1.1em;
     font-weight: bold;
+}
+
+/* --- Highcharts: allow touch events on context menu (stock chart intercepts touch) --- */
+.highcharts-contextmenu {
+    touch-action: auto !important;
+}
+.highcharts-menu-item {
+    touch-action: auto !important;
+    cursor: pointer !important;
 }
 
 /* --- Demo page list --- */

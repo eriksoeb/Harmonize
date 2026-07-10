@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.9">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="../images/no.png" type="image/png">
 
 <!-- new css 
@@ -10,7 +11,7 @@
 same directory as exe file as default
 -->
 
-<link rel="stylesheet" type="text/css" href="../Harmonize.css">
+<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=4">
 
 
 
@@ -68,7 +69,7 @@ Must load BEFORE chart -->
 </div>
 
 
-<div id="container" style="width:100%; min-height:80%; height:90%; overflow:hidden; margin:0 auto;"></div>
+<div id="container" style="width:100%; min-height:80%; height:90%; margin:0 auto;"></div>
 
 
 <!-- Series names container -->
@@ -139,7 +140,7 @@ const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
     // Create the chart
     let chart = Highcharts.stockChart('container', {
 
-        chart: { spacingTop: 10, zoomType: 'x', animation: false },
+        chart: { spacingTop: 10, zoomType: 'x', animation: false, backgroundColor: '#ffffff' },
 		
 		
 		 navigator: {
@@ -386,7 +387,20 @@ Highcharts.addEvent(Highcharts.Chart, 'exportData', function (e) {
 
 }
 
-
+// Mobile fix: Highcharts stock chart intercepts touch events for pan/zoom,
+// preventing taps on context menu items from firing. Bridge touchend → click.
+document.addEventListener('touchend', function(e) {
+    var target = e.target;
+    while (target && target !== document.body) {
+        if (target.className && typeof target.className === 'string' &&
+                target.className.indexOf('highcharts-menu-item') !== -1) {
+            e.preventDefault(); // suppress the delayed synthetic click
+            target.dispatchEvent(new MouseEvent('click', { bubbles: false, cancelable: true }));
+            return;
+        }
+        target = target.parentElement;
+    }
+}, { passive: false });
 
 
 </script>
