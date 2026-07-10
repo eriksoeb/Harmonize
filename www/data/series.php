@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=3">
+    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=5">
     <style>
         .data-table {
             width: 100%;

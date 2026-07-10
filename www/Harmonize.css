@@ -104,7 +104,7 @@ main {
 }
 
 #charts-wrapper {
-    height: 100vh;
+    /* no fixed height — lets wrapper grow with the number of charts */
 }
 
 /* --- Series legend below chart --- */
