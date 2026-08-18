@@ -100,7 +100,15 @@ main {
 /* --- Chart containers --- */
 #container {
     width: 100%;
-    height: 80vh;
+    /* Fill the space left over between .topnav and #chart-series-names
+       inside the flex-column body, instead of a fixed 80vh which — once
+       topnav + legend + credits are added — overflowed the viewport. */
+    flex: 1 1 auto;
+    min-height: 360px;
+    /* Cap so the legend/description line under the chart always stays
+       above the fold. 130px ≈ topnav + legend + a little breathing room.
+       Tune this one number to make the chart taller/shorter. */
+    max-height: calc(100vh - 130px);
     margin: 0 auto;
 }
 

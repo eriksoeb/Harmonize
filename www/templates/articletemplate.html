@@ -9,7 +9,23 @@
 same directory as exe file as default
 -->
 
-<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=7">
+<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=10">
+
+<style>
+/* This page is embedded in a fixed-height iframe (article.html), so the
+   chart must fit that iframe exactly — no inner scrollbar.
+   height:100% (not just the shared min-height:100vh) gives the flex column
+   a DEFINITE height, otherwise body simply grows to fit the chart and
+   #container never shrinks. min-height:0 lets it shrink past the SVG. */
+html, body {
+    height: 100%;
+}
+
+#container {
+    min-height: 0;
+    max-height: none;
+}
+</style>
 
 
 <!--
@@ -42,7 +58,7 @@ same directory as exe file as default
 
 
 
-<div id="container" style="width:100%; min-height:80%; height:90%; overflow:hidden; margin:0 auto;"></div>
+<div id="container"></div>
 
 
 <!-- Series names container -->
@@ -323,6 +339,11 @@ tooltip: {
     }).join('');
 
     $('#chart-series-names').html(namesHtml);
+
+    // The chart was sized while the legend div was still empty, so it is now
+    // taller than the space flex leaves it — reflow to the shrunken container,
+    // otherwise the SVG overflows and the iframe gets a scrollbar.
+    chart.reflow();
 
     // Toggle series visibility on click
     $('#chart-series-names').on('click', '.series-name', function() {
