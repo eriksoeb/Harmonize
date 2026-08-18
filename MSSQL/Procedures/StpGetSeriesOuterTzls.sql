@@ -1,7 +1,7 @@
 USE [Harmonize]
 GO
 
-/****** Object:  StoredProcedure [dbo].[StpGetSeriesOuterTzls]    Script Date: 22/04/2026 09:51:05 ******/
+/****** Object:  StoredProcedure [dbo].[StpGetSeriesOuterTzls]    Script Date: 28/12/2025 00:10:06 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,10 +12,17 @@ GO
 
 
 
-CREATE OR ALTER   procedure [dbo].[StpGetSeriesOuterTzls]  --forsï¿½ker pï¿½ dyn intervall fra view, samt utv 
+
+CREATE OR ALTER procedure [dbo].[StpGetSeriesOuterTzls]  --forsøker på dyn intervall fra view, samt utv 
 (	
+--maa json format og @json..
+
+--@mycurveid  int = null,
+--erik juli26
+
 
 @curvename nvarchar(64),
+--@fdate  datetime =  NULL,
 @basis int,  --baseyeR
 @myinterval  nvarchar(128) = null,
 @myfnlagint int = 0 , -- funktion lag bruker bare i funksjoner 1,2, 12 pct(12)
@@ -23,7 +30,6 @@ CREATE OR ALTER   procedure [dbo].[StpGetSeriesOuterTzls]  --forsï¿½ker pï¿½ dyn
 @agg  nvarchar(16) ,
 @top int,
 @sort nvarchar(4),
-@convert2freq char(3) = 'OFF',  -- ANN | MON | DAY | OFF
 @json NVARCHAR(MAX)
 )
 
@@ -34,13 +40,17 @@ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 set nocount on
 
 
+--declare @curvenamecomp as nvarchar(64) 
+
+--declare @fdate datetime = NULL
+--declare @curveid varchar(16) = cast(@mycurveid as varchar(16) )
+
 declare @mystart datetime
 declare @myend datetime
 
 set datefirst 1 ;-- for at uker starter mandag
 SELECT top(1) @mystart = [Start], --senere konverteres i inner ,
 @myend  = [End] from IntervalV where IName = @myinterval
-
 
 	
 
@@ -68,7 +78,7 @@ and C.CurveName = substring (@curvename,CHARINDEX(':', @curvename)+1,64)
 and LS.Name = @SetName --substring (@curvename,1, CHARINDEX(':', @curvename)-1)
 
 
-declare @mnull varchar(10) = 'null'
+declare @mnull varchar(10) = quotename('null',char(39) )
 
 if @datatypeid <= 10 --@mytabletype <> 3  --vanlif decimLE er 10
 begin
@@ -76,85 +86,18 @@ begin
 declare @output_table TABLE (DynDate datetime, VDate datetime,   Value [decimal](38, 8) , Epodateval nvarchar(64) ,CurveId int)
 insert Into @output_table (DynDate, VDate, Value, Epodateval, CurveId)
 
-EXEC  Stp_GetSeriesfromInnerTzls @SetName,@curveid ,@basis, @mystart,@myend, @agg,@top,@sort,@convert2freq
-
-
-if @format = 'json'  --men NOT when Client!
-begin
-
-
---nested
-select (select @Curveid as Curveid, 
-@CurveName as Name,
-	Obs =(
-	select
-	VDate,
-	DynDate as DynDate,
-	Value , 
-
-
-	JSON_QUERY(
-	'['+
-convert(varchar,
-convert(bigint, 
-datediff_big(MILLISECOND, '01-01-1970 00:00:00',  VDate )
-)
-)
-+','+ isnull(convert(varchar,convert(decimal(38,8),(Value))), @mnull) --value ok
-+']'
-
-
-	)as Epo 
+EXEC  Stp_GetSeriesfromInnerTzls @SetName,@curveid ,@basis, @mystart,@myend, @agg,@top,@sort
 
 
 
-
-
-	from  @output_table 
-	for JSON Path
-	)
-for JSON PATH ) as myJson
-end
-
-
-
-
-else -- when normal client 
-begin
---maa toppe i dynamiske sqlen og bruke et @top argument top e rok
---select  * from @output_table 
---uuups why not just read epodatval from inner??
-
-select  --DynDate,
-VDate, Value,
-'['+
-convert(varchar,
-convert(bigint, 
-datediff_big(MILLISECOND, '01-01-1970 00:00:00',  VDate )
-)
-)
-+','+ isnull(convert(varchar,convert(decimal(38,8),(Value))), @mnull) --value ok
-+']'
-
-as Epodateval,
-
-CurveId,
- DynDate
-from @output_table
-
---order by VDate desc juni 2022 fikser zoom not needed ??
-end
-end
-
-
-else if   @datatypeid >  10 -- text data @mytabletype = 3
+ if   @datatypeid >  10 -- text data @mytabletype = 3
 begin
 
 declare @output_tablet32 TABLE (DynDate datetime, VDate datetime,   Value nvarchar(32) , Epodateval nvarchar(64) ,CurveId int)
 insert Into @output_tablet32 (DynDate, VDate, Value, Epodateval, CurveId)
 --EXEC  Stp_GetCurveDatafromInnerAggToptxt5 @curveid ,@fdate, @mystart,@myend, @tzconvert, @myTrixId,'NONE',@top,@sort
 --tbc
-EXEC  Stp_GetSeriesfromInnerTzls @curveid ,@basis, @mystart,@myend, 'NONE',@top,@sort,@convert2freq
+EXEC  Stp_GetCurveDatafromInner2 @curveid ,@basis, @mystart,@myend, 'NONE',@top,@sort
   
 if @format = 'json' --and text tbc nesting
 begin
@@ -176,9 +119,6 @@ order by VDate desc -- fikser zoom
 --select VDate,DynDate,  Epodateval from @output_table order by VDate
 end
 
-
---select 'text type'
-end
 
 
 
