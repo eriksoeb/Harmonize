@@ -8,9 +8,9 @@ import sys
 import time
 
 
-url = "https://data.ssb.no/api/v0/en/table/14700"
+POST_URL = "https://data.ssb.no/api/v0/en/table/14700"
 
-metadata = requests.get(url).json()
+metadata = requests.get(POST_URL).json()
 
 #for var in metadata["variables"]:
 #    print(var["code"])
@@ -45,12 +45,17 @@ print ("Connection: " , conn_str)
 
 # Decide driver based on content
 if "Integrated" in conn_str or "Integrated Security" in conn_str:
-    print ("Integrated connection" , conn_str)
-    conn = pyodbc.connect(f"Driver={{SQL Server}};{conn_str}")
+    driver = "SQL Server"
 else:
-    print ("Python driver odbc: " , conn_str)
-    print (f"Driver={{ODBC Driver 17 for SQL Server}};{conn_str}")
-    conn = pyodbc.connect(f"Driver={{ODBC Driver 17 for SQL Server}};{conn_str}")
+    driver = "ODBC Driver 17 for SQL Server"
+
+def open_connection():
+    c = pyodbc.connect(f"Driver={{{driver}}};{conn_str}", timeout=30)
+    c.timeout = 60
+    return c
+
+conn = open_connection()
+print(f"Connected via {driver}")
 
 
 
@@ -76,19 +81,15 @@ EXEC {storedProcName}
 """
 
 
-#CPI data json stat statbank www.ssb.no
-#POST_URL = 'https://data.ssb.no/api/v0/en/table/03013'
-#new
-POST_URL = 'https://data.ssb.no/api/v0/en/table/14700'
-
-# API query for selected items some obervations back in time, 
+# API query for selected items some observations back in time,
+    # // {"code": "VareTjenesteGrp", "selection": {"filter": "item", "values": ["00","01","03","02","04","05","06","07","08","09","10","11","12","01.1.1.1",  "01.1.4.7", "01.1.8.4"]}},
 
 
 payload = {
     "query": [
-        {"code": "VareTjenesteGrp", "selection": {"filter": "item", "values": ["00","01","03","02","04","05","06","07","08","09","10","11","12","01.1.1.1",  "01.1.4.7", "01.1.8.4"]}},
+        {"code": "VareTjenesteGrp", "selection": {"filter": "all", "values": ["*"]}},
         {"code": "ContentsCode", "selection": {"filter": "item", "values": ["KpiIndMnd"]}},
-        {"code": "Tid", "selection": {"filter": "top", "values": ["3"]}}
+        {"code": "Tid", "selection": {"filter": "top", "values": ["2"]}}
     ],
     "response": {"format": "json-stat"}
 }
@@ -119,6 +120,8 @@ df['konsum_code'] = df['consumption_group'].map(label_to_code)
 df['naive'] = pd.to_datetime(df['month'], format="%YM%m")
 df['tz_no'] = df.naive.dt.tz_localize('Europe/Oslo')
 
+start_time = time.time()
+
 # --- Loop through rows and execute stored procedure ---
 for index, row in df.iterrows():
     myVareGruppe = row['konsum_code']  # <-- now using the code
@@ -132,35 +135,39 @@ for index, row in df.iterrows():
     myDesc = row['consumption_group']
 
     if myVal != 'nan':
-       
-        try:
-            cursor.execute(
-                sql,
-                loadsetName,
-                mySname.upper(),
-                myDesc,
-                unitId,
-                valueDate,
-                myVal
-         	  )
-            
 
-        except Exception as e:
-            print(f"\n❌ SQL error on row {index}")
-            print(e)
-            conn.rollback()
-            sys.exit(1)
-        
-        
-        
-        #comitting for every 100, can be 1500 which is better
-        if index % 100 == 0 and index > 0:            
-            #conn.commit()
-            print( str(index) + ' Bulk committing rows.')
-           
+        for attempt in range(3):
+            try:
+                cursor.execute(
+                    sql,
+                    loadsetName,
+                    mySname.upper(),
+                    myDesc,
+                    unitId,
+                    valueDate,
+                    myVal
+                )
+                break
+            except pyodbc.Error as e:
+                err = str(e)
+                if ('08S01' in err or '40001' in err) and attempt < 2:
+                    print(f"\n* Connection/deadlock error at row {index}, reconnecting (attempt {attempt+2})...")
+                    time.sleep(2)
+                    conn = open_connection()
+                    cursor = conn.cursor()
+                else:
+                    print(f"\n* SQL error on row {index}, continuing...")
+                    print(e)
+                    break
 
-#conn.commit()
-print("A total of " + str(index) + " rows have been updated and commited")
+        if index % 500 == 0 and index > 0:
+            conn.commit()
+            elapsed = time.time() - start_time
+            print(f"{index} Bulk committing rows. Elapsed: {elapsed:.1f}s")
+
+conn.commit()
+elapsed = time.time() - start_time
+print(f"A total of {index} rows have been updated and commited in {elapsed:.1f}s")
 
 # --- Call additional stored procedure ---
 print(f"Updating the Stats for :  {loadsetName}")
@@ -168,5 +175,5 @@ cursor = conn.cursor()
 conn.execute(f'EXEC UTILS_UpdateCurveInfo {loadsetName}')
 conn.commit()
 conn.close()
-print('End')
+print('Done')
 

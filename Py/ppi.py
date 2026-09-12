@@ -85,48 +85,17 @@ EXEC {storedProcName}
 
 POST_URL = "https://data.ssb.no/api/v0/en/table/12462"
 
+#all   {"code": "NaringUtenriks", "selection": {"filter": "all", "values": ["*"]}},
 
 payload = {
     "query": [
         {"code": "Marked", "selection": {"filter": "item", "values": ["00"]}},
-        {
-            "code": "NaringUtenriks",
-            "selection": {
-                "filter": "item","values": [
-                    "SNN0",
-                    "SNN06_TOT",
-                    "SNN10_33",
-                    "SNN35_TOT",
-                    "SPE4",
-                    "E6_TOT",
-                    "SNN06",
-          "SNN08",
-          "SNN09",
-          "SNN10",
-          "SNN11",
-          "SNN16",
-          "SNN17",
-          "SNN19",
-          "SNN20",
-          "SNN22",
-          "SNN23",
-          "SNN24",
-          "SNN25",
-          "SNN26",
-          "SNN27",
-          "SNN28",
-          "SNN31",
-          "SNN33",
-          "SNN35",
-          "SNN36"                 
-                ],
-            },
-        },
+        {"code": "NaringUtenriks", "selection": {"filter": "all", "values": ["*"]}},
         {
             "code": "ContentsCode",
             "selection": {"filter": "item", "values": ["Indeksnivo"]},
         },
-        {"code": "Tid", "selection": {"filter": "top", "values": ["2"]}},  # last n observations
+        {"code": "Tid", "selection": {"filter": "top", "values": ["2"]}},  # last n observations/months 100 in start
     ],
     "response": {"format": "json-stat2"},
 }
@@ -143,6 +112,7 @@ periods = dims["Tid"]["category"]["label"]
 values = data["value"]
 
 # --- GENERATE EXEC LINES ---
+start_time = time.time()
 i = 0
 for mySname, myDesc in industries.items():
     for period_code in periods.keys():
@@ -177,14 +147,15 @@ for mySname, myDesc in industries.items():
         
         
             #comitting for every 10, 100, can be 1500 which is better
-            if i % 10 == 0 and i > 0:            
+            if i % 1000 == 0 and i > 0:
                 conn.commit()
-                print( str(i) + ' Bulk committing rows.')
-             
+                elapsed = time.time() - start_time
+                print(f"{i} Bulk committing rows. Elapsed: {elapsed:.1f}s")
+
 # --- Commit updates ---
 conn.commit()
-print('Stats updated')
-print("A total of " + str(i) + " rows have been updated and commited")  
+elapsed = time.time() - start_time
+print(f"A total of {i} rows have been updated and commited in {elapsed:.1f}s")  
 
 # --- Call additional stored procedure ---
 cursor = conn.cursor()

@@ -88,6 +88,7 @@ unit = 5 #percent
 
 
 
+start_time = time.time()
 for x in loaded_json:
 	#print(x)   
 	
@@ -139,14 +140,15 @@ for x in loaded_json:
 		conn.execute (StoredProc)
             
 	#comitting for every 1000, 1000, can be 1500 ..
-	if line % 1000 == 0:            
+	if line % 1000 == 0:
 		conn.commit()
-		print( str(line) + ' Bulk committing rows.')  
-     
-#comitiing rest        
-conn.commit()
+		elapsed = time.time() - start_time
+		print(f'{line} Bulk committing rows. Elapsed: {elapsed:.1f}s')
 
-print("Loaded: " ,line, "rows")
+#comitiing rest
+conn.commit()
+elapsed = time.time() - start_time
+print(f"Loaded: {line} rows in {elapsed:.1f}s")
 
 
 print(loadsetname)

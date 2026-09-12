@@ -87,11 +87,12 @@ with open(InFile, encoding='utf-8', newline='') as f:
             if len(batch) >= BATCH_SIZE:
                 cursor.executemany(sql, batch)
                 conn.commit()
-                print(f'{rowcnt} rows committed.')
+                elapsed = time.time() - start_time
+                print(f'{rowcnt} rows committed. Elapsed: {elapsed:.1f}s')
                 batch = []
 
         except Exception as e:
-            print(f"\n❌ SQL error on row {rowcnt}")
+            print(f"\n* SQL error on row {rowcnt}")
             print(e)
             conn.rollback()
             sys.exit(1)
@@ -107,7 +108,7 @@ if batch:
 
 elapsed = time.time() - start_time
 
-print(f"\n✅ Completed successfully")
+print(f"\nCompleted successfully")
 print(f"Rows processed: {rowcnt - 1}")
 print(f"Elapsed time: {elapsed:.2f} seconds")
 
