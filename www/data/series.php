@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=7">
+    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=13">
     <style>
         .data-table {
             width: 100%;
@@ -55,18 +55,28 @@
         }
     </style>
 <?php
-// Whitelist of allowed domains → display names
-$domains = [
+// Build domain list dynamically from subdirectories
+// Optional display-name overrides (folder name → nice title)
+$nameOverrides = [
     'cpi'    => 'Consumer Price Index',
     'ppi'    => 'Production Price Index',
     'energy' => 'Energy',
 ];
 
+$domains = [];
+foreach (glob(__DIR__ . '/*', GLOB_ONLYDIR) as $dir) {
+    $folder = basename($dir);
+    $label  = isset($nameOverrides[$folder]) ? $nameOverrides[$folder] : ucfirst($folder);
+    $domains[$folder] = $label;
+}
+ksort($domains);
+
 $domain = isset($_GET['domain']) ? $_GET['domain'] : '';
 
 if (!array_key_exists($domain, $domains)) {
+    $valid = implode(', ', array_keys($domains));
     http_response_code(400);
-    echo "<title>Error</title></head><body><p>Invalid domain. Use ?domain=cpi, ?domain=ppi or ?domain=energy</p></body></html>";
+    echo "<title>Error</title></head><body><p>Invalid domain. Available: ?domain=" . htmlspecialchars($valid) . "</p></body></html>";
     exit;
 }
 
