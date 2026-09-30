@@ -4,10 +4,14 @@ $allowed_domains = array_map('basename', glob(__DIR__ . '/*', GLOB_ONLYDIR));
 
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 
-// Validate: must start with an allowed domain and contain no ..
+// Validate: must start with an allowed domain (case-insensitive) and contain no ..
 $valid = false;
 foreach ($allowed_domains as $d) {
-    if (strpos($file, $d . '/') === 0) { $valid = true; break; }
+    if (strncasecmp($file, $d . '/', strlen($d) + 1) === 0) {
+        $file = $d . substr($file, strlen($d)); // use actual folder case
+        $valid = true;
+        break;
+    }
 }
 
 if (!$valid || strpos($file, '..') !== false || !preg_match('/^[\w\-\/\.\(\)]+\.json$/', $file)) {

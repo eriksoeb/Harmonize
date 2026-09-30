@@ -68,9 +68,18 @@ foreach (glob(__DIR__ . '/*', GLOB_ONLYDIR) as $dir) {
 }
 ksort($domains);
 
-$domain = isset($_GET['domain']) ? $_GET['domain'] : '';
+$domain_input = isset($_GET['domain']) ? $_GET['domain'] : '';
 
-if (!array_key_exists($domain, $domains)) {
+// Match domain case-insensitively, use the actual folder name
+$domain = '';
+foreach ($domains as $folder => $label) {
+    if (strcasecmp($folder, $domain_input) === 0) {
+        $domain = $folder;
+        break;
+    }
+}
+
+if ($domain === '') {
     $valid = implode(', ', array_keys($domains));
     http_response_code(400);
     echo "<title>Error</title></head><body><p>Invalid domain. Available: ?domain=" . htmlspecialchars($valid) . "</p></body></html>";
