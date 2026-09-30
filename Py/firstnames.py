@@ -94,7 +94,7 @@ print(f"\n✅ Completed: {ycnt} observations in {elapsed:.2f} seconds")
 # Update statistics
 # ----------------------------
 print(f"Updating statistics for: {loadsetName}")
-conn.execute(f'EXEC UTILS_UpdateCurveInfo {loadsetName}')
+cursor.execute("EXEC UTILS_UpdateCurveInfo ?", loadsetName)
 conn.commit()
 conn.close()
 print("End of firstnames processing")

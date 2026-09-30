@@ -1,0 +1,40 @@
+[  {
+"title":"Harmonize",
+"subtitle":"Harmonize",
+"generated_utc":"2026-08-20T17:35:55",
+"frequency":"MONTHLY",
+"decimals":1,
+"baseperiod":"",
+"series": [
+{
+"name":"CPI:C01.1.8.4.IDX",
+"title":"Consumer Price Index", 
+"description":"Nut purées, nut butters and nut pastes (ND)", 
+"source":"SSB 2025=100", 
+"unit":"IDX", 
+"interval":"YearsLast10", 
+"aggregation":"", 
+"style": {
+"type":"spline", 
+"stacking": null,
+"yAxis":0, 
+"lineWidth":5, 
+"linestyle":"solid", 
+"color":"#f47835", 
+"function":"", 
+"order":9, 
+"zIndex":0
+},
+"data" :  [
+[1767225600000,103.50000000],
+[1769904000000,106.50000000],
+[1772323200000,98.70000000],
+[1775001600000,106.20000000],
+[1777593600000,105.90000000],
+[1780272000000,106.30000000],
+[1782864000000,107.50000000]
+], 
+"labelyear":"2026"
+  } 
+] 
+   }  ] 

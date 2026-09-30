@@ -1,0 +1,40 @@
+[  {
+"title":"Harmonize",
+"subtitle":"Harmonize",
+"generated_utc":"2026-09-30T10:57:11",
+"frequency":"MONTHLY",
+"decimals":1,
+"baseperiod":"",
+"series": [
+{
+"name":"FRAMSAT-1:AZIMUTH_MEAS",
+"title":"", 
+"description":"Measured azimuth", 
+"source":"norad", 
+"unit":"DEG", 
+"interval":"AllData", 
+"aggregation":"", 
+"style": {
+"type":"spline", 
+"stacking": null,
+"yAxis":0, 
+"lineWidth":5, 
+"linestyle":"solid", 
+"color":"#AA4643", 
+"function":"", 
+"order":9, 
+"zIndex":0
+},
+"data" :  [
+[1789732800000,143.20000000],
+[1789733400000,147.50000000],
+[1789734000000,157.00000000],
+[1789734600000,164.90000000],
+[1789735200000,179.10000000],
+[1789735800000,194.30000000],
+[1789738560000,336.10000000]
+], 
+"labelyear":"2026"
+  } 
+] 
+   }  ] 

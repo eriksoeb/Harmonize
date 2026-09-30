@@ -31,16 +31,25 @@ body {
 }
 
 /* --- Page sections --- */
-header, footer {
+header {
     background: #00824d;
     color: #fff;
     text-align: center;
     padding: 1rem;
 }
 
+footer {
+    background: #00824d;
+    color: #fff;
+    text-align: center;
+    padding: 4px 16px;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
 footer small {
-    display: block;
-    margin-top: 0.5rem;
+    margin-left: 12px;
 }
 
 nav {

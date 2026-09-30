@@ -1,0 +1,40 @@
+[  {
+"title":"Harmonize",
+"subtitle":"Harmonize",
+"generated_utc":"2026-09-30T10:57:10",
+"frequency":"MONTHLY",
+"decimals":1,
+"baseperiod":"",
+"series": [
+{
+"name":"FRAMSAT-1:SUN_VEC_Z",
+"title":"", 
+"description":"Body frame Z", 
+"source":"norad", 
+"unit":"BF", 
+"interval":"AllData", 
+"aggregation":"", 
+"style": {
+"type":"spline", 
+"stacking": null,
+"yAxis":0, 
+"lineWidth":5, 
+"linestyle":"solid", 
+"color":"#C7B491", 
+"function":"", 
+"order":2, 
+"zIndex":0
+},
+"data" :  [
+[1789732800000,0.41000000],
+[1789733400000,0.51000000],
+[1789734000000,0.65000000],
+[1789734600000,0.78000000],
+[1789735200000,0.89000000],
+[1789735800000,0.96000000],
+[1789738560000,0.97000000]
+], 
+"labelyear":"2026"
+  } 
+] 
+   }  ] 

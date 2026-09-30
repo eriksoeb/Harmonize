@@ -1,0 +1,41 @@
+[  {
+"title":"Harmonize",
+"subtitle":"Harmonize",
+"generated_utc":"2026-09-30T10:57:10",
+"frequency":"MONTHLY",
+"decimals":1,
+"baseperiod":"",
+"series": [
+{
+"name":"FRAMSAT-1:SUN_SENSOR_C",
+"title":"", 
+"description":"Raw +Y face", 
+"source":"norad", 
+"unit":"ADC", 
+"interval":"AllData", 
+"aggregation":"", 
+"style": {
+"type":"spline", 
+"stacking": null,
+"yAxis":0, 
+"lineWidth":5, 
+"linestyle":"solid", 
+"color":"#f47835", 
+"function":"", 
+"order":6, 
+"zIndex":0
+},
+"data" :  [
+[1789732800000,2102.00000000],
+[1789733400000,2250.00000000],
+[1789734000000,2445.00000000],
+[1789734600000,2680.00000000],
+[1789735200000,2890.00000000],
+[1789735800000,2965.00000000],
+[1789736460000,15.00000000],
+[1789738560000,2950.00000000]
+], 
+"labelyear":"2026"
+  } 
+] 
+   }  ] 

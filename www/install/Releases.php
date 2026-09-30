@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+<link rel="stylesheet" type="text/css" href="../Harmonize.css?v=14">
+<link rel="icon" href="../images/no.png" type="image/ico"/>
+
+<title>Release</title>
+<style>
+    main table { width: 100%; }
+    main { max-width: 100%; padding: 1rem 12px; }
+</style>
+</head>
+
+<body>
+
+
+
+  <header>
+  <h1>Harmonize Releases and improvements</h1>  
+  <p>progress and latest development over time..</p>
+   </header>
+
+
+<nav>	
+<a href="../index.php">Home</a>	
+<a href="install.php">Install</a>
+<a href="../data/index.php">Data</a>
+</nav>		 
+			 
+	
+	
+	
+	
+<main>
+
+<table>
+  <tr>
+    <th>Issue/ task</th>
+    <th>Date</th>
+    <th>Version</th>
+  </tr>
+  
+  
+  
+   <tr>
+    <td>94. Grant or Revoke dataset write access to yourself ( audit logged) </td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  
+  
+   <tr>
+    <td>93. Delete dataset content from app ( right click on dataset toget menu)  </td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  
+  
+   <tr>
+    <td>92. Wipe button to clear series in top window</td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  
+  <tr>
+    <td>91. Mobile friendly web charts on web platform</td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>90. Save all series in a dataset individually and publish to web (dataset per dataset)</td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>89. Retrieve definitions and resave charts on web</td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>88. Default web structure & web templates for publishing charts/reports to any web</td>
+    <td>Aug 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>87. Force (convert) series to specific frequencies</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>86. Export all series as json in one go for web availability</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>85. Data catalog file and datafiles to web</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>84. Web structure included with web templates</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>83. Storing decimal# & dateformat in .chartdef files</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>82. Upgraded json files, renaming and style structure</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>81. Improved upload speed</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>80. Saving chartdefinitions as json .chartdef files</td>
+    <td>Jul 2026</td>
+    <td>1.9.9.0</td>
+  </tr>
+  <tr>
+    <td>79. Progress-bar when loading datafile</td>
+    <td>Jun 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>78. Additional language Português</td>
+    <td>Jun 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>77. Preview of files - (when uploading csv dataset file)</td>
+    <td>Jun 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>76. Most popular series (sort by HIT)</td>
+    <td>Jun 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>75. Apply convert to all (right click menue)</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>74. Format number as numbers in Search view</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>73. Gap support in Excel</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>72. Convert support in Excel</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>71. Sort asc desc by date in Excel Addin</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>70. Convert freq with gap or null</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>69. Delete series in xls addin</td>
+    <td>May 2026</td>
+    <td>1.9.8.6</td>
+  </tr>
+  <tr>
+    <td>68. Default language can be configured and specified</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>67. App reads and import csv files - don't need python anymore</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>66. SQLaddin - requires Harmonize and the folder C:\Harmonize\App</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>65. Export as px-web format</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>64. Harmonize SqlAddIn ver 1.0</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>63. Better messaging for empty interval & access denied</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>61. Improved updater & viewer of metadata (v1)</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>60. Templates to take datafile-names as argument for easer re-use on web</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>59. Save datafile(s) as..</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>58. Color - Indication in treeview which dataset are read / write</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>57. Delete dataset, delete series and observations in dataset</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>56. Mouse over: double click to select</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>56. Templates to use Harmonize.no Release -> Harmonize.no</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>55. Unit in json and for later update module: client search sql</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>54. Installer next-next -> need to install with admin</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.4</td>
+  </tr>
+  <tr>
+    <td>53. Error message on update if no access (access proc.)</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>52. Treenodes - expand, collapse Toggle</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>51. Refresh tree node view</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>50. Import data / upsert csv.file on dataset on right click on node - menue</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>49. lineWidth 0-10, and reorder columns</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>48. Save / retrieve csv with commas</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>47. Menue.txt -> Menues.csv comma separated</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>46. Save as png pdf svg Chart.html & YearChart.html</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>45. Apply Axis to all</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>44. Saving & retrieve color codes & line thickness</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>43. Zindex - order of most important line on top</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>42. Line / column color - color picker of custom colors 1-10, and auto)</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>41. About box - getting proper build date</td>
+    <td>Mar 2026</td>
+    <td>1.9.8.0</td>
+  </tr>
+  <tr>
+    <td>40. Harmonize test file validation when retriving saved selections</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>39. Image date in Chart / MultiChart / table & csv</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>38. Image date in JSON for Charts</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>37. Report Shows hours long short format</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>36. Report & Charts Using decimal</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>35. Decimal in json</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>34. Order bug fix, changed to String</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>33. Installation demo gets access to demo data</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>32. Short cuts for Charts, Report Alt+R</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>31. Save & Retrieve chart selection & definitions</td>
+    <td>Jan 2026</td>
+    <td>1.9.7.4</td>
+  </tr>
+  <tr>
+    <td>30. Tree view with access rights</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>29. Access rights on Utils_Delete_loadset</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>28. Report.html vertical & horizontal</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>27. Overlay chart template MyYear.html for current year intervals</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>26. Zoom menue for the Singlechart option with scroll option</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>25. Possible to run offline (need db connection) but not internet</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>24. Name, desc, function, aggregation, customizable in the html</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>23. Grouping and displaying datasets with no access</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>23. Customizable Menu.txt additional languages possible</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>22. Customizable Harmonize.css</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>21. Customizable MyChart.html & MyCharts.html</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>20. data.js common datafile</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>19. Parts of a year as 'baseyear'</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>18. Access rights to write put_line</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>17. Access rights to write</td>
+    <td>Oct 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>16. Wild-carding.</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>15. Search & Show</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>14. BaseYear & Baseperiod</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>13. Report, save chart as..</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>12. MultiChart</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>11. Function Diff(n) Milestone</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>10. Single Chart Milestone</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>9. Release / Backlog page</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>8. Api export extracts via python / R</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>7. Access rights to read</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>6. Python to import data</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>5. Procedure to Export Json data</td>
+    <td>Oct 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>4. Generic Procedure to Import data, ffi.py putline</td>
+    <td>Dec 2025</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>3. Creating tables Curve, Loadset data</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>2. Empty GUI with connection to DB</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  <tr>
+    <td>1. Database (local) with owner rights</td>
+    <td>Sep 2023</td>
+    <td>1.9.6.7</td>
+  </tr>
+  
+  
+  
+
+  
+</table>
+</main>
+
+
+<?php include __DIR__ . '/../includes/footer.php'; ?>
+
+
+</body>
+</html>

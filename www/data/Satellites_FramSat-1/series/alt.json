@@ -1,0 +1,44 @@
+[  {
+"title":"Harmonize",
+"subtitle":"Harmonize",
+"generated_utc":"2026-09-30T10:57:11",
+"frequency":"MONTHLY",
+"decimals":1,
+"baseperiod":"",
+"series": [
+{
+"name":"FRAMSAT-1:ALT",
+"title":"", 
+"description":"Altitude", 
+"source":"norad", 
+"unit":"ALT", 
+"interval":"AllData", 
+"aggregation":"", 
+"style": {
+"type":"spline", 
+"stacking": null,
+"yAxis":0, 
+"lineWidth":5, 
+"linestyle":"solid", 
+"color":"#2b908f", 
+"function":"", 
+"order":9, 
+"zIndex":0
+},
+"data" :  [
+[1789732800000,558.20000000],
+[1789733400000,560.10000000],
+[1789734000000,563.40000000],
+[1789734600000,567.80000000],
+[1789735200000,571.00000000],
+[1789735800000,572.30000000],
+[1789736460000,570.90000000],
+[1789737000000,567.10000000],
+[1789737600000,562.50000000],
+[1789738200000,559.00000000],
+[1789738560000,557.80000000]
+], 
+"labelyear":"2026"
+  } 
+] 
+   }  ] 

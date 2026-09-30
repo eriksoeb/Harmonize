@@ -1,0 +1,7 @@
+[
+  { "file": "no1.pct.json", "name": "NO1.PCT", "description": "Fyllingsgrad Oslo" },
+  { "file": "no3.pct.json", "name": "NO3.PCT", "description": "Fyllingsgrad Trondheim" },
+  { "file": "no4.pct.json", "name": "NO4.PCT", "description": "Fyllingsgrad Tromsø" },
+  { "file": "no5.pct.json", "name": "NO5.PCT", "description": "Fyllingsgrad Bergen" },
+  { "file": "no2.pct.json", "name": "NO2.PCT", "description": "Fyllingsgrad Kristiansand" }
+]

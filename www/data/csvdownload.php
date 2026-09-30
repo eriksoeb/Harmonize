@@ -1,6 +1,6 @@
 <?php
-// Allowed domains (prevents directory traversal)
-$allowed_domains = ['cpi', 'ppi', 'energy'];
+// Allowed domains — built dynamically from subdirectories (prevents directory traversal)
+$allowed_domains = array_map('basename', glob(__DIR__ . '/*', GLOB_ONLYDIR));
 
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 
@@ -10,7 +10,7 @@ foreach ($allowed_domains as $d) {
     if (strpos($file, $d . '/') === 0) { $valid = true; break; }
 }
 
-if (!$valid || strpos($file, '..') !== false || !preg_match('/^[\w\-\/\.]+\.json$/', $file)) {
+if (!$valid || strpos($file, '..') !== false || !preg_match('/^[\w\-\/\.\(\)]+\.json$/', $file)) {
     http_response_code(400);
     echo "Invalid file parameter.";
     exit;

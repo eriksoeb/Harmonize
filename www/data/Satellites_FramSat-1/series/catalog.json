@@ -1,0 +1,16 @@
+[
+  { "file": "sunlit.json", "name": "SUNLIT", "description": "Sun / Shadow" },
+  { "file": "sun_vec_z.json", "name": "SUN_VEC_Z", "description": "Body frame Z" },
+  { "file": "sun_vec_y.json", "name": "SUN_VEC_Y", "description": "Body frame Y" },
+  { "file": "sun_vec_x.json", "name": "SUN_VEC_X", "description": "Body frame X" },
+  { "file": "sun_sensor_d.json", "name": "SUN_SENSOR_D", "description": "Raw +Z face" },
+  { "file": "sun_sensor_c.json", "name": "SUN_SENSOR_C", "description": "Raw +Y face" },
+  { "file": "sun_sensor_b.json", "name": "SUN_SENSOR_B", "description": "Raw -X face" },
+  { "file": "sun_sensor_a.json", "name": "SUN_SENSOR_A", "description": "Raw +X face" },
+  { "file": "elevation_meas.json", "name": "ELEVATION_MEAS", "description": "Measured elevation" },
+  { "file": "alt.json", "name": "ALT", "description": "Altitude" },
+  { "file": "elevation_calc.json", "name": "ELEVATION_CALC", "description": "Calculated elevation" },
+  { "file": "azimuth_calc.json", "name": "AZIMUTH_CALC", "description": "Calculated azimuth" },
+  { "file": "azimuth_meas.json", "name": "AZIMUTH_MEAS", "description": "Measured azimuth" },
+  { "file": "temp.json", "name": "TEMP", "description": "Board temp" }
+]

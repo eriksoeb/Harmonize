@@ -157,7 +157,7 @@ print(loadsetname)
 cursor = conn.cursor()
 
 #all history sjekk post acc
-conn.execute('exec UTILS_UpdateCurveInfo '+loadsetname) 
+cursor.execute("EXEC UTILS_UpdateCurveInfo ?", loadsetname) 
 conn.commit()
 conn.close()
 #banker inn i basen

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=13">
+    <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=14">
     <style>
         .data-table {
             width: 100%;
@@ -16,7 +16,11 @@
             color: white;
             padding: 10px 12px;
             text-align: left;
+            cursor: pointer;
+            user-select: none;
         }
+        .data-table th:hover { opacity: 0.85; }
+        .data-table th .sort-arrow { margin-left: 4px; font-size: 11px; }
         .data-table td {
             padding: 10px 12px;
             border: 1px solid #aaa;
@@ -56,17 +60,10 @@
     </style>
 <?php
 // Build domain list dynamically from subdirectories
-// Optional display-name overrides (folder name → nice title)
-$nameOverrides = [
-    'cpi'    => 'Consumer Price Index',
-    'ppi'    => 'Production Price Index',
-    'energy' => 'Energy',
-];
-
 $domains = [];
 foreach (glob(__DIR__ . '/*', GLOB_ONLYDIR) as $dir) {
     $folder = basename($dir);
-    $label  = isset($nameOverrides[$folder]) ? $nameOverrides[$folder] : ucfirst($folder);
+    $label  = ucwords(str_replace('_', ' ', $folder));
     $domains[$folder] = $label;
 }
 ksort($domains);
@@ -88,9 +85,10 @@ echo "    <title>Harmonize – $title Series</title>\n";
 
 <div class="mobile-container">
     <div class="topnav">
-        <a href="../index.html">Harmonize.no</a>
-        <a href="index.html">Data</a>
-        <a href="../templates/demo.html">Demo</a>
+        <a href="../index.php">Harmonize.no</a>
+        <a href="index.php">DataBank</a>
+        <a href="web_explorer.php">Explorer</a>
+        <a href="../templates/demo.php">Demo</a>
     </div>
 </div>
 
@@ -105,9 +103,9 @@ echo "    <title>Harmonize – $title Series</title>\n";
     <table class="data-table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Updated</th>
+                <th onclick="sortTable(0)">Name <span class="sort-arrow"></span></th>
+                <th onclick="sortTable(1)">Description <span class="sort-arrow"></span></th>
+                <th onclick="sortTable(2)">Updated <span class="sort-arrow"></span></th>
                 <th>View / Download</th>
             </tr>
         </thead>
@@ -159,10 +157,32 @@ if (!file_exists($catalogFile)) {
     </table>
 </main>
 
-<footer>
-    <p><strong>Timed and Tailored &copy; 2026</strong></p>
-    <small>erik.soeberg&#64;ssb&#46;no</small>
-</footer>
+<script>
+let sortDir = {};
+function sortTable(col) {
+    const table = document.querySelector('.data-table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const dir = sortDir[col] === 'asc' ? 'desc' : 'asc';
+    sortDir = {};
+    sortDir[col] = dir;
+
+    rows.sort((a, b) => {
+        const aText = (a.cells[col] || {}).textContent || '';
+        const bText = (b.cells[col] || {}).textContent || '';
+        return dir === 'asc' ? aText.localeCompare(bText) : bText.localeCompare(aText);
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+
+    // Update arrows
+    table.querySelectorAll('th .sort-arrow').forEach(s => s.textContent = '');
+    const arrow = table.querySelectorAll('th')[col].querySelector('.sort-arrow');
+    if (arrow) arrow.textContent = dir === 'asc' ? '\u25B2' : '\u25BC';
+}
+</script>
+
+<?php include __DIR__ . '/../includes/footer.php'; ?>
 
 </body>
 </html>

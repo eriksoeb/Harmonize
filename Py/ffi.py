@@ -108,7 +108,7 @@ print(f"Bulk upsert done. Elapsed: {elapsed:.1f}s")
 # Step 4: Update statistics
 # ----------------------------
 print(f"Updating statistics for: {loadsetName}")
-cursor.execute(f"EXEC UTILS_UpdateCurveInfo {loadsetName}")
+cursor.execute("EXEC UTILS_UpdateCurveInfo ?", loadsetName)
 conn.commit()
 
 elapsed = time.time() - start_time

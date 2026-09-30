@@ -172,7 +172,7 @@ print(f"A total of {index} rows have been updated and commited in {elapsed:.1f}s
 # --- Call additional stored procedure ---
 print(f"Updating the Stats for :  {loadsetName}")
 cursor = conn.cursor()
-conn.execute(f'EXEC UTILS_UpdateCurveInfo {loadsetName}')
+cursor.execute("EXEC UTILS_UpdateCurveInfo ?", loadsetName)
 conn.commit()
 conn.close()
 print('Done')

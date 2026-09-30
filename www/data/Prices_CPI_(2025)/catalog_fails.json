@@ -1,0 +1,19 @@
+﻿[
+  { "file": "c01.1.4.7.idx.json", "name": "C01.1.4.7.IDX", "description": "Milk-based dessert and beverages (ND)" },
+  { "file": "c01.1.1.1.idx.json", "name": "C01.1.1.1.IDX", "description": "Cereals (ND)" },
+  { "file": "c11.idx.json", "name": "C11.IDX", "description": "Restaurants and accommodation services" },
+  { "file": "c05.idx.json", "name": "C05.IDX", "description": "Furnishings, household equipment and routine household maintenance" },
+  { "file": "c00gap.idx.json", "name": "C00GAP.IDX", "description": "Total w GAP" },
+  { "file": "c09.idx.json", "name": "C09.IDX", "description": "Recreation, sport and culture" },
+  { "file": "c01.idx.json", "name": "C01.IDX", "description": "Food and non-alcoholic beverages" },
+  { "file": "c02.idx.json", "name": "C02.IDX", "description": "Alcoholic beverages, tobacco and narcotics" },
+  { "file": "c04.idx.json", "name": "C04.IDX", "description": "Housing, water, electricity, gas and other fuels" },
+  { "file": "c12.idx.json", "name": "C12.IDX", "description": "Insurance and financial services" },
+  { "file": "c08.idx.json", "name": "C08.IDX", "description": "Information and communication" },
+  { "file": "c03.idx.json", "name": "C03.IDX", "description": "Clothing and footwear" },
+  { "file": "c10.idx.json", "name": "C10.IDX", "description": "Education services" },
+  { "file": "c06.idx.json", "name": "C06.IDX", "description": "Health" },
+  { "file": "c07.idx.json", "name": "C07.IDX", "description": "Transport" },
+  { "file": "c00.idx.json", "name": "C00.IDX", "description": "Total" },
+  { "file": "c01.1.8.4.idx.json", "name": "C01.1.8.4.IDX", "description": "Nut purées, nut butters and nut pastes (ND)" }
+]

@@ -4,8 +4,8 @@
 // Usage: getseries.php?domain=cpi&name=c00.idx
 // ----------------------------
 
-// Whitelist of allowed domains
-$allowed_domains = ['cpi', 'ppi', 'energy'];
+// Build allowed domains dynamically from subdirectories
+$allowed_domains = array_map('basename', glob(__DIR__ . '/*', GLOB_ONLYDIR));
 
 $domain = isset($_GET['domain']) ? strtolower(trim($_GET['domain'])) : '';
 $name   = isset($_GET['name'])   ? strtolower(trim($_GET['name']))   : '';
@@ -14,7 +14,7 @@ $name   = isset($_GET['name'])   ? strtolower(trim($_GET['name']))   : '';
 if (!in_array($domain, $allowed_domains)) {
     http_response_code(400);
     header('Content-Type: application/json');
-    echo json_encode(['error' => 'Invalid domain. Use: cpi, ppi or energy']);
+    echo json_encode(['error' => 'Invalid domain. Available: ' . implode(', ', $allowed_domains)]);
     exit;
 }
 

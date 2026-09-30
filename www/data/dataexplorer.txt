@@ -1,0 +1,9 @@
+lets build a web-explorer-html (ok to use php)
+
+where we use the json files already prepared under the series folder.
+I want to be able to select (search) and compare 2 different series (ie ppi compared with cpi)
+
+perhaps possible to filter on domain, but it must be possible to add 1, or perhaps 2 series (multiselect?
+
+can use most of or all of our chart template to show the chart ?  /templates/Chart.html?filename=../data/ppi/charts/ppi.json, but then it will need to take more files as argument ? 
+
