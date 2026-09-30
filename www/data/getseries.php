@@ -7,11 +7,20 @@
 // Build allowed domains dynamically from subdirectories
 $allowed_domains = array_map('basename', glob(__DIR__ . '/*', GLOB_ONLYDIR));
 
-$domain = isset($_GET['domain']) ? strtolower(trim($_GET['domain'])) : '';
+$domain_input = isset($_GET['domain']) ? trim($_GET['domain']) : '';
 $name   = isset($_GET['name'])   ? strtolower(trim($_GET['name']))   : '';
 
+// Match domain case-insensitively, use the actual folder name
+$domain = '';
+foreach ($allowed_domains as $d) {
+    if (strcasecmp($d, $domain_input) === 0) {
+        $domain = $d;
+        break;
+    }
+}
+
 // Validate domain
-if (!in_array($domain, $allowed_domains)) {
+if ($domain === '') {
     http_response_code(400);
     header('Content-Type: application/json');
     echo json_encode(['error' => 'Invalid domain. Available: ' . implode(', ', $allowed_domains)]);
