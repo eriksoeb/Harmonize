@@ -26,7 +26,7 @@ UpgradeLog.htm
 # Database backups (large binary files)
 *.bak
 
-# Connection strings (may contain credentials)
+# Connection strings (may contain credentials) if not using trusted connection
 connection.txt
 connection2023.txt
 connectionold.txt
