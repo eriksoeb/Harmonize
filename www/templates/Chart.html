@@ -21,6 +21,7 @@ same directory as exe file as default
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="harmonize-common.js"></script>
 
 
 <!-- 
@@ -122,18 +123,10 @@ const chartSeries = seriesData[0].series.map(s => ({
 
 
 const DECIMALS = seriesData[0].decimals ?? 1;  //default
-const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
 
-        // Date format switch
-        let dateFmt;
-        switch (FREQ) {
-            case 'MONTHLY': dateFmt = '%Y-%m-%d'; break;
-			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
-            case 'DAILY': dateFmt = '%Y-%m-%d'; break;
-            case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
-			case 'YEARLY': dateFmt = '%Y'; break;
-            default: dateFmt = '%B %Y';
-        }
+// Auto-detect frequency per series from data spacing
+const seriesFreqs = chartSeries.map(s => detectFreq(s.data));
+const dateFmt = dateFmtForFreq(finestOfFreqs(seriesFreqs));
 
 
 
@@ -223,17 +216,20 @@ tooltip: {
     padding: 5,
     split: false,
     shared: true,
-    formatter: function () {    
-        // Header
-        let s = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + '</b><br/>';
+    formatter: function () {
+        // Use the finest frequency among visible points for the header date
+        var headerFreq = 'Y';
+        this.points.forEach(function(p) {
+            var f = seriesFreqs[p.series.index] || 'Y';
+            if (freqRank[f] < freqRank[headerFreq]) headerFreq = f;
+        });
+        let s = '<b>' + formatDate(this.x, headerFreq) + '</b><br/>';
 
-
-
-        this.points.forEach(point => { 
+        this.points.forEach(point => {
             s +=
                 '<span style="color:' + point.series.color + '">&#9679;</span> ' + (point.series.options.style?.function || '') + ' '+
                 point.series.name + ': <b>' +
-                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') + // formats with chosen decimals
+                Highcharts.numberFormat(point.y, DECIMALS, '.', ' ') +
                 (point.series.tooltipOptions.valueSuffix || '') +
                 '</b><br/>';
         });

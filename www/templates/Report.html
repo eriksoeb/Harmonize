@@ -6,6 +6,7 @@
 <link rel="icon" href="../images/no.png" type="image/png">
 
 <link rel="stylesheet" type="text/css" href="../Harmonize.css?v=14">
+<script src="harmonize-common.js"></script>
 <title>Report - Toggle Layout with Freeze</title>
 
 
@@ -102,73 +103,38 @@ tbody tr:nth-child(even) td:not(:first-child) {
 
 <div class="btn-bar">
     <button id="toggleLayout">Switch to Horizontal</button>
-    <button id="toggleDateFormat">Long date</button>
     <button id="exportCsv">Export CSV</button>
 </div>
 <div class="table-container" id="textDataTable"></div>
 
 <script>
 
-let useLongDate = false;
+// reportFreq is set in initReport() after data loads
+let reportFreq = 'M';
 
+// Format date based on auto-detected frequency (uses UTC)
+function reportFormatDate(ts) {
+  if (reportFreq === 'Q') {
+    const d = new Date(ts);
+    const q = Math.floor(d.getUTCMonth() / 3) + 1;
+    return d.getUTCFullYear() + ' Q' + q;
+  }
+  if (reportFreq === 'Y') {
+    return new Date(ts).getUTCFullYear().toString();
+  }
 
-function formatDate1(ts) {
   const d = new Date(ts);
-
-  const date =
-    `${d.getFullYear()}-` +
-    `${String(d.getMonth() + 1).padStart(2, '0')}-` +
-    `${String(d.getDate()).padStart(2, '0')}`;
-
-  if (!useLongDate) return date;
-
-  const time =
-    `${String(d.getHours()).padStart(2, '0')}:` +
-    `${String(d.getMinutes()).padStart(2, '0')}`;
-
-  return `${date} ${time}`;
-}
-
-
-function formatDate2(ts) {
-  const d = new Date(ts);
-
-  const date =
-    `${d.getUTCFullYear()}-` +
-    `${String(d.getUTCMonth() + 1).padStart(2, '0')}-` +
-    `${String(d.getUTCDate()).padStart(2, '0')}`;
-
-  if (!useLongDate) return date;
-
-  const time =
-    `${String(d.getUTCHours()).padStart(2, '0')}:` +
-    `${String(d.getUTCMinutes()).padStart(2, '0')}`;
-
-  return `${date} ${time}`;
-}
-
-
-//data :  [
-//[1698537600000,-2.00000000],
-//[1698541200000,-1.00000000],
-
-
-
-// Treat ts as "already-correct wall clock time not 02 twice"
-function formatDate(ts) {
-  const d = new Date(ts);
-
-  // Extract UTC fields ONLY
   const y = d.getUTCFullYear();
   const m = d.getUTCMonth() + 1;
   const day = d.getUTCDate();
-  const h = d.getUTCHours();
-  const min = d.getUTCMinutes();
-
   const date = `${y}-${String(m).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-  if (!useLongDate) return date;
 
-  return `${date}T${String(h).padStart(2,'0')}:${String(min).padStart(2,'0')}`;
+  if (reportFreq === 'T') {
+    const h = d.getUTCHours();
+    const min = d.getUTCMinutes();
+    return `${date}T${String(h).padStart(2,'0')}:${String(min).padStart(2,'0')}`;
+  }
+  return date;
 }
 
 
@@ -218,7 +184,14 @@ function initReport() {
 	const DECIMALS = seriesData[0].decimals ?? 0;  //default
     const tableContainer = document.getElementById('textDataTable');
     let isVertical = true;
-    if ((seriesData[0].frequency ?? '') === 'HOURLY') useLongDate = true;
+
+    // Auto-detect finest frequency across all series
+    const sortedSeries = dataToDisplay.map(s => ({
+        ...s,
+        data: [...s.data].sort((a, b) => a[0] - b[0])
+    }));
+    const seriesFreqs = sortedSeries.map(s => detectFreq(s.data));
+    reportFreq = finestOfFreqs(seriesFreqs);
 
 
     const getAllDates = () => {
@@ -263,7 +236,7 @@ function initReport() {
             allDates.forEach(({ts, occ}) => {
                 const row = document.createElement('tr');
                 const dateCell = document.createElement('td');
-				dateCell.innerText = formatDate(ts);
+				dateCell.innerText = reportFormatDate(ts);
 				row.appendChild(dateCell);
 
                 dataToDisplay.forEach(series => {
@@ -285,7 +258,7 @@ function initReport() {
             headerRow.appendChild(firstCell);
 
             allDates.forEach(({ts}) => {
-                const dateStr = formatDate(ts);
+                const dateStr = reportFormatDate(ts);
 				const th = document.createElement('th'); th.innerText = dateStr;
                 headerRow.appendChild(th);
             });
@@ -321,14 +294,16 @@ function initReport() {
         renderTable();
     });
 	
-	 /* ---------- TOGGLE s---------- */
+	 /* ---------- TOGGLE date — no longer needed, auto-detected ---------- */
+	 /*
     const toggleDateBtn = document.getElementById('toggleDateFormat');
     toggleDateBtn.innerText = useLongDate ? 'Short date' : 'Long date';
 	toggleDateBtn.addEventListener('click', function () {
 	useLongDate = !useLongDate;
 	this.innerText = useLongDate ? 'Short date' : 'Long date';
 	renderTable();
-});
+	});
+	 */
 	
 	
 	
@@ -348,7 +323,7 @@ function initReport() {
             csv.push(header.join(','));
 
             allDates.forEach(({ts, occ}) => {
-                const row = [formatDate(ts)];
+                const row = [reportFormatDate(ts)];
                 dataToDisplay.forEach(series => {
                     const point = series.data.filter(item => item[0] === ts)[occ];
                     row.push(point && typeof point[1] === 'number' ? point[1].toFixed(DECIMALS) : '');
@@ -357,7 +332,7 @@ function initReport() {
             });
 
         } else {
-            const header = ['Series'].concat(allDates.map(({ts}) => formatDate(ts)));
+            const header = ['Series'].concat(allDates.map(({ts}) => reportFormatDate(ts)));
             csv.push(header.join(','));
 
             dataToDisplay.forEach(series => {

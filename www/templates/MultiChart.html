@@ -17,6 +17,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="harmonize-common.js"></script>
 <!--
 
 <script src="file:///C:/Harmonized/Charts/jquery-1.9.1.min.js"></script>
@@ -124,18 +125,10 @@ function initChart() {
 	
 	
 const DECIMALS = chartGroup.decimals ?? seriesData[0].decimals ?? 1;  //default
-const FREQ = seriesData[0].frequency ?? 'MONTHLY';  //default
 
-        // Date format switch
-        let dateFmt;
-        switch (FREQ) {
-            case 'MONTHLY': dateFmt = '%Y-%m-%d'; break;
-			case 'QUARTERLY': dateFmt = '%Y-%m-%d'; break;        
-            case 'DAILY': dateFmt = '%Y-%m-%d'; break;
-            case 'HOURLY': dateFmt = '%Y-%m-%dT%H:%M'; break;
-			case 'YEARLY': dateFmt = '%Y'; break;
-            default: dateFmt = '%B %Y';
-        }
+// Auto-detect frequency per series from data spacing
+const seriesFreqs = sortedSeries.map(s => detectFreq(s.data));
+const dateFmt = dateFmtForFreq(finestOfFreqs(seriesFreqs));
 
 	
 	
@@ -192,7 +185,7 @@ tooltip: {
     formatter: function () {
      
         // Header
-        let s = '<b>' + Highcharts.dateFormat(dateFmt, this.x) + '</b><br/>';
+        let s = '<b>' + formatDate(this.x, finestOfFreqs(seriesFreqs)) + '</b><br/>';
 
 //if not pie , this works just fine
         this.points.forEach(point => { 
