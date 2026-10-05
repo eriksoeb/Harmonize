@@ -79,7 +79,7 @@
     .btn-compare {
         display: inline-block;
         padding: 7px 22px;
-        background: #00824d;
+        background: #004381;
         color: #fff;
         border: none;
         border-radius: 4px;
