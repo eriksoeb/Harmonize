@@ -36,9 +36,9 @@
             font-weight: bold;
             white-space: nowrap;
         }
-        .btn-chart      { background-color: #00824d; color: white; }
-        .btn-multichart { background-color: #3a7d44; color: white; }
-        .btn-report     { background-color: #004381; color: white; }
+        .btn-chart      { background-color: #004381; color: white; }
+        .btn-multichart { background-color: #00824d; color: white; }
+        .btn-report     { background-color: #8B1A1A; color: white; }
         .btn-csv        { background-color: #5a3e8a; color: white; }
         .btn-raw        { background-color: #888;    color: white; }
         .btn:hover      { opacity: 0.85; }

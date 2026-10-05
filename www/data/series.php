@@ -39,8 +39,8 @@
             font-weight: bold;
             white-space: nowrap;
         }
-        .btn-chart  { background-color: #00824d; color: white; }
-        .btn-report { background-color: #004381; color: white; }
+        .btn-chart  { background-color: #004381; color: white; }
+        .btn-report { background-color: #8B1A1A; color: white; }
         .btn-csv    { background-color: #5a3e8a; color: white; }
         .btn-raw    { background-color: #888;    color: white; }
         .btn:hover  { opacity: 0.85; }
@@ -107,6 +107,7 @@ echo "    <title>Harmonize – $title Series</title>\n";
 
     <div class="info-box">
         To download data as <strong>CSV or XLS</strong>, open a Chart and use the menu in the upper right corner.
+        Click column headers to sort the table.
     </div>
 
     <table class="data-table">
