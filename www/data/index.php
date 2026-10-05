@@ -83,6 +83,7 @@
 
     <div class="info-box">
         To download data as <strong>XLS, JPG, PNG, PDF or SVG</strong>, open a Chart and use the menu in the upper right corner of the chart.
+        Click a dataset header to see all individual series.
     </div>
 
     <table class="data-table">
