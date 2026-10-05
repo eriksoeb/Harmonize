@@ -86,7 +86,7 @@ The alternative to Horizon is to develop something unique for each statistical d
 ## Quick Start
 
 1. Install Microsoft SQL Server. (only if you do not have one already)
-2. Restore the Harmonize database:
+2. Restore the Harmonize database: Make sure to get the latest version.
 
 ```
 RESTORE DATABASE Harmonize
