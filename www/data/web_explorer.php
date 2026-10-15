@@ -78,15 +78,16 @@
     .slots-row .slot { flex: 1; min-width: 250px; margin-bottom: 0; }
     .btn-compare {
         display: inline-block;
-        padding: 7px 22px;
+        padding: 10px 28px;
         background: #004381;
         color: #fff;
         border: none;
-        border-radius: 4px;
+        border-radius: 20px;
         font-size: 15px;
         font-weight: bold;
         cursor: pointer;
         margin: 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     .btn-compare:hover { opacity: 0.85; }
     .btn-compare:disabled { opacity: 0.4; cursor: default; }
