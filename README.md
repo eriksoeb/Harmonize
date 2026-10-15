@@ -15,7 +15,7 @@ Architecture:
 
 - Database: Microsoft SQL Server
 - Desktop UI: C# Windows application
-- APIs: Python and R, works with powerBI (not recomended)
+- APIs: Python and R, works with Power BI (not recommended)
 - Charts: Highcharts
 
 
@@ -26,7 +26,7 @@ Harmonize is designed for **organizations that need to store, share, and analyze
 
 The system is especially well suited for organizations that want to **centralize data from different sources**, make it **accessible to users with varying technical skills**, and enable **consistent analysis and comparison across domains and time frequencies**.
 
-The alternative to Horizon is to develop something unique for each statistical domain, and get spend a lot of time doing this, ending up with a system where you cannot compare, and yo need programmer skills to use, basically you will need to ask developers to get the data for you, and you end up with different formats in excel..
+The alternative to Harmonize is to develop something unique for each statistical domain, and get spend a lot of time doing this, ending up with a system where you cannot compare, and yo need programmer skills to use, basically you will need to ask developers to get the data for you, and you end up with different formats in excel..
 
 
 ## Harmonize Interface
@@ -55,7 +55,7 @@ The alternative to Horizon is to develop something unique for each statistical d
 ┌───────────────v─────────────────────────────┐
 │      STORED PROCEDURE API  (main ones)      │
 │                                             │
-│  GetSeris                                   │
+│  GetSeries                                  │
 │  PutTime                                    │
 │  Create Datasets                            │
 │  Update Statistics                          │
@@ -76,7 +76,7 @@ The alternative to Horizon is to develop something unique for each statistical d
 │  - Timeseries                               │
 │  - Observations                             │
 │                                             │
-│  Time series using converions stored in UTC │
+│  Time series using conversions stored in UTC│
 │                                             │
 └─────────────────────────────────────────────┘
 
@@ -95,9 +95,9 @@ FROM DISK = 'Harmonize.bak'
 
 3. Open the C# solution in Visual Studio.
 4. Build and run the application. (possible to use already compiled )
-To test drive Harmonize with a testdatabase in cloud see downloads at www.Harmonize.com
+To test drive Harmonize with a test database in the cloud, see downloads at www.Harmonize.no
 
-Python examples are available in the `Python/` directory.
+Python examples are available in the `Py/` directory.
 
 
 
@@ -119,7 +119,7 @@ Python examples are available in the `Python/` directory.
 
 ### Python / R Integration
 - **Python installation required** for API interaction
-- Python samples are available in the `Python/` directory
+- Python samples are available in the `Py/` directory
 - Used for:
   - Uploading / upserting new datasets
   - Extracting data for further calculations (e.g., seasonal adjustment)
